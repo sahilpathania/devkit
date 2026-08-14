@@ -1,0 +1,13 @@
+// Prisma schema placeholder — database layer for future auth, favorites sync, and analytics.
+// Run `npx prisma migrate dev` once PostgreSQL is configured.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Future models: User, Favorite, Collection, ToolUsage
