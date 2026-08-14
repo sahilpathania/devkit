@@ -109,14 +109,27 @@ export function minifyJson(input: string): JsonProcessResult {
 export function validateJson(input: string): JsonProcessResult {
   const trimmed = input.trim();
   if (!trimmed) {
-    return { success: false, error: "Empty input" };
+    return { success: false, error: "Paste JSON to validate." };
   }
 
   try {
-    JSON.parse(trimmed);
+    const parsed = JSON.parse(trimmed) as unknown;
+    void parsed;
     return { success: true, output: trimmed, stats: getJsonStats(trimmed) };
   } catch (error) {
     return parseJsonError(trimmed, error);
+  }
+}
+
+/** Describe the top-level JSON value type after a successful parse. */
+export function getJsonValueType(input: string): string | null {
+  try {
+    const parsed = JSON.parse(input.trim()) as unknown;
+    if (Array.isArray(parsed)) return "array";
+    if (parsed === null) return "null";
+    return typeof parsed;
+  } catch {
+    return null;
   }
 }
 
@@ -129,3 +142,11 @@ export const JSON_FORMATTER_SAMPLE = `{
     "offline": true
   }
 }`;
+
+/** Intentionally invalid sample for demonstrating validator errors. */
+export const JSON_VALIDATOR_INVALID_SAMPLE = `{
+  "name": "DevKit",
+  "tools": 100,
+}`;
+
+export const JSON_VALIDATOR_SAMPLE = JSON_FORMATTER_SAMPLE;

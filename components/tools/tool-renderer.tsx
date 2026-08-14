@@ -29,6 +29,34 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       })),
     { loading: () => <ToolLoading /> }
   ),
+  "json-validator": dynamic(
+    () =>
+      import("@/components/tools/json/json-validator").then((mod) => ({
+        default: mod.JsonValidator,
+      })),
+    { loading: () => <ToolLoading /> }
+  ),
+  "jwt-decoder": dynamic(
+    () =>
+      import("@/components/tools/security/jwt-decoder").then((mod) => ({
+        default: mod.JwtDecoder,
+      })),
+    { loading: () => <ToolLoading /> }
+  ),
+  base64: dynamic(
+    () =>
+      import("@/components/tools/encoding/base64").then((mod) => ({
+        default: mod.Base64Tool,
+      })),
+    { loading: () => <ToolLoading /> }
+  ),
+  "url-encode-decode": dynamic(
+    () =>
+      import("@/components/tools/encoding/url-encode-decode").then((mod) => ({
+        default: mod.UrlEncodeDecode,
+      })),
+    { loading: () => <ToolLoading /> }
+  ),
 };
 
 interface ToolRendererProps {

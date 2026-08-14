@@ -142,6 +142,45 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-01-05",
   },
   {
+    slug: "url-encode-decode",
+    name: "URL Encode/Decode",
+    description:
+      "Percent-encode text for query strings and paths, or decode URL-encoded strings back to plain text.",
+    shortDescription: "Encode and decode URL components",
+    icon: "link-2",
+    category: "encoding",
+    component: "url-encode-decode",
+    seo: {
+      title: "URL Encoder & Decoder — Percent Encoding Online",
+      description:
+        "Free URL encode/decode tool. Convert text to percent-encoding and back. Works entirely in your browser.",
+      keywords: ["url encode", "url decode", "percent encoding", "encodeuri component"],
+    },
+    faqs: [
+      {
+        question: "Is this the same as encodeURIComponent?",
+        answer:
+          "Yes. Encoding uses encodeURIComponent and decoding uses decodeURIComponent (plus converting + to spaces).",
+      },
+      {
+        question: "Should I encode a full URL including https://?",
+        answer:
+          "Usually encode only query values or path segments — not the entire URL with scheme and host.",
+      },
+    ],
+    examples: [
+      {
+        title: "Encode a query value",
+        input: "Hello DevKit! query=a&b=c",
+        output: "Hello%20DevKit!%20query%3Da%26b%3Dc",
+      },
+    ],
+    tags: ["url", "encode", "decode", "percent"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-14",
+  },
+  {
     slug: "uuid-generator",
     name: "UUID Generator",
     description:
