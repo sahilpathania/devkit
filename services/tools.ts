@@ -734,6 +734,115 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-08-15",
   },
   {
+    slug: "image-converter",
+    name: "Image Converter",
+    description:
+      "Convert PNG, JPG, WebP, GIF, BMP, and AVIF images in your browser. Optional resize and quality controls.",
+    shortDescription: "Convert PNG, JPG, WebP, GIF, BMP",
+    icon: "image",
+    category: "images",
+    component: "image-converter",
+    seo: {
+      title: "Image Converter — PNG JPG WebP GIF BMP Online",
+      description:
+        "Free browser image converter. Convert between PNG, JPG, and WebP. Accepts GIF, BMP, and AVIF inputs.",
+      keywords: [
+        "image converter",
+        "png to jpg",
+        "jpg to png",
+        "webp converter",
+        "gif to png",
+        "bmp to png",
+      ],
+    },
+    faqs: [
+      {
+        question: "Are files uploaded to a server?",
+        answer: "No. Conversion runs entirely in your browser using the Canvas API.",
+      },
+      {
+        question: "Why does JPG look different from PNG?",
+        answer:
+          "JPG has no transparency. Transparent pixels are filled with white when converting to JPG.",
+      },
+    ],
+    examples: [
+      {
+        title: "PNG to WebP",
+        description: "Upload a PNG, choose WebP, adjust quality, download.",
+      },
+    ],
+    tags: ["image", "png", "jpg", "webp", "gif", "bmp", "convert"],
+    isFeatured: true,
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "svg-converter",
+    name: "SVG Converter",
+    description:
+      "Rasterize SVG to PNG, JPG, or WebP with custom dimensions. Also wrap raster images as embedded SVG.",
+    shortDescription: "Convert SVG to PNG, JPG, or WebP",
+    icon: "file-code-2",
+    category: "images",
+    component: "svg-converter",
+    seo: {
+      title: "SVG to PNG Converter — SVG to JPG WebP Online",
+      description:
+        "Free SVG converter. Export SVG to PNG, JPG, or WebP in your browser. Optional image → SVG embed.",
+      keywords: ["svg to png", "svg to jpg", "svg converter", "svg to webp"],
+    },
+    faqs: [
+      {
+        question: "Does Image → SVG vectorize the artwork?",
+        answer:
+          "No. It embeds the raster as a data URI inside an SVG wrapper for packaging, not path tracing.",
+      },
+    ],
+    examples: [
+      {
+        title: "SVG to PNG",
+        description: "Paste SVG markup or upload .svg, choose PNG, download.",
+      },
+    ],
+    tags: ["svg", "png", "jpg", "webp", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "ico-converter",
+    name: "ICO ↔ PNG",
+    description:
+      "Convert Windows ICO icons to PNG, or export PNG/JPG images as favicon-ready ICO files.",
+    shortDescription: "Convert between ICO and PNG",
+    icon: "image",
+    category: "images",
+    component: "ico-converter",
+    seo: {
+      title: "ICO to PNG Converter — PNG to ICO Favicon Online",
+      description:
+        "Free ICO ↔ PNG converter. Extract icons from .ico files or create favicon ICO from PNG.",
+      keywords: ["ico to png", "png to ico", "favicon converter", "ico converter"],
+    },
+    faqs: [
+      {
+        question: "Which ICO sizes are supported when creating icons?",
+        answer: "You can export 16, 32, 48, 64, 128, or 256 pixel ICO files.",
+      },
+    ],
+    examples: [
+      {
+        title: "PNG to favicon",
+        description: "Upload a square PNG, pick 32×32 or 256×256, download .ico.",
+      },
+    ],
+    tags: ["ico", "png", "favicon", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
     slug: "color-palette-generator",
     name: "Color Palette Generator",
     description:

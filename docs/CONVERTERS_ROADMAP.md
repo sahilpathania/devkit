@@ -23,8 +23,10 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] CSS ↔ SCSS (nest/flatten best-effort)
 - [x] CommonJS ↔ ESM (best-effort)
 
-## Phase 3 — Image converters (client)
-JPG↔PNG↔WebP, SVG→PNG/JPG, BMP/GIF/ICO…
+## Phase 3 (done) — Image converters (client)
+- [x] Image Converter (PNG/JPG/WebP out; GIF/BMP/AVIF in)
+- [x] SVG Converter (SVG → PNG/JPG/WebP + image → embedded SVG)
+- [x] ICO ↔ PNG (favicon sizes)
 
 ## Phase 4 — Mobile model generators
 JSON → TS / Swift / Kotlin / Dart / C# / Java / Go / Rust

@@ -123,6 +123,21 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.SqlJsonConverter,
     }))
   ),
+  "image-converter": lazyTool(() =>
+    import("@/components/tools/images/image-format-converter").then((mod) => ({
+      default: mod.ImageFormatConverter,
+    }))
+  ),
+  "svg-converter": lazyTool(() =>
+    import("@/components/tools/images/svg-converter").then((mod) => ({
+      default: mod.SvgConverter,
+    }))
+  ),
+  "ico-converter": lazyTool(() =>
+    import("@/components/tools/images/ico-converter").then((mod) => ({
+      default: mod.IcoConverter,
+    }))
+  ),
 };
 
 interface ToolRendererProps {
