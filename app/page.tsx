@@ -1,19 +1,27 @@
 import { Hero } from "@/components/home/hero";
-import { CategoriesGrid } from "@/components/home/categories-grid";
 import { PopularTools } from "@/components/home/popular-tools";
-import { RecentlyAdded } from "@/components/home/recently-added";
+import { CategoriesGrid } from "@/components/home/categories-grid";
+import {
+  FavoritesSection,
+  RecentlyUsedSection,
+} from "@/components/home/personal-sections";
+import { NewTools } from "@/components/home/new-tools";
+import { WhyChooseUs } from "@/components/home/why-choose-us";
+import { HomeFaq } from "@/components/home/home-faq";
 import { FeaturedTools } from "@/components/home/featured-tools";
-import { Newsletter } from "@/components/home/newsletter";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <CategoriesGrid />
       <PopularTools />
-      <RecentlyAdded />
+      <CategoriesGrid />
+      <RecentlyUsedSection />
+      <FavoritesSection />
       <FeaturedTools />
-      <Newsletter />
+      <NewTools />
+      <WhyChooseUs />
+      <HomeFaq />
     </>
   );
 }

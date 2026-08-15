@@ -1,16 +1,27 @@
 import type { LucideIcon } from "lucide-react";
 import type { IconName } from "@/lib/icons";
 
-/** Supported tool category slugs used in routing and filtering. */
+/**
+ * Category slugs for the universal toolkit.
+ * Only categories that currently have real tools are listed in services/categories.
+ */
 export type CategorySlug =
-  | "json-tools"
+  | "images"
+  | "documents"
+  | "developer"
+  | "design"
+  | "generators"
+  | "calculators"
+  | "text"
+  | "converters"
   | "security"
+  | "utilities"
+  // Legacy slugs kept for type-compat during migration (redirected in getCategoryBySlug)
+  | "json-tools"
   | "encoding"
   | "api"
   | "web"
   | "mobile"
-  | "images"
-  | "design"
   | "database"
   | "ai";
 

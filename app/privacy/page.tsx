@@ -22,8 +22,8 @@ export default function PrivacyPage() {
       <article className="prose prose-neutral dark:prose-invert mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
         <section className="space-y-4 text-muted-foreground">
           <p>
-            {SITE_CONFIG.name} (“we”, “our”) provides free browser-based developer tools.
-            This policy explains what we collect and what we do not.
+            {SITE_CONFIG.name} (“we”, “our”) provides free browser-based online tools for
+            everyone. This policy explains what we collect and what we do not.
           </p>
 
           <h2 className="text-xl font-semibold text-foreground">Tool input data</h2>

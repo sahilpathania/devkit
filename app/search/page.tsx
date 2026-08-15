@@ -5,9 +5,9 @@ import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "Search Tools — DevKit",
-  description: "Search 100+ free developer tools by name, category, or tag.",
+  description: "Search free online tools by name, category, or what you need to do.",
   path: "/search",
-  keywords: ["search tools", "developer tools", "devkit"],
+  keywords: ["search tools", "online tools", "devkit"],
 });
 
 interface SearchPageProps {

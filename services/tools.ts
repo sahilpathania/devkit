@@ -1,4 +1,5 @@
 import type { Tool } from "@/types";
+import { CATEGORIES } from "@/services/categories";
 
 /**
  * Central tool registry — add new tools here to automatically
@@ -12,7 +13,7 @@ export const TOOLS: Tool[] = [
       "Beautify and minify JSON with syntax highlighting. Paste messy JSON and get perfectly formatted output in milliseconds.",
     shortDescription: "Beautify and minify JSON instantly",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-formatter",
     seo: {
       title: "JSON Formatter — Beautify & Minify JSON Online",
@@ -51,7 +52,7 @@ export const TOOLS: Tool[] = [
       "Validate JSON syntax and get detailed error messages with line numbers. Perfect for debugging API responses.",
     shortDescription: "Validate JSON syntax with detailed errors",
     icon: "shield-check",
-    category: "json-tools",
+    category: "developer",
     component: "json-validator",
     seo: {
       title: "JSON Validator — Check JSON Syntax Online",
@@ -116,7 +117,7 @@ export const TOOLS: Tool[] = [
       "Encode text to Base64 or decode Base64 strings back to plain text. Supports UTF-8 and file encoding.",
     shortDescription: "Encode and decode Base64 strings",
     icon: "binary",
-    category: "encoding",
+    category: "converters",
     component: "base64",
     seo: {
       title: "Base64 Encoder & Decoder — Free Online Tool",
@@ -148,7 +149,7 @@ export const TOOLS: Tool[] = [
       "Percent-encode text for query strings and paths, or decode URL-encoded strings back to plain text.",
     shortDescription: "Encode and decode URL components",
     icon: "link-2",
-    category: "encoding",
+    category: "converters",
     component: "url-encode-decode",
     seo: {
       title: "URL Encoder & Decoder — Percent Encoding Online",
@@ -187,7 +188,7 @@ export const TOOLS: Tool[] = [
       "Generate UUID v4 identifiers instantly. Copy single or bulk UUIDs for database keys and distributed systems.",
     shortDescription: "Generate UUID v4 identifiers",
     icon: "hash",
-    category: "encoding",
+    category: "generators",
     component: "uuid-generator",
     seo: {
       title: "UUID Generator — Generate UUID v4 Online",
@@ -253,7 +254,7 @@ export const TOOLS: Tool[] = [
       "Convert numbers between binary, octal, decimal, and hexadecimal bases.",
     shortDescription: "Binary, octal, decimal, hex converter",
     icon: "binary",
-    category: "encoding",
+    category: "converters",
     component: "number-base-converter",
     seo: {
       title: "Number Base Converter — Binary Octal Decimal Hex",
@@ -285,7 +286,7 @@ export const TOOLS: Tool[] = [
       "Create QR codes from text, URLs, or WiFi credentials. Download as PNG or SVG.",
     shortDescription: "Generate QR codes from any text",
     icon: "qr-code",
-    category: "web",
+    category: "generators",
     component: "qr-generator",
     seo: {
       title: "QR Code Generator — Create QR Codes Free",
@@ -316,7 +317,7 @@ export const TOOLS: Tool[] = [
       "Test regular expressions against sample text with real-time match highlighting and capture group extraction.",
     shortDescription: "Test regex patterns with live matching",
     icon: "regex",
-    category: "web",
+    category: "text",
     component: "regex-tester",
     seo: {
       title: "Regex Tester — Test Regular Expressions Online",
@@ -348,7 +349,7 @@ export const TOOLS: Tool[] = [
       "Convert Unix timestamps to human-readable dates and vice versa. Supports seconds and milliseconds.",
     shortDescription: "Convert Unix timestamps to dates",
     icon: "clock",
-    category: "web",
+    category: "converters",
     component: "timestamp-converter",
     seo: {
       title: "Timestamp Converter — Unix to Date Online",
@@ -380,7 +381,7 @@ export const TOOLS: Tool[] = [
       "Convert JSON to YAML and YAML to JSON instantly. Ideal for configs, Kubernetes manifests, and API payloads.",
     shortDescription: "Convert between JSON and YAML",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-yaml",
     seo: {
       title: "JSON to YAML Converter — YAML to JSON Online",
@@ -414,7 +415,7 @@ export const TOOLS: Tool[] = [
       "Convert JSON objects to XML and XML documents back to JSON for APIs and integrations.",
     shortDescription: "Convert between JSON and XML",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-xml",
     seo: {
       title: "JSON to XML Converter — XML to JSON Online",
@@ -447,7 +448,7 @@ export const TOOLS: Tool[] = [
       "Convert CSV spreadsheets to JSON arrays and JSON objects back to CSV with quoted-field support.",
     shortDescription: "Convert between CSV and JSON",
     icon: "table-2",
-    category: "json-tools",
+    category: "developer",
     component: "csv-json",
     seo: {
       title: "CSV to JSON Converter — JSON to CSV Online",
@@ -480,7 +481,7 @@ export const TOOLS: Tool[] = [
       "Convert Markdown to HTML and HTML back to Markdown for docs, blogs, and content workflows.",
     shortDescription: "Convert between Markdown and HTML",
     icon: "file-code-2",
-    category: "web",
+    category: "text",
     component: "markdown-html",
     seo: {
       title: "Markdown to HTML Converter — HTML to Markdown Online",
@@ -513,7 +514,7 @@ export const TOOLS: Tool[] = [
       "Convert JSON objects to TOML and TOML configs back to JSON for Cargo, Pyproject, and app settings.",
     shortDescription: "Convert between JSON and TOML",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-toml",
     seo: {
       title: "JSON to TOML Converter — TOML to JSON Online",
@@ -546,7 +547,7 @@ export const TOOLS: Tool[] = [
       "Convert YAML documents to XML and XML back to YAML via a JSON bridge.",
     shortDescription: "Convert between YAML and XML",
     icon: "file-code-2",
-    category: "json-tools",
+    category: "developer",
     component: "yaml-xml",
     seo: {
       title: "YAML to XML Converter — XML to YAML Online",
@@ -578,7 +579,7 @@ export const TOOLS: Tool[] = [
       "Convert CSV tables to XML and XML records back to CSV for spreadsheet and API workflows.",
     shortDescription: "Convert between CSV and XML",
     icon: "table-2",
-    category: "json-tools",
+    category: "developer",
     component: "csv-xml",
     seo: {
       title: "CSV to XML Converter — XML to CSV Online",
@@ -610,7 +611,7 @@ export const TOOLS: Tool[] = [
       "Convert dotenv files to JSON objects and JSON key/value maps back to .env format.",
     shortDescription: "Convert between .env and JSON",
     icon: "file-code-2",
-    category: "encoding",
+    category: "developer",
     component: "env-json",
     seo: {
       title: ".env to JSON Converter — JSON to .env Online",
@@ -643,7 +644,7 @@ export const TOOLS: Tool[] = [
       "Convert INSERT statements to JSON rows and JSON arrays back to SQL INSERT statements (best-effort).",
     shortDescription: "Convert between SQL INSERT and JSON",
     icon: "database",
-    category: "database",
+    category: "developer",
     component: "sql-json",
     seo: {
       title: "SQL to JSON Converter — JSON to SQL INSERT Online",
@@ -676,7 +677,7 @@ export const TOOLS: Tool[] = [
       "Convert HTML to React JSX and JSX markup back to HTML with attribute remapping.",
     shortDescription: "Convert between HTML and JSX",
     icon: "file-code-2",
-    category: "web",
+    category: "developer",
     component: "html-jsx",
     seo: {
       title: "HTML to JSX Converter — JSX to HTML Online",
@@ -741,7 +742,7 @@ export const TOOLS: Tool[] = [
       "Convert CommonJS require/module.exports snippets to ESM import/export and back (best-effort).",
     shortDescription: "Convert between CommonJS and ESM",
     icon: "file-code-2",
-    category: "web",
+    category: "developer",
     component: "cjs-esm",
     seo: {
       title: "CommonJS to ESM Converter — ESM to CJS Online",
@@ -840,7 +841,7 @@ export const TOOLS: Tool[] = [
       "Convert length, mass, temperature, data size, and time units instantly.",
     shortDescription: "Length, mass, temp, data, time units",
     icon: "wrench",
-    category: "web",
+    category: "calculators",
     component: "unit-converter",
     seo: {
       title: "Unit Converter — Length Mass Temperature Data Time",
@@ -873,7 +874,7 @@ export const TOOLS: Tool[] = [
       "Convert between major world currencies using daily ECB reference rates.",
     shortDescription: "Live currency conversion (ECB rates)",
     icon: "globe",
-    category: "web",
+    category: "calculators",
     component: "currency-converter",
     seo: {
       title: "Currency Converter — Exchange Rates Online",
@@ -906,7 +907,7 @@ export const TOOLS: Tool[] = [
       "Convert text to camelCase, snake_case, kebab-case, PascalCase, slug, and more.",
     shortDescription: "camelCase, snake_case, slug, and more",
     icon: "file-code-2",
-    category: "web",
+    category: "text",
     component: "text-case-converter",
     seo: {
       title: "Text Case Converter — camelCase snake_case slug Online",
@@ -938,7 +939,7 @@ export const TOOLS: Tool[] = [
       "Count words, characters, sentences, paragraphs, and estimate reading time.",
     shortDescription: "Words, characters, reading time",
     icon: "file-code-2",
-    category: "web",
+    category: "calculators",
     component: "word-counter",
     seo: {
       title: "Word Counter — Characters Sentences Reading Time",
@@ -969,7 +970,7 @@ export const TOOLS: Tool[] = [
       "Calculate percentages, percent-of, percent change, and increase/decrease by percent.",
     shortDescription: "Percent of, change, increase/decrease",
     icon: "wrench",
-    category: "web",
+    category: "calculators",
     component: "percentage-calculator",
     seo: {
       title: "Percentage Calculator — Percent Of Change Online",
@@ -1169,7 +1170,7 @@ export const TOOLS: Tool[] = [
       "Generate TypeScript, Swift, Kotlin, Dart, C#, Java, Go, or Rust models from sample JSON. Nested objects and arrays included.",
     shortDescription: "JSON → TS, Swift, Kotlin, Dart, C#, Java, Go, Rust",
     icon: "smartphone",
-    category: "mobile",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Model Generator — TS Swift Kotlin Dart C# Java Go Rust",
@@ -1230,7 +1231,7 @@ export const TOOLS: Tool[] = [
       "Generate TypeScript interfaces from JSON. Nested objects become separate interfaces.",
     shortDescription: "Generate TypeScript interfaces from JSON",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to TypeScript Converter — Generate Interfaces Online",
@@ -1263,7 +1264,7 @@ export const TOOLS: Tool[] = [
       "Generate Codable Swift structs from JSON for iOS and macOS apps.",
     shortDescription: "Generate Swift Codable structs from JSON",
     icon: "smartphone",
-    category: "mobile",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Swift Converter — Codable Structs Online",
@@ -1295,7 +1296,7 @@ export const TOOLS: Tool[] = [
       "Generate Kotlin data classes with kotlinx.serialization annotations from JSON.",
     shortDescription: "Generate Kotlin data classes from JSON",
     icon: "smartphone",
-    category: "mobile",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Kotlin Converter — Data Classes Online",
@@ -1327,7 +1328,7 @@ export const TOOLS: Tool[] = [
       "Generate Dart classes with fromJson/toJson helpers for Flutter apps.",
     shortDescription: "Generate Dart models from JSON",
     icon: "smartphone",
-    category: "mobile",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Dart Converter — Flutter Models Online",
@@ -1361,7 +1362,7 @@ export const TOOLS: Tool[] = [
       "Generate C# classes with System.Text.Json JsonPropertyName attributes from JSON.",
     shortDescription: "Generate C# classes from JSON",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to C# Converter — Classes Online",
@@ -1393,7 +1394,7 @@ export const TOOLS: Tool[] = [
       "Generate Java POJOs with Jackson @JsonProperty annotations from JSON.",
     shortDescription: "Generate Java POJOs from JSON",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Java Converter — POJO Generator Online",
@@ -1425,7 +1426,7 @@ export const TOOLS: Tool[] = [
       "Generate Go structs with json struct tags from sample JSON.",
     shortDescription: "Generate Go structs from JSON",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Go Converter — Struct Generator Online",
@@ -1457,7 +1458,7 @@ export const TOOLS: Tool[] = [
       "Generate Rust structs with Serde Serialize/Deserialize derives from JSON.",
     shortDescription: "Generate Rust Serde structs from JSON",
     icon: "braces",
-    category: "json-tools",
+    category: "developer",
     component: "json-to-model",
     seo: {
       title: "JSON to Rust Converter — Serde Structs Online",
@@ -1489,7 +1490,7 @@ export const TOOLS: Tool[] = [
       "Build deep links and universal links for iOS and Android apps. Test URL schemes and app links.",
     shortDescription: "Generate mobile deep links",
     icon: "link-2",
-    category: "mobile",
+    category: "utilities",
     component: "deep-link-generator",
     seo: {
       title: "Deep Link Generator — iOS & Android App Links",
@@ -1521,7 +1522,7 @@ export const TOOLS: Tool[] = [
       "Paste API responses and explore JSON/XML with syntax highlighting, tree view, and search.",
     shortDescription: "Explore API responses with tree view",
     icon: "terminal",
-    category: "api",
+    category: "developer",
     component: "api-response-viewer",
     seo: {
       title: "API Response Viewer — Explore JSON & XML Responses",
@@ -1554,7 +1555,7 @@ export const TOOLS: Tool[] = [
       "Convert Markdown to an A4 PDF in your browser. No upload — paste Markdown and download.",
     shortDescription: "Convert Markdown to PDF locally",
     icon: "file-text",
-    category: "web",
+    category: "documents",
     component: "markdown-to-pdf",
     seo: {
       title: "Markdown to PDF Converter — Free Online",
@@ -1585,7 +1586,7 @@ export const TOOLS: Tool[] = [
       "Sanitize HTML and export an A4 PDF in your browser. Scripts and unsafe markup are stripped.",
     shortDescription: "Convert HTML to PDF locally",
     icon: "file-code-2",
-    category: "web",
+    category: "documents",
     component: "html-to-pdf",
     seo: {
       title: "HTML to PDF Converter — Free Online",
@@ -1647,7 +1648,7 @@ export const TOOLS: Tool[] = [
       "Extract selectable text from a PDF in your browser. Scanned PDFs without a text layer may return nothing.",
     shortDescription: "Extract text from PDF",
     icon: "file-text",
-    category: "web",
+    category: "documents",
     component: "pdf-to-text",
     seo: {
       title: "PDF to Text Converter — Extract PDF Text Online",
@@ -1710,7 +1711,7 @@ export const TOOLS: Tool[] = [
       "Create a ZIP from multiple files or extract an existing archive entirely in your browser.",
     shortDescription: "Create or extract ZIP archives",
     icon: "file-archive",
-    category: "web",
+    category: "documents",
     component: "zip-tool",
     seo: {
       title: "ZIP Tool — Create & Extract ZIP Online",
@@ -1742,7 +1743,7 @@ export const TOOLS: Tool[] = [
       "Convert DOCX to PDF in your browser. Layout is approximate (content via Mammoth, then rendered to PDF). No upload.",
     shortDescription: "Convert DOCX to PDF locally",
     icon: "file-text",
-    category: "web",
+    category: "documents",
     component: "word-to-pdf",
     seo: {
       title: "Word to PDF Converter — DOCX to PDF Online",
@@ -1806,18 +1807,88 @@ export function getRelatedTools(tool: Tool, limit = 4): Tool[] {
   ).slice(0, limit);
 }
 
+/**
+ * Intent synonyms → boost matching for everyday language
+ * (e.g. "passport" → image resize / convert tools).
+ */
+const SEARCH_SYNONYMS: Record<string, string[]> = {
+  passport: ["image", "resize", "photo", "png", "jpg", "convert"],
+  resume: ["pdf", "word", "docx", "compress", "text"],
+  cv: ["pdf", "word", "docx"],
+  photo: ["image", "png", "jpg", "svg", "ico"],
+  picture: ["image", "png", "jpg"],
+  compress: ["image", "zip", "pdf"],
+  merge: ["pdf", "zip"],
+  split: ["pdf"],
+  ocr: ["pdf", "text"],
+  barcode: ["qr"],
+  password: ["hash", "uuid", "security"],
+  age: ["percentage", "calculator", "timestamp"],
+  gst: ["percentage", "currency", "calculator"],
+  invoice: ["pdf", "percentage", "currency"],
+  background: ["image", "svg"],
+  favicon: ["ico", "png"],
+  archive: ["zip"],
+  unzip: ["zip"],
+  encode: ["base64", "url"],
+  decode: ["base64", "url", "jwt"],
+  color: ["hex", "rgb", "palette", "hsl"],
+  money: ["currency"],
+  fx: ["currency"],
+};
+
+function scoreTool(tool: Tool, query: string, tokens: string[]): number {
+  const name = tool.name.toLowerCase();
+  const desc = tool.description.toLowerCase();
+  const short = tool.shortDescription.toLowerCase();
+  const tags = tool.tags.map((t) => t.toLowerCase());
+  const hay = `${name} ${short} ${desc} ${tags.join(" ")}`;
+
+  let score = 0;
+  if (name === query) score += 100;
+  if (name.includes(query)) score += 50;
+  if (tags.some((t) => t === query || t.includes(query))) score += 40;
+  if (short.includes(query)) score += 25;
+  if (desc.includes(query)) score += 10;
+
+  for (const token of tokens) {
+    if (name.includes(token)) score += 15;
+    if (tags.some((t) => t.includes(token))) score += 12;
+    if (hay.includes(token)) score += 5;
+  }
+
+  return score;
+}
+
 export function searchTools(query: string): Tool[] {
   const normalized = query.toLowerCase().trim();
   if (!normalized) return TOOLS;
 
-  return TOOLS.filter(
-    (t) =>
-      t.name.toLowerCase().includes(normalized) ||
-      t.description.toLowerCase().includes(normalized) ||
-      t.tags.some((tag) => tag.toLowerCase().includes(normalized))
-  );
+  const synonymHits = Object.entries(SEARCH_SYNONYMS)
+    .filter(([key]) => normalized.includes(key) || key.includes(normalized))
+    .flatMap(([, words]) => words);
+
+  const tokens = [
+    ...new Set([
+      ...normalized.split(/\s+/).filter(Boolean),
+      ...synonymHits,
+    ]),
+  ];
+
+  return TOOLS.map((tool) => ({
+    tool,
+    score: scoreTool(tool, normalized, tokens),
+  }))
+    .filter((row) => row.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .map((row) => row.tool);
 }
 
 export function getAllToolSlugs(): string[] {
   return TOOLS.map((t) => t.slug);
+}
+
+/** Categories that currently have at least one tool. */
+export function getActiveCategories() {
+  return CATEGORIES.filter((c) => getToolsByCategory(c.slug).length > 0);
 }

@@ -39,7 +39,7 @@ export function SearchResults({ initialQuery = "" }: SearchResultsProps) {
           placeholder="Search tools..."
           autoFocus
           className="h-12 rounded-xl border-border/60 pl-10 text-base"
-          aria-label="Search developer tools"
+          aria-label="Search tools"
         />
       </div>
 

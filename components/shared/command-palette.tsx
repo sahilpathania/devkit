@@ -20,8 +20,8 @@ import {
 } from "@/components/ui/command";
 import { useAppStore } from "@/stores/use-app-store";
 import { useKeyboardShortcut } from "@/hooks/use-keyboard-shortcut";
-import { CATEGORIES } from "@/services/categories";
-import { TOOLS, getToolBySlug } from "@/services/tools";
+import { getActiveCategories } from "@/services/tools";
+import { TOOLS, getToolBySlug, searchTools } from "@/services/tools";
 import { getIcon } from "@/lib/icons";
 
 /** Global command palette — Ctrl/Cmd+K to open. */
@@ -40,13 +40,9 @@ export function CommandPalette() {
   useKeyboardShortcut(open, { key: "k", modifier: "meta" });
 
   const filteredTools = useMemo(() => {
-    const q = query.toLowerCase().trim();
+    const q = query.trim();
     if (!q) return TOOLS;
-    return TOOLS.filter(
-      (t) =>
-        t.name.toLowerCase().includes(q) ||
-        t.tags.some((tag) => tag.includes(q))
-    );
+    return searchTools(q);
   }, [query]);
 
   const favoriteTools = favorites
@@ -136,7 +132,7 @@ export function CommandPalette() {
           <>
             <CommandSeparator />
             <CommandGroup heading="Categories">
-              {CATEGORIES.map((category) => {
+              {getActiveCategories().map((category) => {
                 const Icon = getIcon(category.icon);
                 return (
                   <CommandItem

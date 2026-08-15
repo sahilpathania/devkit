@@ -1,6 +1,7 @@
 import {
   Binary,
   Braces,
+  Calculator,
   Clock,
   Database,
   FileArchive,
@@ -15,6 +16,7 @@ import {
   Play,
   QrCode,
   Regex,
+  Repeat,
   Server,
   Shield,
   ShieldCheck,
@@ -22,6 +24,7 @@ import {
   Sparkles,
   Table2,
   Terminal,
+  Type,
   Wrench,
   type LucideIcon,
 } from "lucide-react";
@@ -55,6 +58,9 @@ export const ICONS = {
   "table-2": Table2,
   "file-text": FileText,
   "file-archive": FileArchive,
+  calculator: Calculator,
+  type: Type,
+  repeat: Repeat,
 } as const;
 
 export type IconName = keyof typeof ICONS;

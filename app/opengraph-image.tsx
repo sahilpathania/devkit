@@ -51,7 +51,7 @@ export default function OpenGraphImage() {
           {SITE_CONFIG.tagline}
         </div>
         <div style={{ marginTop: 28, fontSize: 24, opacity: 0.75, maxWidth: 800 }}>
-          100+ free developer tools. No login required.
+          Free online tools for everyone. Private by default.
         </div>
       </div>
     ),

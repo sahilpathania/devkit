@@ -1,6 +1,6 @@
 # DevKit
 
-A production-ready developer tools platform built with Next.js, React, and TypeScript.
+The fastest online toolkit — free tools for everyone. Built with Next.js, React, and TypeScript.
 
 ## Getting Started
 

@@ -1,17 +1,16 @@
 import { SectionHeader } from "@/components/shared/section-header";
 import { ToolCard } from "@/components/tools/tool-card";
-import { getPopularTools } from "@/services/tools";
+import { getRecentTools } from "@/services/tools";
 
-export function PopularTools() {
-  const tools = getPopularTools(8);
+export function NewTools() {
+  const tools = getRecentTools(8);
 
   return (
-    <section id="popular-tools" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+    <section id="new-tools" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
       <SectionHeader
-        title="Popular tools"
-        description="Start here — the tools people open most often."
+        title="New tools"
+        description="Fresh additions to the toolkit."
       />
-
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {tools.map((tool, index) => (
           <ToolCard key={tool.slug} tool={tool} index={index} />
