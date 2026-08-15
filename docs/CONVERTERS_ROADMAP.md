@@ -44,6 +44,13 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] Word Counter
 - [x] Percentage Calculator
 
+## Placeholders completed
+- [x] QR Code Generator
+- [x] Regex Tester
+- [x] Lottie Viewer
+- [x] Deep Link Generator
+- [x] API Response Viewer
+
 ## Phase 6 — Documents & media (server required)
 Word↔PDF, Excel, PowerPoint, EPUB, video (ffmpeg), audio, ZIP/TAR
 

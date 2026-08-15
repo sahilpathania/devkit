@@ -193,6 +193,31 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.NumberBaseConverter,
     }))
   ),
+  "qr-generator": lazyTool(() =>
+    import("@/components/tools/web/qr-generator").then((mod) => ({
+      default: mod.QrGenerator,
+    }))
+  ),
+  "regex-tester": lazyTool(() =>
+    import("@/components/tools/web/regex-tester").then((mod) => ({
+      default: mod.RegexTester,
+    }))
+  ),
+  "lottie-viewer": lazyTool(() =>
+    import("@/components/tools/design/lottie-viewer").then((mod) => ({
+      default: mod.LottieViewer,
+    }))
+  ),
+  "deep-link-generator": lazyTool(() =>
+    import("@/components/tools/mobile/deep-link-generator").then((mod) => ({
+      default: mod.DeepLinkGenerator,
+    }))
+  ),
+  "api-response-viewer": lazyTool(() =>
+    import("@/components/tools/api/api-response-viewer").then((mod) => ({
+      default: mod.ApiResponseViewer,
+    }))
+  ),
 };
 
 interface ToolRendererProps {
