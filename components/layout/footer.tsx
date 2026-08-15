@@ -17,26 +17,6 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
               {SITE_CONFIG.description}
             </p>
-            <div className="mt-4 flex items-center gap-3">
-              <a
-                href={SITE_CONFIG.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                aria-label="GitHub"
-              >
-                <Code2 className="size-5" />
-              </a>
-              <a
-                href={`https://twitter.com/${SITE_CONFIG.twitter.replace("@", "")}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-foreground"
-                aria-label="Twitter"
-              >
-                <AtSign className="size-5" />
-              </a>
-            </div>
           </div>
 
           <div>

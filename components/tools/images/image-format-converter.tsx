@@ -9,6 +9,7 @@ import {
   ImageIcon,
   Upload,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -79,11 +80,15 @@ export function ImageFormatConverter(_props: ToolComponentProps) {
     setPreviewUrl(URL.createObjectURL(next));
     setResult(null);
     setError(null);
+    toast.success("File ready", {
+      description: `${next.name} · ${formatBytes(next.size)}`,
+    });
   }, []);
 
   const convert = useCallback(async () => {
     if (!file) {
       setError("Choose an image to convert.");
+      toast.error("Choose an image to convert.");
       return;
     }
     setBusy(true);
@@ -110,9 +115,14 @@ export function ImageFormatConverter(_props: ToolComponentProps) {
         height,
       });
       setResult(next);
+      toast.success("Conversion successful", {
+        description: `${next.filename} · ${formatBytes(next.blob.size)}`,
+      });
     } catch (err) {
       setResult(null);
-      setError(err instanceof Error ? err.message : "Conversion failed.");
+      const message = err instanceof Error ? err.message : "Conversion failed.";
+      setError(message);
+      toast.error("Conversion failed", { description: message });
     } finally {
       setBusy(false);
     }

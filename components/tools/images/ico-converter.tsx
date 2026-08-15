@@ -9,6 +9,7 @@ import {
   ImageIcon,
   Upload,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -73,11 +74,17 @@ export function IcoConverter(_props: ToolComponentProps) {
     setPreviewUrl(URL.createObjectURL(next));
     setResult(null);
     setError(null);
+    toast.success("File ready", {
+      description: `${next.name} · ${formatBytes(next.size)}`,
+    });
   }, []);
 
   const convert = useCallback(async () => {
     if (!file) {
-      setError(mode === "ico-to-png" ? "Choose an .ico file." : "Choose a PNG/JPG image.");
+      const message =
+        mode === "ico-to-png" ? "Choose an .ico file." : "Choose a PNG/JPG image.";
+      setError(message);
+      toast.error(message);
       return;
     }
     setBusy(true);
@@ -87,9 +94,14 @@ export function IcoConverter(_props: ToolComponentProps) {
       const next =
         mode === "ico-to-png" ? await icoToPng(file) : await pngToIco(file, size);
       setResult(next);
+      toast.success("Conversion successful", {
+        description: `${next.filename} · ${formatBytes(next.blob.size)}`,
+      });
     } catch (err) {
       setResult(null);
-      setError(err instanceof Error ? err.message : "Conversion failed.");
+      const message = err instanceof Error ? err.message : "Conversion failed.";
+      setError(message);
+      toast.error("Conversion failed", { description: message });
     } finally {
       setBusy(false);
     }

@@ -218,6 +218,41 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.ApiResponseViewer,
     }))
   ),
+  "markdown-to-pdf": lazyTool(() =>
+    import("@/components/tools/documents/markdown-to-pdf").then((mod) => ({
+      default: mod.MarkdownToPdf,
+    }))
+  ),
+  "html-to-pdf": lazyTool(() =>
+    import("@/components/tools/documents/html-to-pdf").then((mod) => ({
+      default: mod.HtmlToPdf,
+    }))
+  ),
+  "image-to-pdf": lazyTool(() =>
+    import("@/components/tools/documents/image-to-pdf").then((mod) => ({
+      default: mod.ImageToPdf,
+    }))
+  ),
+  "pdf-to-text": lazyTool(() =>
+    import("@/components/tools/documents/pdf-to-text").then((mod) => ({
+      default: mod.PdfToText,
+    }))
+  ),
+  "pdf-to-image": lazyTool(() =>
+    import("@/components/tools/documents/pdf-to-image").then((mod) => ({
+      default: mod.PdfToImage,
+    }))
+  ),
+  "zip-tool": lazyTool(() =>
+    import("@/components/tools/documents/zip-tool").then((mod) => ({
+      default: mod.ZipTool,
+    }))
+  ),
+  "word-to-pdf": lazyTool(() =>
+    import("@/components/tools/documents/word-to-pdf").then((mod) => ({
+      default: mod.WordToPdf,
+    }))
+  ),
 };
 
 interface ToolRendererProps {

@@ -51,17 +51,25 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] Deep Link Generator
 - [x] API Response Viewer
 
-## Phase 6 — Documents & media (server required)
-Word↔PDF, Excel, PowerPoint, EPUB, video (ffmpeg), audio, ZIP/TAR
+## Phase 6a (done) — Documents & archives (browser)
+- [x] Markdown → PDF
+- [x] HTML → PDF
+- [x] Image → PDF
+- [x] PDF → Text
+- [x] PDF → Image (PNG / ZIP)
+- [x] ZIP create / extract
+- [x] Word DOCX → PDF (browser via Mammoth; layout approximate)
+
+## Out of scope (for now)
+- Video / audio / ffmpeg
+- Server/LibreOffice workers / API convert routes
+- PDF → Word, Excel/PPT ↔ PDF, EPUB
 
 ## Document Converters
-Word↔PDF, PDF↔Word, Excel↔PDF, PDF↔Excel, PowerPoint↔PDF, PDF↔PowerPoint, Image↔PDF, PDF↔Image, PDF↔Text, HTML↔PDF, Markdown→PDF, PDF↔HTML, EPUB↔PDF, MOBI↔EPUB, RTF↔DOCX, ODT↔DOCX
+Word DOCX→PDF (client), Image↔PDF, PDF↔Image, PDF↔Text, HTML↔PDF, Markdown→PDF
 
 ## Image Converters
-PNG↔JPG, WEBP↔PNG/JPG, HEIC→JPG/PNG, SVG→PNG/JPG/PDF, PNG→SVG, BMP→PNG, TIFF→JPG, GIF→PNG, ICO↔PNG, AVIF↔PNG
-
-## Video / Audio / Archive
-See product backlog — requires server workers.
+PNG↔JPG, WEBP↔PNG/JPG, SVG→PNG/JPG, PNG→SVG, BMP→PNG, GIF→PNG, ICO↔PNG, AVIF→PNG
 
 ## Encoding already shipped
 Base64, URL encode/decode

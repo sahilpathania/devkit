@@ -1547,6 +1547,235 @@ export const TOOLS: Tool[] = [
     isPopular: true,
     createdAt: "2026-02-20",
   },
+  {
+    slug: "markdown-to-pdf",
+    name: "Markdown → PDF",
+    description:
+      "Convert Markdown to an A4 PDF in your browser. No upload — paste Markdown and download.",
+    shortDescription: "Convert Markdown to PDF locally",
+    icon: "file-text",
+    category: "web",
+    component: "markdown-to-pdf",
+    seo: {
+      title: "Markdown to PDF Converter — Free Online",
+      description:
+        "Convert Markdown to PDF in your browser. Free, private, no upload required.",
+      keywords: ["markdown to pdf", "md to pdf", "markdown pdf converter"],
+    },
+    faqs: [
+      {
+        question: "Is my Markdown uploaded?",
+        answer: "No. Rendering runs entirely in your browser.",
+      },
+    ],
+    examples: [
+      {
+        title: "Heading and list",
+        input: "# Title\n\n- Item one\n- Item two",
+      },
+    ],
+    tags: ["markdown", "pdf", "document", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "html-to-pdf",
+    name: "HTML → PDF",
+    description:
+      "Sanitize HTML and export an A4 PDF in your browser. Scripts and unsafe markup are stripped.",
+    shortDescription: "Convert HTML to PDF locally",
+    icon: "file-code-2",
+    category: "web",
+    component: "html-to-pdf",
+    seo: {
+      title: "HTML to PDF Converter — Free Online",
+      description:
+        "Convert HTML to PDF in your browser. Sanitized, private, no server upload.",
+      keywords: ["html to pdf", "html pdf converter", "webpage to pdf"],
+    },
+    faqs: [
+      {
+        question: "Is HTML sanitized?",
+        answer: "Yes. DOMPurify removes scripts and dangerous attributes before rendering.",
+      },
+    ],
+    examples: [
+      {
+        title: "Simple page",
+        input: "<h1>Hello</h1><p>Body text</p>",
+      },
+    ],
+    tags: ["html", "pdf", "document", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "image-to-pdf",
+    name: "Image → PDF",
+    description:
+      "Combine PNG, JPG, or WebP images into a PDF (one page per image). Runs in your browser.",
+    shortDescription: "Turn images into a PDF",
+    icon: "image",
+    category: "images",
+    component: "image-to-pdf",
+    seo: {
+      title: "Image to PDF Converter — PNG JPG WebP Online",
+      description:
+        "Convert PNG, JPG, or WebP images to PDF in your browser. Multiple images become multi-page PDFs.",
+      keywords: ["image to pdf", "png to pdf", "jpg to pdf", "webp to pdf"],
+    },
+    faqs: [
+      {
+        question: "Are images uploaded?",
+        answer: "No. PDF creation uses pdf-lib entirely in your browser.",
+      },
+    ],
+    examples: [
+      {
+        title: "Screenshots to PDF",
+        description: "Upload several PNGs, download a multi-page PDF.",
+      },
+    ],
+    tags: ["image", "pdf", "png", "jpg", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "pdf-to-text",
+    name: "PDF → Text",
+    description:
+      "Extract selectable text from a PDF in your browser. Scanned PDFs without a text layer may return nothing.",
+    shortDescription: "Extract text from PDF",
+    icon: "file-text",
+    category: "web",
+    component: "pdf-to-text",
+    seo: {
+      title: "PDF to Text Converter — Extract PDF Text Online",
+      description:
+        "Extract text from PDF files in your browser. Free and private — files never leave your device.",
+      keywords: ["pdf to text", "extract pdf text", "pdf text extractor"],
+    },
+    faqs: [
+      {
+        question: "Why is the output empty?",
+        answer:
+          "Scanned/image-only PDFs have no text layer. Use OCR elsewhere, or try PDF → Image.",
+      },
+    ],
+    examples: [
+      {
+        title: "Export as .txt",
+        description: "Upload a PDF, extract text, download .txt.",
+      },
+    ],
+    tags: ["pdf", "text", "extract", "document"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "pdf-to-image",
+    name: "PDF → Image",
+    description:
+      "Render PDF pages to PNG in your browser. Multi-page PDFs download as a ZIP (max 50 pages).",
+    shortDescription: "Convert PDF pages to PNG",
+    icon: "image",
+    category: "images",
+    component: "pdf-to-image",
+    seo: {
+      title: "PDF to PNG Converter — PDF Pages to Images",
+      description:
+        "Convert PDF pages to PNG images in your browser. Multi-page files download as a ZIP.",
+      keywords: ["pdf to png", "pdf to image", "pdf page screenshot"],
+    },
+    faqs: [
+      {
+        question: "What's the page limit?",
+        answer: "50 pages per conversion to keep browser memory reasonable.",
+      },
+    ],
+    examples: [
+      {
+        title: "Single-page PDF",
+        description: "Upload a one-page PDF, download a PNG.",
+      },
+    ],
+    tags: ["pdf", "png", "image", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "zip-tool",
+    name: "ZIP Create / Extract",
+    description:
+      "Create a ZIP from multiple files or extract an existing archive entirely in your browser.",
+    shortDescription: "Create or extract ZIP archives",
+    icon: "file-archive",
+    category: "web",
+    component: "zip-tool",
+    seo: {
+      title: "ZIP Tool — Create & Extract ZIP Online",
+      description:
+        "Create and extract ZIP archives in your browser. Free, private, no upload.",
+      keywords: ["zip online", "create zip", "extract zip", "unzip online"],
+    },
+    faqs: [
+      {
+        question: "Are files uploaded?",
+        answer: "No. Compression uses fflate entirely in your browser.",
+      },
+    ],
+    examples: [
+      {
+        title: "Pack screenshots",
+        description: "Select several files, create archive.zip.",
+      },
+    ],
+    tags: ["zip", "archive", "compress", "extract"],
+    isNew: true,
+    isPopular: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "word-to-pdf",
+    name: "Word → PDF",
+    description:
+      "Convert DOCX to PDF in your browser. Layout is approximate (content via Mammoth, then rendered to PDF). No upload.",
+    shortDescription: "Convert DOCX to PDF locally",
+    icon: "file-text",
+    category: "web",
+    component: "word-to-pdf",
+    seo: {
+      title: "Word to PDF Converter — DOCX to PDF Online",
+      description:
+        "Convert Microsoft Word DOCX to PDF in your browser. Private — files never leave your device.",
+      keywords: ["word to pdf", "docx to pdf", "convert word", "docx pdf"],
+    },
+    faqs: [
+      {
+        question: "Does this upload my file?",
+        answer: "No. Conversion runs entirely in your browser.",
+      },
+      {
+        question: "Why isn't layout perfect?",
+        answer:
+          "Browsers cannot run Microsoft Word or LibreOffice. Content is converted to HTML then to PDF, so complex layouts may differ from Word's print preview.",
+      },
+      {
+        question: "Can I convert .doc files?",
+        answer: "Only .docx is supported. Open the file in Word and Save As .docx first.",
+      },
+    ],
+    examples: [
+      {
+        title: "DOCX resume",
+        description: "Upload resume.docx, download resume.pdf.",
+      },
+    ],
+    tags: ["word", "docx", "pdf", "office"],
+    isNew: true,
+    isFeatured: true,
+    createdAt: "2026-08-15",
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {

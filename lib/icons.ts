@@ -3,7 +3,9 @@ import {
   Braces,
   Clock,
   Database,
+  FileArchive,
   FileCode2,
+  FileText,
   Globe,
   Hash,
   Image,
@@ -51,6 +53,8 @@ export const ICONS = {
   wrench: Wrench,
   "file-code-2": FileCode2,
   "table-2": Table2,
+  "file-text": FileText,
+  "file-archive": FileArchive,
 } as const;
 
 export type IconName = keyof typeof ICONS;

@@ -9,6 +9,7 @@ import {
   FileCode2,
   Upload,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -85,6 +86,9 @@ export function SvgConverter(_props: ToolComponentProps) {
     setFileName(file.name);
     setResult(null);
     setError(null);
+    toast.success("File ready", {
+      description: `${file.name} · ${formatBytes(file.size)}`,
+    });
   }, []);
 
   const convert = useCallback(async () => {
@@ -97,6 +101,9 @@ export function SvgConverter(_props: ToolComponentProps) {
         if (!rasterFile) throw new Error("Choose a PNG/JPG image to embed as SVG.");
         const next = await pngToEmbeddedSvg(rasterFile);
         setResult(next);
+        toast.success("Conversion successful", {
+          description: `${next.filename} · ${formatBytes(next.blob.size)}`,
+        });
         return;
       }
 
@@ -117,9 +124,14 @@ export function SvgConverter(_props: ToolComponentProps) {
         filename: fileName,
       });
       setResult(next);
+      toast.success("Conversion successful", {
+        description: `${next.filename} · ${formatBytes(next.blob.size)}`,
+      });
     } catch (err) {
       setResult(null);
-      setError(err instanceof Error ? err.message : "Conversion failed.");
+      const message = err instanceof Error ? err.message : "Conversion failed.";
+      setError(message);
+      toast.error("Conversion failed", { description: message });
     } finally {
       setBusy(false);
     }
@@ -333,9 +345,15 @@ export function SvgConverter(_props: ToolComponentProps) {
             accept="image/png,image/jpeg,image/webp,.png,.jpg,.jpeg,.webp"
             className="sr-only"
             onChange={(e) => {
-              setRasterFile(e.target.files?.[0] ?? null);
+              const file = e.target.files?.[0] ?? null;
+              setRasterFile(file);
               setResult(null);
               setError(null);
+              if (file) {
+                toast.success("File ready", {
+                  description: `${file.name} · ${formatBytes(file.size)}`,
+                });
+              }
             }}
           />
         </label>
