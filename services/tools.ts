@@ -440,6 +440,267 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-08-15",
   },
   {
+    slug: "json-toml",
+    name: "JSON ↔ TOML",
+    description:
+      "Convert JSON objects to TOML and TOML configs back to JSON for Cargo, Pyproject, and app settings.",
+    shortDescription: "Convert between JSON and TOML",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-toml",
+    seo: {
+      title: "JSON to TOML Converter — TOML to JSON Online",
+      description:
+        "Free JSON ↔ TOML converter. Transform config files in your browser.",
+      keywords: ["json to toml", "toml to json", "json toml converter"],
+    },
+    faqs: [
+      {
+        question: "Can the root value be an array?",
+        answer: "No. TOML requires an object root, so JSON arrays and primitives are rejected.",
+      },
+    ],
+    examples: [
+      {
+        title: "JSON to TOML",
+        input: '{"name":"DevKit","version":1}',
+        output: 'name = "DevKit"\nversion = 1',
+      },
+    ],
+    tags: ["json", "toml", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "yaml-xml",
+    name: "YAML ↔ XML",
+    description:
+      "Convert YAML documents to XML and XML back to YAML via a JSON bridge.",
+    shortDescription: "Convert between YAML and XML",
+    icon: "file-code-2",
+    category: "json-tools",
+    component: "yaml-xml",
+    seo: {
+      title: "YAML to XML Converter — XML to YAML Online",
+      description:
+        "Free YAML ↔ XML converter for configs and data interchange.",
+      keywords: ["yaml to xml", "xml to yaml", "yaml xml converter"],
+    },
+    faqs: [
+      {
+        question: "How does conversion work?",
+        answer: "YAML and XML are converted through JSON using the same parsers as our JSON tools.",
+      },
+    ],
+    examples: [
+      {
+        title: "YAML to XML",
+        input: "name: DevKit",
+        output: "<root><name>DevKit</name></root>",
+      },
+    ],
+    tags: ["yaml", "xml", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "csv-xml",
+    name: "CSV ↔ XML",
+    description:
+      "Convert CSV tables to XML and XML records back to CSV for spreadsheet and API workflows.",
+    shortDescription: "Convert between CSV and XML",
+    icon: "table-2",
+    category: "json-tools",
+    component: "csv-xml",
+    seo: {
+      title: "CSV to XML Converter — XML to CSV Online",
+      description:
+        "Free CSV ↔ XML converter. Turn tabular data into XML and back.",
+      keywords: ["csv to xml", "xml to csv", "csv xml converter"],
+    },
+    faqs: [
+      {
+        question: "How is XML structured for rows?",
+        answer: "CSV rows become repeated item elements under a root node.",
+      },
+    ],
+    examples: [
+      {
+        title: "CSV to XML",
+        input: "name,tools\nDevKit,100",
+        output: "<root><item><name>DevKit</name><tools>100</tools></item></root>",
+      },
+    ],
+    tags: ["csv", "xml", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "env-json",
+    name: ".env ↔ JSON",
+    description:
+      "Convert dotenv files to JSON objects and JSON key/value maps back to .env format.",
+    shortDescription: "Convert between .env and JSON",
+    icon: "file-code-2",
+    category: "encoding",
+    component: "env-json",
+    seo: {
+      title: ".env to JSON Converter — JSON to .env Online",
+      description:
+        "Free .env ↔ JSON converter for environment variables and config dumps.",
+      keywords: ["env to json", "json to env", "dotenv converter"],
+    },
+    faqs: [
+      {
+        question: "Are comments preserved?",
+        answer: "Comments and blank lines are ignored when converting .env → JSON.",
+      },
+    ],
+    examples: [
+      {
+        title: ".env to JSON",
+        input: "NAME=DevKit\nFREE=true",
+        output: '{\n  "NAME": "DevKit",\n  "FREE": "true"\n}',
+      },
+    ],
+    tags: ["env", "dotenv", "json", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "sql-json",
+    name: "SQL ↔ JSON",
+    description:
+      "Convert INSERT statements to JSON rows and JSON arrays back to SQL INSERT statements (best-effort).",
+    shortDescription: "Convert between SQL INSERT and JSON",
+    icon: "database",
+    category: "database",
+    component: "sql-json",
+    seo: {
+      title: "SQL to JSON Converter — JSON to SQL INSERT Online",
+      description:
+        "Free SQL ↔ JSON converter for INSERT statements and row data.",
+      keywords: ["sql to json", "json to sql", "insert to json"],
+    },
+    faqs: [
+      {
+        question: "What SQL is supported?",
+        answer:
+          "Best-effort parsing of INSERT INTO … VALUES (…) statements. Complex SQL is not supported.",
+      },
+    ],
+    examples: [
+      {
+        title: "SQL to JSON",
+        input: "INSERT INTO users (id, name) VALUES (1, 'Ada');",
+        output: '{\n  "table": "users",\n  "rows": [{ "id": 1, "name": "Ada" }]\n}',
+      },
+    ],
+    tags: ["sql", "json", "insert", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "html-jsx",
+    name: "HTML ↔ JSX",
+    description:
+      "Convert HTML to React JSX and JSX markup back to HTML with attribute remapping.",
+    shortDescription: "Convert between HTML and JSX",
+    icon: "file-code-2",
+    category: "web",
+    component: "html-jsx",
+    seo: {
+      title: "HTML to JSX Converter — JSX to HTML Online",
+      description:
+        "Free HTML ↔ JSX converter. Remap class, for, style, and void tags for React.",
+      keywords: ["html to jsx", "jsx to html", "react converter"],
+    },
+    faqs: [
+      {
+        question: "Does it convert class to className?",
+        answer: "Yes. Common HTML attributes are remapped to their React equivalents.",
+      },
+    ],
+    examples: [
+      {
+        title: "HTML to JSX",
+        input: '<div class="card"></div>',
+        output: '<div className="card"></div>',
+      },
+    ],
+    tags: ["html", "jsx", "react", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "css-scss",
+    name: "CSS ↔ SCSS",
+    description:
+      "Nest flat CSS into SCSS and flatten simple nested SCSS back to CSS (best-effort, no mixins).",
+    shortDescription: "Convert between CSS and SCSS",
+    icon: "file-code-2",
+    category: "design",
+    component: "css-scss",
+    seo: {
+      title: "CSS to SCSS Converter — SCSS to CSS Online",
+      description:
+        "Free CSS ↔ SCSS converter for nesting and flattening stylesheets.",
+      keywords: ["css to scss", "scss to css", "sass converter"],
+    },
+    faqs: [
+      {
+        question: "Are mixins and variables supported?",
+        answer: "No. This is a structural nest/flatten helper for plain selectors and declarations.",
+      },
+    ],
+    examples: [
+      {
+        title: "CSS to SCSS",
+        input: ".card { color: teal; }\n.card .title { font-size: 18px; }",
+        output: ".card {\n  color: teal;\n  & .title {\n    font-size: 18px;\n  }\n}",
+      },
+    ],
+    tags: ["css", "scss", "sass", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "cjs-esm",
+    name: "CommonJS ↔ ESM",
+    description:
+      "Convert CommonJS require/module.exports snippets to ESM import/export and back (best-effort).",
+    shortDescription: "Convert between CommonJS and ESM",
+    icon: "file-code-2",
+    category: "web",
+    component: "cjs-esm",
+    seo: {
+      title: "CommonJS to ESM Converter — ESM to CJS Online",
+      description:
+        "Free CommonJS ↔ ESM converter for require/import and exports.",
+      keywords: ["commonjs to esm", "esm to cjs", "require to import"],
+    },
+    faqs: [
+      {
+        question: "Does it handle every module pattern?",
+        answer:
+          "It covers common require/import and exports patterns. Dynamic or computed imports need manual review.",
+      },
+    ],
+    examples: [
+      {
+        title: "CommonJS to ESM",
+        input: 'const fs = require("fs");',
+        output: 'import fs from "fs";',
+      },
+    ],
+    tags: ["commonjs", "esm", "modules", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
     slug: "hex-rgb",
     name: "HEX ↔ RGB",
     description:

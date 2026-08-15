@@ -83,6 +83,46 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.TimestampConverter,
     }))
   ),
+  "json-toml": lazyTool(() =>
+    import("@/components/tools/converters/json-toml").then((mod) => ({
+      default: mod.JsonTomlConverter,
+    }))
+  ),
+  "env-json": lazyTool(() =>
+    import("@/components/tools/converters/env-json").then((mod) => ({
+      default: mod.EnvJsonConverter,
+    }))
+  ),
+  "yaml-xml": lazyTool(() =>
+    import("@/components/tools/converters/yaml-xml").then((mod) => ({
+      default: mod.YamlXmlConverter,
+    }))
+  ),
+  "csv-xml": lazyTool(() =>
+    import("@/components/tools/converters/csv-xml").then((mod) => ({
+      default: mod.CsvXmlConverter,
+    }))
+  ),
+  "html-jsx": lazyTool(() =>
+    import("@/components/tools/converters/html-jsx").then((mod) => ({
+      default: mod.HtmlJsxConverter,
+    }))
+  ),
+  "css-scss": lazyTool(() =>
+    import("@/components/tools/converters/css-scss").then((mod) => ({
+      default: mod.CssScssConverter,
+    }))
+  ),
+  "cjs-esm": lazyTool(() =>
+    import("@/components/tools/converters/cjs-esm").then((mod) => ({
+      default: mod.CjsEsmConverter,
+    }))
+  ),
+  "sql-json": lazyTool(() =>
+    import("@/components/tools/converters/sql-json").then((mod) => ({
+      default: mod.SqlJsonConverter,
+    }))
+  ),
 };
 
 interface ToolRendererProps {

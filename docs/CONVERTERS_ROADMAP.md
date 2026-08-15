@@ -13,8 +13,15 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] HEX ↔ RGB
 - [x] Unix Timestamp Converter (full UI)
 
-## Phase 2 — Code & data formats
-JSON↔TOML, YAML↔XML, CSV↔XML, ENV↔JSON, SQL↔JSON, HTML↔JSX, CSS↔SCSS, CommonJS↔ESM, etc.
+## Phase 2 (done) — Code & data formats
+- [x] JSON ↔ TOML
+- [x] YAML ↔ XML
+- [x] CSV ↔ XML
+- [x] .env ↔ JSON
+- [x] SQL ↔ JSON (INSERT best-effort)
+- [x] HTML ↔ JSX
+- [x] CSS ↔ SCSS (nest/flatten best-effort)
+- [x] CommonJS ↔ ESM (best-effort)
 
 ## Phase 3 — Image converters (client)
 JPG↔PNG↔WebP, SVG→PNG/JPG, BMP/GIF/ICO…
