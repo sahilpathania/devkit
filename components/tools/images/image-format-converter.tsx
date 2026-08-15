@@ -43,36 +43,43 @@ export function ImageFormatConverter(_props: ToolComponentProps) {
   const [result, setResult] = useState<ConvertedImage | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const previewUrlRef = useRef<string | null>(null);
+  const resultUrlRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    previewUrlRef.current = previewUrl;
+  }, [previewUrl]);
+
+  useEffect(() => {
+    resultUrlRef.current = result?.objectUrl ?? null;
+  }, [result]);
 
   useEffect(() => {
     return () => {
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+      if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+      if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
     };
-  }, [previewUrl, result]);
+  }, []);
 
   const clear = useCallback(() => {
-    if (previewUrl) URL.revokeObjectURL(previewUrl);
-    if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+    if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+    if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
     setFile(null);
     setPreviewUrl(null);
     setResult(null);
     setError(null);
     if (fileRef.current) fileRef.current.value = "";
-  }, [previewUrl, result]);
+  }, []);
 
-  const onFile = useCallback(
-    (next: File | null) => {
-      if (!next) return;
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
-      setFile(next);
-      setPreviewUrl(URL.createObjectURL(next));
-      setResult(null);
-      setError(null);
-    },
-    [previewUrl, result]
-  );
+  const onFile = useCallback((next: File | null) => {
+    if (!next) return;
+    if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+    if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
+    setFile(next);
+    setPreviewUrl(URL.createObjectURL(next));
+    setResult(null);
+    setError(null);
+  }, []);
 
   const convert = useCallback(async () => {
     if (!file) {
@@ -82,23 +89,20 @@ export function ImageFormatConverter(_props: ToolComponentProps) {
     setBusy(true);
     setError(null);
     try {
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+      if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
       const width = maxWidth.trim() ? Number(maxWidth) : undefined;
       if (width !== undefined && (!Number.isFinite(width) || width < 1)) {
         throw new Error("Max width must be a positive number.");
       }
       let height: number | undefined;
-      if (width) {
-        const imgUrl = previewUrl;
-        if (imgUrl) {
-          const dims = await new Promise<{ w: number; h: number }>((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
-            img.onerror = () => reject(new Error("Could not read image dimensions."));
-            img.src = imgUrl;
-          });
-          height = Math.round((width / dims.w) * dims.h);
-        }
+      if (width && previewUrl) {
+        const dims = await new Promise<{ w: number; h: number }>((resolve, reject) => {
+          const img = new Image();
+          img.onload = () => resolve({ w: img.naturalWidth, h: img.naturalHeight });
+          img.onerror = () => reject(new Error("Could not read image dimensions."));
+          img.src = previewUrl;
+        });
+        height = Math.round((width / dims.w) * dims.h);
       }
       const next = await convertRasterFile(file, format, {
         quality,
@@ -112,7 +116,7 @@ export function ImageFormatConverter(_props: ToolComponentProps) {
     } finally {
       setBusy(false);
     }
-  }, [file, format, maxWidth, previewUrl, quality, result]);
+  }, [file, format, maxWidth, previewUrl, quality]);
 
   return (
     <div className="space-y-4">

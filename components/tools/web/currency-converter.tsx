@@ -24,24 +24,52 @@ export function CurrencyConverter(_props: ToolComponentProps) {
   const [to, setTo] = useState<CurrencyCode>("EUR");
   const [rates, setRates] = useState<FxRates | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
+  const [busy, setBusy] = useState(true);
 
-  const load = useCallback(async (base: CurrencyCode) => {
+  // Fetch in effect; setState only inside async callbacks (not sync in effect body).
+  useEffect(() => {
+    let cancelled = false;
+    fetchFxRates(from).then(
+      (data) => {
+        if (cancelled) return;
+        setRates(data);
+        setError(null);
+        setBusy(false);
+      },
+      (err: unknown) => {
+        if (cancelled) return;
+        setError(err instanceof Error ? err.message : "Failed to load rates.");
+        setRates(null);
+        setBusy(false);
+      }
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [from]);
+
+  const changeFrom = useCallback((code: CurrencyCode) => {
     setBusy(true);
     setError(null);
-    try {
-      setRates(await fetchFxRates(base));
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to load rates.");
-      setRates(null);
-    } finally {
-      setBusy(false);
-    }
+    setFrom(code);
   }, []);
 
-  useEffect(() => {
-    void load(from);
-  }, [from, load]);
+  const refresh = useCallback(() => {
+    setBusy(true);
+    setError(null);
+    fetchFxRates(from).then(
+      (data) => {
+        setRates(data);
+        setError(null);
+        setBusy(false);
+      },
+      (err: unknown) => {
+        setError(err instanceof Error ? err.message : "Failed to load rates.");
+        setRates(null);
+        setBusy(false);
+      }
+    );
+  }, [from]);
 
   let result = "";
   let resultError: string | null = null;
@@ -63,7 +91,7 @@ export function CurrencyConverter(_props: ToolComponentProps) {
         <Button
           type="button"
           variant="outline"
-          onClick={() => void load(from)}
+          onClick={refresh}
           disabled={busy}
           className="gap-1.5"
         >
@@ -74,6 +102,9 @@ export function CurrencyConverter(_props: ToolComponentProps) {
           <span className="text-xs text-muted-foreground">
             ECB rates · {rates.date} · base {rates.base}
           </span>
+        )}
+        {busy && !rates && (
+          <span className="text-xs text-muted-foreground">Loading rates…</span>
         )}
       </div>
 
@@ -99,7 +130,7 @@ export function CurrencyConverter(_props: ToolComponentProps) {
           />
           <select
             value={from}
-            onChange={(e) => setFrom(e.target.value as CurrencyCode)}
+            onChange={(e) => changeFrom(e.target.value as CurrencyCode)}
             className="h-8 w-full rounded-lg border border-border bg-background px-2 text-sm"
             aria-label="From currency"
           >
@@ -117,8 +148,10 @@ export function CurrencyConverter(_props: ToolComponentProps) {
           size="icon"
           className="sm:mb-8"
           onClick={() => {
-            setFrom(to);
-            setTo(from);
+            const nextFrom = to;
+            const nextTo = from;
+            setTo(nextTo);
+            changeFrom(nextFrom);
           }}
           aria-label="Swap currencies"
         >

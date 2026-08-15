@@ -294,7 +294,7 @@ function buildObjectNameMap(
     }
     if (schema.kind !== "object") return;
 
-    let base = isRoot ? rootName : toPascalCase(hint);
+    const base = isRoot ? rootName : toPascalCase(hint);
     let name = base;
     let i = 2;
     while (used.has(name)) name = `${base}${i++}`;
@@ -453,7 +453,7 @@ function generateDart(
     lines.push(`  Map<String, dynamic> toJson() => {`);
     for (const [key, field] of obj.fields) {
       const prop = toCamelCase(key);
-      lines.push(`    '${key}': ${dartToJsonExpr(field, prop, names)},`);
+      lines.push(`    '${key}': ${dartToJsonExpr(field, prop)},`);
     }
     lines.push(`  };`);
     lines.push(`}\n`);
@@ -487,11 +487,7 @@ function dartFromJsonExpr(
   return `json['${key}'] as ${t}`;
 }
 
-function dartToJsonExpr(
-  field: JsonSchema,
-  prop: string,
-  names: Map<JsonSchema, string>
-): string {
+function dartToJsonExpr(field: JsonSchema, prop: string): string {
   if (field.kind === "object") return `${prop}.toJson()`;
   if (field.kind === "array" && field.element.kind === "object") {
     return `${prop}.map((e) => e.toJson()).toList()`;

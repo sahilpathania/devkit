@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useId, useState } from "react";
 import {
   AlertCircle,
   CheckCircle2,
@@ -43,18 +43,20 @@ export function JsonModelGenerator({ tool }: ToolComponentProps) {
   const inputId = useId();
   const outputId = useId();
   const rootId = useId();
-  const defaultLang = SLUG_DEFAULT_LANGUAGE[tool.slug] ?? "typescript";
+  const slugLang = SLUG_DEFAULT_LANGUAGE[tool.slug] ?? "typescript";
 
-  const [language, setLanguage] = useState<ModelLanguage>(defaultLang);
+  const [language, setLanguage] = useState<ModelLanguage>(slugLang);
+  const [prevSlug, setPrevSlug] = useState(tool.slug);
   const [rootName, setRootName] = useState("Root");
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    setLanguage(SLUG_DEFAULT_LANGUAGE[tool.slug] ?? "typescript");
-  }, [tool.slug]);
+  if (tool.slug !== prevSlug) {
+    setPrevSlug(tool.slug);
+    setLanguage(slugLang);
+  }
 
   const run = useCallback(() => {
     const result = convertJsonToModel(input, language, rootName);

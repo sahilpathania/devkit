@@ -37,36 +37,43 @@ export function IcoConverter(_props: ToolComponentProps) {
   const [result, setResult] = useState<ConvertedImage | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const previewUrlRef = useRef<string | null>(null);
+  const resultUrlRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    previewUrlRef.current = previewUrl;
+  }, [previewUrl]);
+
+  useEffect(() => {
+    resultUrlRef.current = result?.objectUrl ?? null;
+  }, [result]);
 
   useEffect(() => {
     return () => {
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+      if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+      if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
     };
-  }, [previewUrl, result]);
+  }, []);
 
   const clear = useCallback(() => {
-    if (previewUrl) URL.revokeObjectURL(previewUrl);
-    if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+    if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+    if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
     setFile(null);
     setPreviewUrl(null);
     setResult(null);
     setError(null);
     if (fileRef.current) fileRef.current.value = "";
-  }, [previewUrl, result]);
+  }, []);
 
-  const onFile = useCallback(
-    (next: File | null) => {
-      if (!next) return;
-      if (previewUrl) URL.revokeObjectURL(previewUrl);
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
-      setFile(next);
-      setPreviewUrl(URL.createObjectURL(next));
-      setResult(null);
-      setError(null);
-    },
-    [previewUrl, result]
-  );
+  const onFile = useCallback((next: File | null) => {
+    if (!next) return;
+    if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+    if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
+    setFile(next);
+    setPreviewUrl(URL.createObjectURL(next));
+    setResult(null);
+    setError(null);
+  }, []);
 
   const convert = useCallback(async () => {
     if (!file) {
@@ -76,7 +83,7 @@ export function IcoConverter(_props: ToolComponentProps) {
     setBusy(true);
     setError(null);
     try {
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+      if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
       const next =
         mode === "ico-to-png" ? await icoToPng(file) : await pngToIco(file, size);
       setResult(next);
@@ -86,7 +93,7 @@ export function IcoConverter(_props: ToolComponentProps) {
     } finally {
       setBusy(false);
     }
-  }, [file, mode, result, size]);
+  }, [file, mode, size]);
 
   return (
     <div className="space-y-4">
@@ -129,8 +136,8 @@ export function IcoConverter(_props: ToolComponentProps) {
               key={option.value}
               type="button"
               onClick={() => {
-                if (previewUrl) URL.revokeObjectURL(previewUrl);
-                if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+                if (previewUrlRef.current) URL.revokeObjectURL(previewUrlRef.current);
+                if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
                 setMode(option.value);
                 setFile(null);
                 setPreviewUrl(null);

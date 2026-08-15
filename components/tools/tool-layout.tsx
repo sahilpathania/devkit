@@ -1,20 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Share2, Star } from "lucide-react";
 import { toast } from "sonner";
 import { Breadcrumb } from "@/components/tools/breadcrumb";
 import { ToolFAQ } from "@/components/tools/tool-faq";
 import { RelatedTools } from "@/components/tools/related-tools";
 import { CopyButton } from "@/components/shared/copy-button";
+import { DynamicIcon } from "@/components/shared/dynamic-icon";
 import { GradientBackground } from "@/components/shared/gradient-background";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { useIsClient } from "@/hooks/use-is-client";
 import { useAppStore } from "@/stores/use-app-store";
 import { getCategoryBySlug } from "@/services/categories";
 import { getRelatedTools } from "@/services/tools";
-import { getIcon } from "@/lib/icons";
 import { SITE_CONFIG } from "@/lib/constants";
 import type { Tool } from "@/types";
 import { cn } from "@/lib/utils";
@@ -29,28 +30,29 @@ interface ToolLayoutProps {
  * Handles breadcrumbs, SEO content sections, favorites, and share.
  */
 export function ToolLayout({ tool, children }: ToolLayoutProps) {
-  const [mounted, setMounted] = useState(false);
-  const { toggleFavorite, isFavorite, addToHistory } = useAppStore();
+  const mounted = useIsClient();
+  const toggleFavorite = useAppStore((s) => s.toggleFavorite);
+  const addToHistory = useAppStore((s) => s.addToHistory);
+  const favorited = useAppStore((s) => s.favorites.includes(tool.slug));
   const category = getCategoryBySlug(tool.category);
   const relatedTools = getRelatedTools(tool);
-  const Icon = getIcon(tool.icon);
-  const favorited = mounted && isFavorite(tool.slug);
   const toolUrl = `${SITE_CONFIG.url}/tool/${tool.slug}`;
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const showFavorite = mounted && favorited;
 
   useEffect(() => {
     addToHistory(tool.slug);
   }, [tool.slug, addToHistory]);
 
   async function handleShare() {
-    if (navigator.share) {
-      await navigator.share({ title: tool.name, url: toolUrl });
-    } else {
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: tool.name, url: toolUrl });
+        return;
+      }
       await navigator.clipboard.writeText(toolUrl);
       toast.success("Link copied to clipboard");
+    } catch {
+      // User cancelled share sheet or clipboard blocked — ignore.
     }
   }
 
@@ -73,7 +75,7 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
                   category?.gradient ?? "from-teal-500/20 to-emerald-500/20"
                 )}
               >
-                <Icon className="size-6" aria-hidden="true" />
+                <DynamicIcon name={tool.icon} className="size-6" />
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
@@ -88,15 +90,15 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
 
             <div className="flex shrink-0 items-center gap-1">
               <Button
-                variant={favorited ? "secondary" : "outline"}
+                variant={showFavorite ? "secondary" : "outline"}
                 size="sm"
                 onClick={() => toggleFavorite(tool.slug)}
-                aria-label={favorited ? "Remove from favorites" : "Add to favorites"}
+                aria-label={showFavorite ? "Remove from favorites" : "Add to favorites"}
               >
                 <Star
-                  className={cn("size-4", favorited && "fill-amber-400 text-amber-400")}
+                  className={cn("size-4", showFavorite && "fill-amber-400 text-amber-400")}
                 />
-                {favorited ? "Saved" : "Save"}
+                {showFavorite ? "Saved" : "Save"}
               </Button>
               <Button variant="outline" size="sm" onClick={handleShare}>
                 <Share2 className="size-4" />
@@ -108,12 +110,10 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
       </GradientBackground>
 
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
-        {/* Tool workspace */}
         <div className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm sm:p-6">
           {children}
         </div>
 
-        {/* Examples */}
         {tool.examples.length > 0 && (
           <section className="mt-12" aria-labelledby="examples-heading">
             <h2 id="examples-heading" className="text-xl font-semibold tracking-tight">
@@ -122,7 +122,7 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
             <div className="mt-4 space-y-4">
               {tool.examples.map((example, index) => (
                 <div
-                  key={index}
+                  key={`${example.title}-${index}`}
                   className="rounded-xl border border-border/60 bg-muted/30 p-4"
                 >
                   <div className="flex items-center justify-between gap-2">

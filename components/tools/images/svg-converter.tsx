@@ -56,22 +56,27 @@ export function SvgConverter(_props: ToolComponentProps) {
   const [result, setResult] = useState<ConvertedImage | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const resultUrlRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    resultUrlRef.current = result?.objectUrl ?? null;
+  }, [result]);
 
   useEffect(() => {
     return () => {
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+      if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
     };
-  }, [result]);
+  }, []);
 
   const clear = useCallback(() => {
-    if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+    if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
     setSvgText("");
     setFileName("image.svg");
     setRasterFile(null);
     setResult(null);
     setError(null);
     if (fileRef.current) fileRef.current.value = "";
-  }, [result]);
+  }, []);
 
   const onSvgFile = useCallback(async (file: File | null) => {
     if (!file) return;
@@ -86,7 +91,7 @@ export function SvgConverter(_props: ToolComponentProps) {
     setBusy(true);
     setError(null);
     try {
-      if (result?.objectUrl) URL.revokeObjectURL(result.objectUrl);
+      if (resultUrlRef.current) URL.revokeObjectURL(resultUrlRef.current);
 
       if (mode === "png-to-svg") {
         if (!rasterFile) throw new Error("Choose a PNG/JPG image to embed as SVG.");
@@ -118,7 +123,7 @@ export function SvgConverter(_props: ToolComponentProps) {
     } finally {
       setBusy(false);
     }
-  }, [fileName, format, height, mode, quality, rasterFile, result, svgText, width]);
+  }, [fileName, format, height, mode, quality, rasterFile, svgText, width]);
 
   return (
     <div className="space-y-4">

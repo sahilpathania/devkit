@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useState } from "react";
+import { useCallback, useId, useRef, useState } from "react";
 import { AlertCircle, Eraser, Hash, Sparkles } from "lucide-react";
 import { CopyButton } from "@/components/shared/copy-button";
 import { Button } from "@/components/ui/button";
@@ -18,6 +18,7 @@ export function HashGenerator(_props: ToolComponentProps) {
   const [hashes, setHashes] = useState<Partial<Record<HashAlgo, string>>>({});
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const run = useCallback(async (text: string) => {
     if (!text) {
@@ -37,10 +38,13 @@ export function HashGenerator(_props: ToolComponentProps) {
     }
   }, []);
 
-  useEffect(() => {
-    const t = setTimeout(() => void run(input), 150);
-    return () => clearTimeout(t);
-  }, [input, run]);
+  const scheduleHash = useCallback(
+    (text: string) => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => void run(text), 150);
+    },
+    [run]
+  );
 
   return (
     <div className="space-y-4">
@@ -48,7 +52,11 @@ export function HashGenerator(_props: ToolComponentProps) {
         <Button
           type="button"
           variant="ghost"
-          onClick={() => setInput("DevKit — developer tools that just work")}
+          onClick={() => {
+            const sample = "DevKit — developer tools that just work";
+            setInput(sample);
+            scheduleHash(sample);
+          }}
           className="gap-1.5"
         >
           <Sparkles className="size-4" />
@@ -58,6 +66,7 @@ export function HashGenerator(_props: ToolComponentProps) {
           type="button"
           variant="ghost"
           onClick={() => {
+            if (timerRef.current) clearTimeout(timerRef.current);
             setInput("");
             setHashes({});
             setError(null);
@@ -90,7 +99,10 @@ export function HashGenerator(_props: ToolComponentProps) {
         <Textarea
           id={inputId}
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => {
+            setInput(e.target.value);
+            scheduleHash(e.target.value);
+          }}
           placeholder="Type or paste text to hash"
           className="min-h-[120px] font-mono text-sm"
         />

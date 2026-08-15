@@ -33,7 +33,6 @@ function sqlToJson(sql: string): ConvertResult {
   let table = "table";
   let columns: string[] | null = null;
 
-  let match: RegExpExecArray | null;
   const text = sql.trim();
 
   // Find first INSERT to get table/columns

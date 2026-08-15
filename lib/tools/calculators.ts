@@ -47,8 +47,22 @@ export function convertNumberBase(
   const cleaned = input.trim().replace(/\s+/g, "");
   if (!cleaned) throw new Error("Enter a number.");
   const normalized = cleaned.replace(/^0x/i, "");
+  if (from === 2 && /[^01]/i.test(normalized)) {
+    throw new Error("Binary values may only contain 0 and 1.");
+  }
+  if (from === 8 && /[^0-7]/i.test(normalized)) {
+    throw new Error("Octal values may only contain digits 0–7.");
+  }
+  if (from === 10 && !/^-?\d+$/.test(normalized)) {
+    throw new Error("Decimal values may only contain digits.");
+  }
+  if (from === 16 && /[^0-9a-f]/i.test(normalized)) {
+    throw new Error("Hex values may only contain 0–9 and A–F.");
+  }
   const value = Number.parseInt(normalized, from);
-  if (!Number.isFinite(value)) throw new Error("Invalid number for the selected base.");
+  if (Number.isNaN(value)) {
+    throw new Error("Invalid number for the selected base.");
+  }
   if (to === 16) return value.toString(16).toUpperCase();
   return value.toString(to);
 }

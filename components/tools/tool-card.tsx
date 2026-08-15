@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Sparkles, Star } from "lucide-react";
+import { DynamicIcon } from "@/components/shared/dynamic-icon";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { useIsClient } from "@/hooks/use-is-client";
 import { useAppStore } from "@/stores/use-app-store";
-import { getIcon } from "@/lib/icons";
 import { getCategoryBySlug } from "@/services/categories";
 import type { Tool } from "@/types";
 import { cn } from "@/lib/utils";
@@ -19,14 +19,9 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ tool, index = 0, className }: ToolCardProps) {
-  const [mounted, setMounted] = useState(false);
-  const isFavorite = useAppStore((s) => s.isFavorite(tool.slug));
+  const mounted = useIsClient();
+  const isFavorite = useAppStore((s) => s.favorites.includes(tool.slug));
   const category = getCategoryBySlug(tool.category);
-  const Icon = getIcon(tool.icon);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <motion.div
@@ -58,7 +53,7 @@ export function ToolCard({ tool, index = 0, className }: ToolCardProps) {
                 category?.gradient ?? "from-teal-500/20 to-emerald-500/20"
               )}
             >
-              <Icon className="size-5 text-foreground/80" aria-hidden="true" />
+              <DynamicIcon name={tool.icon} className="size-5 text-foreground/80" />
             </div>
             <div className="flex items-center gap-1.5">
               {mounted && isFavorite && (
