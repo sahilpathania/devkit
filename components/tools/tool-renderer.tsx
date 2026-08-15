@@ -138,6 +138,11 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.IcoConverter,
     }))
   ),
+  "json-to-model": lazyTool(() =>
+    import("@/components/tools/mobile/json-model-generator").then((mod) => ({
+      default: mod.JsonModelGenerator,
+    }))
+  ),
 };
 
 interface ToolRendererProps {

@@ -900,6 +900,326 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-03-15",
   },
   {
+    slug: "json-to-model",
+    name: "JSON to Model",
+    description:
+      "Generate TypeScript, Swift, Kotlin, Dart, C#, Java, Go, or Rust models from sample JSON. Nested objects and arrays included.",
+    shortDescription: "JSON → TS, Swift, Kotlin, Dart, C#, Java, Go, Rust",
+    icon: "smartphone",
+    category: "mobile",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Model Generator — TS Swift Kotlin Dart C# Java Go Rust",
+      description:
+        "Free JSON to model converter. Generate typed models for TypeScript, Swift, Kotlin, Dart, C#, Java, Go, and Rust in your browser.",
+      keywords: [
+        "json to typescript",
+        "json to swift",
+        "json to kotlin",
+        "json to dart",
+        "json to model",
+        "json to java",
+        "json to go",
+        "json to rust",
+      ],
+    },
+    faqs: [
+      {
+        question: "Which languages are supported?",
+        answer:
+          "TypeScript, Swift, Kotlin, Dart, C#, Java, Go, and Rust. Types are inferred from your sample JSON.",
+      },
+      {
+        question: "Are nullable and mixed types perfect?",
+        answer:
+          "Generation is best-effort from one sample. Mixed arrays and missing fields may need manual review.",
+      },
+    ],
+    examples: [
+      {
+        title: "Nested object",
+        input: '{"id":1,"owner":{"email":"a@b.com"}}',
+        output: "interface Root { id: number; owner: Owner; }",
+      },
+    ],
+    tags: [
+      "json",
+      "typescript",
+      "swift",
+      "kotlin",
+      "dart",
+      "csharp",
+      "java",
+      "go",
+      "rust",
+      "mobile",
+      "model",
+    ],
+    isFeatured: true,
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-typescript",
+    name: "JSON to TypeScript",
+    description:
+      "Generate TypeScript interfaces from JSON. Nested objects become separate interfaces.",
+    shortDescription: "Generate TypeScript interfaces from JSON",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to TypeScript Converter — Generate Interfaces Online",
+      description:
+        "Convert JSON to TypeScript interfaces instantly. Nested types and arrays supported.",
+      keywords: ["json to typescript", "json to interface", "json to ts"],
+    },
+    faqs: [
+      {
+        question: "Does it create interfaces or types?",
+        answer: "Objects become interfaces; array roots and primitives use type aliases.",
+      },
+    ],
+    examples: [
+      {
+        title: "Simple object",
+        input: '{"name":"DevKit","free":true}',
+        output: "export interface Root {\n  name: string;\n  free: boolean;\n}",
+      },
+    ],
+    tags: ["json", "typescript", "interface", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-swift",
+    name: "JSON to Swift",
+    description:
+      "Generate Codable Swift structs from JSON for iOS and macOS apps.",
+    shortDescription: "Generate Swift Codable structs from JSON",
+    icon: "smartphone",
+    category: "mobile",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Swift Converter — Codable Structs Online",
+      description:
+        "Convert JSON to Swift Codable structs with CodingKeys when property names differ.",
+      keywords: ["json to swift", "swift codable", "json to struct"],
+    },
+    faqs: [
+      {
+        question: "Are CodingKeys generated?",
+        answer: "Yes, when JSON keys differ from camelCase Swift property names.",
+      },
+    ],
+    examples: [
+      {
+        title: "User model",
+        input: '{"user_id":1,"name":"Ada"}',
+        description: "Creates a Codable struct with CodingKeys for user_id.",
+      },
+    ],
+    tags: ["json", "swift", "codable", "ios", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-kotlin",
+    name: "JSON to Kotlin",
+    description:
+      "Generate Kotlin data classes with kotlinx.serialization annotations from JSON.",
+    shortDescription: "Generate Kotlin data classes from JSON",
+    icon: "smartphone",
+    category: "mobile",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Kotlin Converter — Data Classes Online",
+      description:
+        "Convert JSON to Kotlin @Serializable data classes for Android and multiplatform apps.",
+      keywords: ["json to kotlin", "kotlin data class", "json to android"],
+    },
+    faqs: [
+      {
+        question: "Which serialization library is assumed?",
+        answer: "kotlinx.serialization with @Serializable and @SerialName.",
+      },
+    ],
+    examples: [
+      {
+        title: "Data class",
+        input: '{"id":1,"title":"DevKit"}',
+        description: "Emits a @Serializable data class.",
+      },
+    ],
+    tags: ["json", "kotlin", "android", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-dart",
+    name: "JSON to Dart",
+    description:
+      "Generate Dart classes with fromJson/toJson helpers for Flutter apps.",
+    shortDescription: "Generate Dart models from JSON",
+    icon: "smartphone",
+    category: "mobile",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Dart Converter — Flutter Models Online",
+      description:
+        "Convert JSON to Dart model classes with fromJson and toJson for Flutter.",
+      keywords: ["json to dart", "flutter model", "json to flutter"],
+    },
+    faqs: [
+      {
+        question: "Does it use json_serializable?",
+        answer:
+          "It emits hand-written fromJson/toJson methods so you can paste without codegen.",
+      },
+    ],
+    examples: [
+      {
+        title: "Flutter model",
+        input: '{"id":1,"name":"DevKit"}',
+        description: "Creates a class with fromJson and toJson.",
+      },
+    ],
+    tags: ["json", "dart", "flutter", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-csharp",
+    name: "JSON to C#",
+    description:
+      "Generate C# classes with System.Text.Json JsonPropertyName attributes from JSON.",
+    shortDescription: "Generate C# classes from JSON",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to C# Converter — Classes Online",
+      description:
+        "Convert JSON to C# classes with JsonPropertyName attributes.",
+      keywords: ["json to csharp", "json to c#", "json to class"],
+    },
+    faqs: [
+      {
+        question: "Which JSON library is assumed?",
+        answer: "System.Text.Json with [JsonPropertyName].",
+      },
+    ],
+    examples: [
+      {
+        title: "C# class",
+        input: '{"id":1,"name":"DevKit"}',
+        output: "public class Root { public int Id { get; set; } }",
+      },
+    ],
+    tags: ["json", "csharp", "dotnet", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-java",
+    name: "JSON to Java",
+    description:
+      "Generate Java POJOs with Jackson @JsonProperty annotations from JSON.",
+    shortDescription: "Generate Java POJOs from JSON",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Java Converter — POJO Generator Online",
+      description:
+        "Convert JSON to Java classes with Jackson annotations.",
+      keywords: ["json to java", "json to pojo", "jackson class"],
+    },
+    faqs: [
+      {
+        question: "Which JSON library is assumed?",
+        answer: "Jackson with @JsonProperty on public fields.",
+      },
+    ],
+    examples: [
+      {
+        title: "POJO",
+        input: '{"id":1,"name":"DevKit"}',
+        description: "Emits a public class with annotated fields.",
+      },
+    ],
+    tags: ["json", "java", "pojo", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-go",
+    name: "JSON to Go",
+    description:
+      "Generate Go structs with json struct tags from sample JSON.",
+    shortDescription: "Generate Go structs from JSON",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Go Converter — Struct Generator Online",
+      description:
+        "Convert JSON to Go structs with json tags for encoding/json.",
+      keywords: ["json to go", "json to struct", "golang json"],
+    },
+    faqs: [
+      {
+        question: "Are json tags included?",
+        answer: "Yes. Each field gets a `json:\"key\"` tag matching the sample.",
+      },
+    ],
+    examples: [
+      {
+        title: "Go struct",
+        input: '{"id":1,"name":"DevKit"}',
+        output: 'type Root struct {\n  Id int64 `json:"id"`\n}',
+      },
+    ],
+    tags: ["json", "go", "golang", "struct", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-to-rust",
+    name: "JSON to Rust",
+    description:
+      "Generate Rust structs with Serde Serialize/Deserialize derives from JSON.",
+    shortDescription: "Generate Rust Serde structs from JSON",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-to-model",
+    seo: {
+      title: "JSON to Rust Converter — Serde Structs Online",
+      description:
+        "Convert JSON to Rust structs with serde rename attributes when needed.",
+      keywords: ["json to rust", "serde struct", "json to serde"],
+    },
+    faqs: [
+      {
+        question: "Does it use Serde?",
+        answer: "Yes. Structs derive Serialize and Deserialize, with rename attributes for non-snake_case keys.",
+      },
+    ],
+    examples: [
+      {
+        title: "Serde struct",
+        input: '{"user_id":1}',
+        description: "Creates a struct with serde rename when keys differ from snake_case.",
+      },
+    ],
+    tags: ["json", "rust", "serde", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
     slug: "deep-link-generator",
     name: "Deep Link Generator",
     description:

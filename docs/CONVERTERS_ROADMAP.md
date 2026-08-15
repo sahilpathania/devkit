@@ -28,8 +28,9 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] SVG Converter (SVG → PNG/JPG/WebP + image → embedded SVG)
 - [x] ICO ↔ PNG (favicon sizes)
 
-## Phase 4 — Mobile model generators
-JSON → TS / Swift / Kotlin / Dart / C# / Java / Go / Rust
+## Phase 4 (done) — Mobile model generators
+- [x] JSON → Model (TS / Swift / Kotlin / Dart / C# / Java / Go / Rust)
+- [x] SEO pages: json-to-typescript, swift, kotlin, dart, csharp, java, go, rust
 
 ## Phase 5 — Crypto, network, units, finance, text
 Hashes, color full set, units, currency, calculators, text utilities
