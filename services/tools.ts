@@ -307,6 +307,172 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-01-25",
   },
   {
+    slug: "json-yaml",
+    name: "JSON ↔ YAML",
+    description:
+      "Convert JSON to YAML and YAML to JSON instantly. Ideal for configs, Kubernetes manifests, and API payloads.",
+    shortDescription: "Convert between JSON and YAML",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-yaml",
+    seo: {
+      title: "JSON to YAML Converter — YAML to JSON Online",
+      description:
+        "Free JSON ↔ YAML converter. Convert configs and data structures in your browser.",
+      keywords: ["json to yaml", "yaml to json", "json yaml converter"],
+    },
+    faqs: [
+      {
+        question: "Does this support nested objects and arrays?",
+        answer: "Yes. Nested structures are preserved in both directions.",
+      },
+    ],
+    examples: [
+      {
+        title: "JSON to YAML",
+        input: '{"name":"DevKit","free":true}',
+        output: "name: DevKit\nfree: true",
+      },
+    ],
+    tags: ["json", "yaml", "convert"],
+    isFeatured: true,
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "json-xml",
+    name: "JSON ↔ XML",
+    description:
+      "Convert JSON objects to XML and XML documents back to JSON for APIs and integrations.",
+    shortDescription: "Convert between JSON and XML",
+    icon: "braces",
+    category: "json-tools",
+    component: "json-xml",
+    seo: {
+      title: "JSON to XML Converter — XML to JSON Online",
+      description:
+        "Free JSON ↔ XML converter. Transform API payloads and config files instantly.",
+      keywords: ["json to xml", "xml to json", "json xml converter"],
+    },
+    faqs: [
+      {
+        question: "How are JSON arrays represented in XML?",
+        answer: "Array items become repeated sibling elements with the same tag name.",
+      },
+    ],
+    examples: [
+      {
+        title: "JSON to XML",
+        input: '{"user":{"name":"DevKit"}}',
+        output: "<root><user><name>DevKit</name></user></root>",
+      },
+    ],
+    tags: ["json", "xml", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "csv-json",
+    name: "CSV ↔ JSON",
+    description:
+      "Convert CSV spreadsheets to JSON arrays and JSON objects back to CSV with quoted-field support.",
+    shortDescription: "Convert between CSV and JSON",
+    icon: "table-2",
+    category: "json-tools",
+    component: "csv-json",
+    seo: {
+      title: "CSV to JSON Converter — JSON to CSV Online",
+      description:
+        "Free CSV ↔ JSON converter. Turn spreadsheets into API-ready JSON and back.",
+      keywords: ["csv to json", "json to csv", "csv json converter"],
+    },
+    faqs: [
+      {
+        question: "Does it support quoted commas in CSV?",
+        answer: "Yes. Fields wrapped in double quotes are parsed correctly.",
+      },
+    ],
+    examples: [
+      {
+        title: "CSV to JSON",
+        input: "name,tools\nDevKit,100",
+        output: '[{"name":"DevKit","tools":"100"}]',
+      },
+    ],
+    tags: ["csv", "json", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "markdown-html",
+    name: "Markdown ↔ HTML",
+    description:
+      "Convert Markdown to HTML and HTML back to Markdown for docs, blogs, and content workflows.",
+    shortDescription: "Convert between Markdown and HTML",
+    icon: "file-code-2",
+    category: "web",
+    component: "markdown-html",
+    seo: {
+      title: "Markdown to HTML Converter — HTML to Markdown Online",
+      description:
+        "Free Markdown ↔ HTML converter. Preview-ready HTML and clean Markdown in your browser.",
+      keywords: ["markdown to html", "html to markdown", "md converter"],
+    },
+    faqs: [
+      {
+        question: "Is GitHub-flavored Markdown supported?",
+        answer: "Markdown → HTML uses GFM via the marked parser. HTML → Markdown covers common tags.",
+      },
+    ],
+    examples: [
+      {
+        title: "Markdown heading",
+        input: "# DevKit",
+        output: "<h1>DevKit</h1>",
+      },
+    ],
+    tags: ["markdown", "html", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "hex-rgb",
+    name: "HEX ↔ RGB",
+    description:
+      "Convert HEX colors to RGB and RGB values to HEX with a live color preview swatch.",
+    shortDescription: "Convert HEX and RGB colors",
+    icon: "palette",
+    category: "design",
+    component: "hex-rgb",
+    seo: {
+      title: "HEX to RGB Converter — RGB to HEX Online",
+      description:
+        "Free HEX ↔ RGB color converter with live preview. Perfect for CSS and design tokens.",
+      keywords: ["hex to rgb", "rgb to hex", "color converter"],
+    },
+    faqs: [
+      {
+        question: "Are 3-digit HEX codes supported?",
+        answer: "Yes. Shorthand values like #0d9 expand to six-digit form (#00dd99).",
+      },
+    ],
+    examples: [
+      {
+        title: "HEX to RGB",
+        input: "#0d9488",
+        output: "rgb(13, 148, 136)",
+      },
+    ],
+    tags: ["hex", "rgb", "color", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
     slug: "color-palette-generator",
     name: "Color Palette Generator",
     description:

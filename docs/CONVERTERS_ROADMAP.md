@@ -1,0 +1,41 @@
+# Converters Roadmap
+
+Full converter catalog for DevKit. Implement in phases. Prefer browser-local tools first.
+
+## Phase 1 (done) — High-traffic client tools
+- [x] Base64 Encode/Decode
+- [x] URL Encode/Decode
+- [x] JWT Decoder
+- [x] JSON ↔ YAML
+- [x] JSON ↔ XML
+- [x] CSV ↔ JSON
+- [x] Markdown ↔ HTML
+- [x] HEX ↔ RGB
+- [x] Unix Timestamp Converter (full UI)
+
+## Phase 2 — Code & data formats
+JSON↔TOML, YAML↔XML, CSV↔XML, ENV↔JSON, SQL↔JSON, HTML↔JSX, CSS↔SCSS, CommonJS↔ESM, etc.
+
+## Phase 3 — Image converters (client)
+JPG↔PNG↔WebP, SVG→PNG/JPG, BMP/GIF/ICO…
+
+## Phase 4 — Mobile model generators
+JSON → TS / Swift / Kotlin / Dart / C# / Java / Go / Rust
+
+## Phase 5 — Crypto, network, units, finance, text
+Hashes, color full set, units, currency, calculators, text utilities
+
+## Phase 6 — Documents & media (server required)
+Word↔PDF, Excel, PowerPoint, EPUB, video (ffmpeg), audio, ZIP/TAR
+
+## Document Converters
+Word↔PDF, PDF↔Word, Excel↔PDF, PDF↔Excel, PowerPoint↔PDF, PDF↔PowerPoint, Image↔PDF, PDF↔Image, PDF↔Text, HTML↔PDF, Markdown→PDF, PDF↔HTML, EPUB↔PDF, MOBI↔EPUB, RTF↔DOCX, ODT↔DOCX
+
+## Image Converters
+PNG↔JPG, WEBP↔PNG/JPG, HEIC→JPG/PNG, SVG→PNG/JPG/PDF, PNG→SVG, BMP→PNG, TIFF→JPG, GIF→PNG, ICO↔PNG, AVIF↔PNG
+
+## Video / Audio / Archive
+See product backlog — requires server workers.
+
+## Encoding already shipped
+Base64, URL encode/decode

@@ -17,45 +17,71 @@ function ToolLoading() {
   );
 }
 
+function lazyTool(
+  loader: () => Promise<{ default: ComponentType<ToolComponentProps> }>
+) {
+  return dynamic(loader, { loading: () => <ToolLoading /> });
+}
+
 /**
  * Lazy-loaded tool component registry (client-only).
  * Add new tools here as they are implemented.
  */
 const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
-  "json-formatter": dynamic(
-    () =>
-      import("@/components/tools/json/json-formatter").then((mod) => ({
-        default: mod.JsonFormatter,
-      })),
-    { loading: () => <ToolLoading /> }
+  "json-formatter": lazyTool(() =>
+    import("@/components/tools/json/json-formatter").then((mod) => ({
+      default: mod.JsonFormatter,
+    }))
   ),
-  "json-validator": dynamic(
-    () =>
-      import("@/components/tools/json/json-validator").then((mod) => ({
-        default: mod.JsonValidator,
-      })),
-    { loading: () => <ToolLoading /> }
+  "json-validator": lazyTool(() =>
+    import("@/components/tools/json/json-validator").then((mod) => ({
+      default: mod.JsonValidator,
+    }))
   ),
-  "jwt-decoder": dynamic(
-    () =>
-      import("@/components/tools/security/jwt-decoder").then((mod) => ({
-        default: mod.JwtDecoder,
-      })),
-    { loading: () => <ToolLoading /> }
+  "jwt-decoder": lazyTool(() =>
+    import("@/components/tools/security/jwt-decoder").then((mod) => ({
+      default: mod.JwtDecoder,
+    }))
   ),
-  base64: dynamic(
-    () =>
-      import("@/components/tools/encoding/base64").then((mod) => ({
-        default: mod.Base64Tool,
-      })),
-    { loading: () => <ToolLoading /> }
+  base64: lazyTool(() =>
+    import("@/components/tools/encoding/base64").then((mod) => ({
+      default: mod.Base64Tool,
+    }))
   ),
-  "url-encode-decode": dynamic(
-    () =>
-      import("@/components/tools/encoding/url-encode-decode").then((mod) => ({
-        default: mod.UrlEncodeDecode,
-      })),
-    { loading: () => <ToolLoading /> }
+  "url-encode-decode": lazyTool(() =>
+    import("@/components/tools/encoding/url-encode-decode").then((mod) => ({
+      default: mod.UrlEncodeDecode,
+    }))
+  ),
+  "json-yaml": lazyTool(() =>
+    import("@/components/tools/converters/json-yaml").then((mod) => ({
+      default: mod.JsonYamlConverter,
+    }))
+  ),
+  "json-xml": lazyTool(() =>
+    import("@/components/tools/converters/json-xml").then((mod) => ({
+      default: mod.JsonXmlConverter,
+    }))
+  ),
+  "csv-json": lazyTool(() =>
+    import("@/components/tools/converters/csv-json").then((mod) => ({
+      default: mod.CsvJsonConverter,
+    }))
+  ),
+  "markdown-html": lazyTool(() =>
+    import("@/components/tools/converters/markdown-html").then((mod) => ({
+      default: mod.MarkdownHtmlConverter,
+    }))
+  ),
+  "hex-rgb": lazyTool(() =>
+    import("@/components/tools/converters/hex-rgb").then((mod) => ({
+      default: mod.HexRgbConverter,
+    }))
+  ),
+  "timestamp-converter": lazyTool(() =>
+    import("@/components/tools/web/timestamp-converter").then((mod) => ({
+      default: mod.TimestampConverter,
+    }))
   ),
 };
 

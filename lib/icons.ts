@@ -3,6 +3,7 @@ import {
   Braces,
   Clock,
   Database,
+  FileCode2,
   Globe,
   Hash,
   Image,
@@ -17,6 +18,7 @@ import {
   ShieldCheck,
   Smartphone,
   Sparkles,
+  Table2,
   Terminal,
   Wrench,
   type LucideIcon,
@@ -47,6 +49,8 @@ export const ICONS = {
   database: Database,
   sparkles: Sparkles,
   wrench: Wrench,
+  "file-code-2": FileCode2,
+  "table-2": Table2,
 } as const;
 
 export type IconName = keyof typeof ICONS;
