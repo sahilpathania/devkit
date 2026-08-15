@@ -32,8 +32,17 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] JSON → Model (TS / Swift / Kotlin / Dart / C# / Java / Go / Rust)
 - [x] SEO pages: json-to-typescript, swift, kotlin, dart, csharp, java, go, rust
 
-## Phase 5 — Crypto, network, units, finance, text
-Hashes, color full set, units, currency, calculators, text utilities
+## Phase 5 (done) — Crypto, network, units, finance, text
+- [x] Hash Generator (MD5 + SHA family)
+- [x] UUID Generator
+- [x] Number Base Converter (bin/oct/dec/hex)
+- [x] Color Converter (HEX/RGB/HSL/HSV/CMYK)
+- [x] Color Palette Generator
+- [x] Unit Converter (length/mass/temp/data/time)
+- [x] Currency Converter (ECB via Frankfurter)
+- [x] Text Case Converter
+- [x] Word Counter
+- [x] Percentage Calculator
 
 ## Phase 6 — Documents & media (server required)
 Word↔PDF, Excel, PowerPoint, EPUB, video (ffmpeg), audio, ZIP/TAR

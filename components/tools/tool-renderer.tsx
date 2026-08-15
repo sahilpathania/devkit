@@ -143,6 +143,56 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.JsonModelGenerator,
     }))
   ),
+  "hash-generator": lazyTool(() =>
+    import("@/components/tools/security/hash-generator").then((mod) => ({
+      default: mod.HashGenerator,
+    }))
+  ),
+  "uuid-generator": lazyTool(() =>
+    import("@/components/tools/encoding/uuid-generator").then((mod) => ({
+      default: mod.UuidGenerator,
+    }))
+  ),
+  "color-converter": lazyTool(() =>
+    import("@/components/tools/design/color-converter").then((mod) => ({
+      default: mod.ColorConverter,
+    }))
+  ),
+  "color-palette-generator": lazyTool(() =>
+    import("@/components/tools/design/color-palette-generator").then((mod) => ({
+      default: mod.ColorPaletteGenerator,
+    }))
+  ),
+  "unit-converter": lazyTool(() =>
+    import("@/components/tools/web/unit-converter").then((mod) => ({
+      default: mod.UnitConverter,
+    }))
+  ),
+  "currency-converter": lazyTool(() =>
+    import("@/components/tools/web/currency-converter").then((mod) => ({
+      default: mod.CurrencyConverter,
+    }))
+  ),
+  "text-case-converter": lazyTool(() =>
+    import("@/components/tools/web/text-case-converter").then((mod) => ({
+      default: mod.TextCaseConverter,
+    }))
+  ),
+  "word-counter": lazyTool(() =>
+    import("@/components/tools/web/word-counter").then((mod) => ({
+      default: mod.WordCounter,
+    }))
+  ),
+  "percentage-calculator": lazyTool(() =>
+    import("@/components/tools/web/percentage-calculator").then((mod) => ({
+      default: mod.PercentageCalculator,
+    }))
+  ),
+  "number-base-converter": lazyTool(() =>
+    import("@/components/tools/encoding/number-base-converter").then((mod) => ({
+      default: mod.NumberBaseConverter,
+    }))
+  ),
 };
 
 interface ToolRendererProps {

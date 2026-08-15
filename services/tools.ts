@@ -209,7 +209,74 @@ export const TOOLS: Tool[] = [
     ],
     tags: ["uuid", "generate", "id"],
     isPopular: true,
+    isNew: true,
     createdAt: "2026-02-01",
+  },
+  {
+    slug: "hash-generator",
+    name: "Hash Generator",
+    description:
+      "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from text in your browser.",
+    shortDescription: "MD5 and SHA hashes from text",
+    icon: "hash",
+    category: "security",
+    component: "hash-generator",
+    seo: {
+      title: "Hash Generator — MD5 SHA-256 SHA-512 Online",
+      description:
+        "Free hash generator. Create MD5 and SHA hashes locally in your browser.",
+      keywords: ["hash generator", "md5", "sha256", "sha512", "checksum"],
+    },
+    faqs: [
+      {
+        question: "Is MD5 safe for passwords?",
+        answer:
+          "No. MD5 and SHA-1 are for checksums only. Use a password hasher (bcrypt/argon2) for credentials.",
+      },
+    ],
+    examples: [
+      {
+        title: "SHA-256",
+        input: "DevKit",
+        description: "Outputs a 64-character hex digest.",
+      },
+    ],
+    tags: ["hash", "md5", "sha", "security"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "number-base-converter",
+    name: "Number Base Converter",
+    description:
+      "Convert numbers between binary, octal, decimal, and hexadecimal bases.",
+    shortDescription: "Binary, octal, decimal, hex converter",
+    icon: "binary",
+    category: "encoding",
+    component: "number-base-converter",
+    seo: {
+      title: "Number Base Converter — Binary Octal Decimal Hex",
+      description:
+        "Convert between binary, octal, decimal, and hexadecimal online.",
+      keywords: ["binary converter", "hex converter", "number base", "octal"],
+    },
+    faqs: [
+      {
+        question: "Are negative numbers supported?",
+        answer: "This tool focuses on non-negative integers via parseInt.",
+      },
+    ],
+    examples: [
+      {
+        title: "Decimal to hex",
+        input: "255",
+        output: "FF",
+      },
+    ],
+    tags: ["binary", "hex", "octal", "decimal", "convert"],
+    isNew: true,
+    createdAt: "2026-08-15",
   },
   {
     slug: "qr-generator",
@@ -734,6 +801,201 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-08-15",
   },
   {
+    slug: "color-converter",
+    name: "Color Converter",
+    description:
+      "Convert colors between HEX, RGB, HSL, HSV, and CMYK with a live preview swatch.",
+    shortDescription: "HEX RGB HSL HSV CMYK converter",
+    icon: "palette",
+    category: "design",
+    component: "color-converter",
+    seo: {
+      title: "Color Converter — HEX RGB HSL HSV CMYK Online",
+      description:
+        "Free color converter between HEX, RGB, HSL, HSV, and CMYK with live preview.",
+      keywords: ["color converter", "hex to hsl", "rgb to cmyk", "hsv converter"],
+    },
+    faqs: [
+      {
+        question: "Can I edit any format?",
+        answer: "Yes. Change HEX, RGB, HSL, HSV, or CMYK and the others update instantly.",
+      },
+    ],
+    examples: [
+      {
+        title: "HEX to HSL",
+        input: "#0d9488",
+        output: "hsl(173, 84%, 31%)",
+      },
+    ],
+    tags: ["color", "hex", "rgb", "hsl", "hsv", "cmyk"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "unit-converter",
+    name: "Unit Converter",
+    description:
+      "Convert length, mass, temperature, data size, and time units instantly.",
+    shortDescription: "Length, mass, temp, data, time units",
+    icon: "wrench",
+    category: "web",
+    component: "unit-converter",
+    seo: {
+      title: "Unit Converter — Length Mass Temperature Data Time",
+      description:
+        "Free unit converter for length, weight, temperature, digital storage, and time.",
+      keywords: ["unit converter", "length converter", "temperature converter", "mb to gb"],
+    },
+    faqs: [
+      {
+        question: "Is data size binary or decimal?",
+        answer: "Data units use binary (1024-based) multiples: KB, MB, GB, TB.",
+      },
+    ],
+    examples: [
+      {
+        title: "Miles to kilometers",
+        input: "1 mi",
+        output: "1.609344 km",
+      },
+    ],
+    tags: ["units", "convert", "length", "temperature", "data"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "currency-converter",
+    name: "Currency Converter",
+    description:
+      "Convert between major world currencies using daily ECB reference rates.",
+    shortDescription: "Live currency conversion (ECB rates)",
+    icon: "globe",
+    category: "web",
+    component: "currency-converter",
+    seo: {
+      title: "Currency Converter — Exchange Rates Online",
+      description:
+        "Convert USD, EUR, GBP, INR, and more using European Central Bank reference rates.",
+      keywords: ["currency converter", "exchange rate", "usd to eur", "inr converter"],
+    },
+    faqs: [
+      {
+        question: "Where do rates come from?",
+        answer:
+          "Frankfurter API serving ECB reference rates. Not for trading or banking decisions.",
+      },
+    ],
+    examples: [
+      {
+        title: "USD to EUR",
+        description: "Enter an amount, pick currencies, see the converted value.",
+      },
+    ],
+    tags: ["currency", "fx", "money", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "text-case-converter",
+    name: "Text Case Converter",
+    description:
+      "Convert text to camelCase, snake_case, kebab-case, PascalCase, slug, and more.",
+    shortDescription: "camelCase, snake_case, slug, and more",
+    icon: "file-code-2",
+    category: "web",
+    component: "text-case-converter",
+    seo: {
+      title: "Text Case Converter — camelCase snake_case slug Online",
+      description:
+        "Free text case converter for camelCase, PascalCase, snake_case, kebab-case, and URL slugs.",
+      keywords: ["camelcase converter", "snake case", "kebab case", "slugify"],
+    },
+    faqs: [
+      {
+        question: "Does slug mode remove special characters?",
+        answer: "Yes. Non-alphanumeric characters become separators and are normalized.",
+      },
+    ],
+    examples: [
+      {
+        title: "To camelCase",
+        input: "DevKit developer tools",
+        output: "devKitDeveloperTools",
+      },
+    ],
+    tags: ["text", "case", "slug", "camelcase", "snake"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "word-counter",
+    name: "Word Counter",
+    description:
+      "Count words, characters, sentences, paragraphs, and estimate reading time.",
+    shortDescription: "Words, characters, reading time",
+    icon: "file-code-2",
+    category: "web",
+    component: "word-counter",
+    seo: {
+      title: "Word Counter — Characters Sentences Reading Time",
+      description:
+        "Free word counter with character counts, sentences, paragraphs, and reading time.",
+      keywords: ["word counter", "character counter", "reading time"],
+    },
+    faqs: [
+      {
+        question: "How is reading time calculated?",
+        answer: "Approximately 200 words per minute, rounded up.",
+      },
+    ],
+    examples: [
+      {
+        title: "Quick count",
+        description: "Paste text to see live word and character stats.",
+      },
+    ],
+    tags: ["text", "words", "characters", "count"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "percentage-calculator",
+    name: "Percentage Calculator",
+    description:
+      "Calculate percentages, percent-of, percent change, and increase/decrease by percent.",
+    shortDescription: "Percent of, change, increase/decrease",
+    icon: "wrench",
+    category: "web",
+    component: "percentage-calculator",
+    seo: {
+      title: "Percentage Calculator — Percent Of Change Online",
+      description:
+        "Free percentage calculator for percent-of, what-percent, and percent change.",
+      keywords: ["percentage calculator", "percent of", "percent change"],
+    },
+    faqs: [
+      {
+        question: "What modes are available?",
+        answer:
+          "X% of Y, X is what % of Y, % change, increase by %, and decrease by %.",
+      },
+    ],
+    examples: [
+      {
+        title: "15% of 200",
+        input: "15, 200",
+        output: "30",
+      },
+    ],
+    tags: ["percentage", "calculator", "math", "finance"],
+    isNew: true,
+    createdAt: "2026-08-15",
+  },
+  {
     slug: "image-converter",
     name: "Image Converter",
     description:
@@ -871,6 +1133,7 @@ export const TOOLS: Tool[] = [
       },
     ],
     tags: ["color", "palette", "design"],
+    isPopular: true,
     isNew: true,
     createdAt: "2026-03-10",
   },
