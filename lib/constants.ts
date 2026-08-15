@@ -11,18 +11,18 @@ export const SITE_CONFIG = {
 
 /** Rotating search placeholders on the homepage. */
 export const SEARCH_PLACEHOLDERS = [
-  "Compress PDF",
+  "Compress Image",
   "Resize Image",
+  "Merge PDF",
+  "Split PDF",
+  "Password Generator",
+  "Age Calculator",
   "JSON Formatter",
   "QR Generator",
   "Word to PDF",
-  "Merge PDF",
-  "Age Calculator",
-  "Base64 Encoder",
-  "Color Converter",
-  "UUID Generator",
-  "Regex Tester",
   "Currency Converter",
+  "Base64 Encoder",
+  "Regex Tester",
 ] as const;
 
 /** Keyboard shortcut labels for accessibility and tooltips. */

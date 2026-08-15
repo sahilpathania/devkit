@@ -59,6 +59,11 @@ Full converter catalog for DevKit. Implement in phases. Prefer browser-local too
 - [x] PDF → Image (PNG / ZIP)
 - [x] ZIP create / extract
 - [x] Word DOCX → PDF (browser via Mammoth; layout approximate)
+- [x] Merge PDF
+- [x] Split PDF
+- [x] Compress / Resize Image
+- [x] Password Generator
+- [x] Age Calculator
 
 ## Out of scope (for now)
 - Video / audio / ffmpeg

@@ -1777,6 +1777,185 @@ export const TOOLS: Tool[] = [
     isFeatured: true,
     createdAt: "2026-08-15",
   },
+  {
+    slug: "image-compress",
+    name: "Compress / Resize Image",
+    description:
+      "Compress and resize images in your browser. Choose JPG, WebP, or PNG, set quality, and scale by max width, height, exact size, or percent.",
+    shortDescription: "Compress and resize images locally",
+    icon: "image",
+    category: "images",
+    component: "image-compress",
+    seo: {
+      title: "Compress & Resize Image Online — Free JPG WebP PNG",
+      description:
+        "Free image compressor and resizer. Reduce file size, change dimensions, export JPG, WebP, or PNG — all in your browser.",
+      keywords: [
+        "compress image",
+        "resize image",
+        "image compressor",
+        "reduce image size",
+        "webp compress",
+      ],
+    },
+    faqs: [
+      {
+        question: "Are images uploaded?",
+        answer: "No. Compression and resizing use the Canvas API in your browser.",
+      },
+      {
+        question: "Which format is smallest?",
+        answer: "WebP or JPG with lower quality usually beat PNG for photos.",
+      },
+    ],
+    examples: [
+      {
+        title: "Web photo",
+        description: "Upload a large JPG, max width 1600, quality 80%, download.",
+      },
+    ],
+    tags: ["compress", "resize", "image", "jpg", "webp", "png", "optimize"],
+    isNew: true,
+    isPopular: true,
+    isFeatured: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "merge-pdf",
+    name: "Merge PDF",
+    description:
+      "Combine multiple PDF files into one. Reorder pages before merging — everything runs in your browser.",
+    shortDescription: "Combine PDFs into one file",
+    icon: "file-text",
+    category: "documents",
+    component: "merge-pdf",
+    seo: {
+      title: "Merge PDF Online — Combine PDF Files Free",
+      description:
+        "Merge multiple PDFs into a single document in your browser. Reorder files, download instantly. Private and free.",
+      keywords: ["merge pdf", "combine pdf", "join pdf", "pdf merger"],
+    },
+    faqs: [
+      {
+        question: "Are PDFs uploaded?",
+        answer: "No. Merging uses pdf-lib entirely in your browser.",
+      },
+    ],
+    examples: [
+      {
+        title: "Reports",
+        description: "Add cover.pdf then body.pdf, merge, download.",
+      },
+    ],
+    tags: ["pdf", "merge", "combine", "join", "document"],
+    isNew: true,
+    isPopular: true,
+    isFeatured: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "split-pdf",
+    name: "Split PDF",
+    description:
+      "Split a PDF into individual pages (ZIP) or extract a page range. Runs locally — no upload.",
+    shortDescription: "Split PDF by page or range",
+    icon: "file-text",
+    category: "documents",
+    component: "split-pdf",
+    seo: {
+      title: "Split PDF Online — Extract Pages Free",
+      description:
+        "Split a PDF into separate pages or extract a range. Free, private, browser-only.",
+      keywords: ["split pdf", "extract pdf pages", "pdf splitter", "pdf range"],
+    },
+    faqs: [
+      {
+        question: "What do I get for multi-page split?",
+        answer: "A ZIP archive with one PDF per page.",
+      },
+    ],
+    examples: [
+      {
+        title: "Pages 2–5",
+        description: "Choose page range mode, set 2–5, download.",
+      },
+    ],
+    tags: ["pdf", "split", "extract", "pages", "document"],
+    isNew: true,
+    isPopular: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "password-generator",
+    name: "Password Generator",
+    description:
+      "Generate strong random passwords with Web Crypto. Choose length and character sets, copy instantly.",
+    shortDescription: "Generate strong random passwords",
+    icon: "lock",
+    category: "security",
+    component: "password-generator",
+    seo: {
+      title: "Password Generator — Strong Random Passwords Online",
+      description:
+        "Free secure password generator. Cryptographically random, customizable length and symbols. Runs in your browser.",
+      keywords: [
+        "password generator",
+        "strong password",
+        "random password",
+        "secure password",
+      ],
+    },
+    faqs: [
+      {
+        question: "Are passwords sent to a server?",
+        answer: "No. Generation uses crypto.getRandomValues in your browser.",
+      },
+    ],
+    examples: [
+      {
+        title: "16-character password",
+        description: "Default settings, click Generate, copy.",
+      },
+    ],
+    tags: ["password", "security", "generator", "random"],
+    isNew: true,
+    isPopular: true,
+    isFeatured: true,
+    createdAt: "2026-08-15",
+  },
+  {
+    slug: "age-calculator",
+    name: "Age Calculator",
+    description:
+      "Calculate exact age in years, months, and days. See total days lived and days until the next birthday.",
+    shortDescription: "Calculate exact age from birth date",
+    icon: "calculator",
+    category: "calculators",
+    component: "age-calculator",
+    seo: {
+      title: "Age Calculator — Exact Age in Years Months Days",
+      description:
+        "Free age calculator. Enter date of birth to get years, months, days, and next birthday countdown.",
+      keywords: ["age calculator", "how old am i", "birthday calculator", "exact age"],
+    },
+    faqs: [
+      {
+        question: "Is my birth date stored?",
+        answer: "No. Calculation runs only in your browser.",
+      },
+    ],
+    examples: [
+      {
+        title: "Birthday",
+        input: "2000-01-15",
+        description: "See years, months, days, and next birthday.",
+      },
+    ],
+    tags: ["age", "birthday", "calculator", "date"],
+    isNew: true,
+    isPopular: true,
+    createdAt: "2026-08-15",
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
@@ -1812,20 +1991,20 @@ export function getRelatedTools(tool: Tool, limit = 4): Tool[] {
  * (e.g. "passport" → image resize / convert tools).
  */
 const SEARCH_SYNONYMS: Record<string, string[]> = {
-  passport: ["image", "resize", "photo", "png", "jpg", "convert"],
-  resume: ["pdf", "word", "docx", "compress", "text"],
+  passport: ["image", "resize", "photo", "png", "jpg", "compress", "convert"],
+  resume: ["pdf", "word", "docx", "compress", "text", "merge", "split"],
   cv: ["pdf", "word", "docx"],
-  photo: ["image", "png", "jpg", "svg", "ico"],
-  picture: ["image", "png", "jpg"],
-  compress: ["image", "zip", "pdf"],
+  photo: ["image", "png", "jpg", "svg", "ico", "compress", "resize"],
+  picture: ["image", "png", "jpg", "compress"],
+  compress: ["image", "zip", "pdf", "resize"],
   merge: ["pdf", "zip"],
   split: ["pdf"],
   ocr: ["pdf", "text"],
   barcode: ["qr"],
-  password: ["hash", "uuid", "security"],
-  age: ["percentage", "calculator", "timestamp"],
+  password: ["password", "hash", "uuid", "security", "generator"],
+  age: ["age", "birthday", "calculator", "date"],
   gst: ["percentage", "currency", "calculator"],
-  invoice: ["pdf", "percentage", "currency"],
+  invoice: ["pdf", "percentage", "currency", "merge"],
   background: ["image", "svg"],
   favicon: ["ico", "png"],
   archive: ["zip"],

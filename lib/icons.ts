@@ -12,6 +12,7 @@ import {
   Image,
   KeyRound,
   Link2,
+  Lock,
   Palette,
   Play,
   QrCode,
@@ -61,6 +62,7 @@ export const ICONS = {
   calculator: Calculator,
   type: Type,
   repeat: Repeat,
+  lock: Lock,
 } as const;
 
 export type IconName = keyof typeof ICONS;

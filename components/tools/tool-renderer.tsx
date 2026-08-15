@@ -253,6 +253,31 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.WordToPdf,
     }))
   ),
+  "image-compress": lazyTool(() =>
+    import("@/components/tools/images/image-compress-resize").then((mod) => ({
+      default: mod.ImageCompressResize,
+    }))
+  ),
+  "merge-pdf": lazyTool(() =>
+    import("@/components/tools/documents/merge-pdf").then((mod) => ({
+      default: mod.MergePdf,
+    }))
+  ),
+  "split-pdf": lazyTool(() =>
+    import("@/components/tools/documents/split-pdf").then((mod) => ({
+      default: mod.SplitPdf,
+    }))
+  ),
+  "password-generator": lazyTool(() =>
+    import("@/components/tools/security/password-generator").then((mod) => ({
+      default: mod.PasswordGenerator,
+    }))
+  ),
+  "age-calculator": lazyTool(() =>
+    import("@/components/tools/calculators/age-calculator").then((mod) => ({
+      default: mod.AgeCalculator,
+    }))
+  ),
 };
 
 interface ToolRendererProps {
