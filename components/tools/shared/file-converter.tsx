@@ -6,6 +6,7 @@ import {
   CheckCircle2,
   Download,
   Eraser,
+  Loader2,
   Upload,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -28,7 +29,7 @@ interface FileConverterShellProps {
   convertLabel?: string;
   busyLabel?: string;
   disabled?: boolean;
-  /** Extra controls rendered above the dropzone */
+  maxSizeLabel?: string;
   children?: ReactNode;
   convert: (files: File[]) => Promise<FileConverterResult>;
 }
@@ -39,12 +40,13 @@ interface FileConverterShellProps {
 export function FileConverterShell({
   accept,
   hint,
-  dropLabel = "Drop a file or click to upload",
+  dropLabel = "Drop a file or click to browse",
   multiple = false,
   privacyNote,
   convertLabel = "Convert",
   busyLabel = "Converting…",
   disabled = false,
+  maxSizeLabel = "Processed in your browser",
   children,
   convert,
 }: FileConverterShellProps) {
@@ -54,6 +56,7 @@ export function FileConverterShell({
   const [result, setResult] = useState<FileConverterResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [dragging, setDragging] = useState(false);
 
   const clear = useCallback(() => {
     setFiles([]);
@@ -69,6 +72,7 @@ export function FileConverterShell({
     setFiles(next);
     setResult(null);
     setError(null);
+    setDragging(false);
 
     if (next.length === 1) {
       toast.success("File ready", {
@@ -92,16 +96,15 @@ export function FileConverterShell({
     try {
       const next = await convert(files);
       setResult(next);
-      toast.success("Conversion successful", {
+      toast.success("Done", {
         description:
-          next.message ??
-          `${next.filename} · ${formatBytes(next.blob.size)}`,
+          next.message ?? `${next.filename} · ${formatBytes(next.blob.size)}`,
       });
     } catch (err) {
       setResult(null);
       const message = err instanceof Error ? err.message : "Conversion failed.";
       setError(message);
-      toast.error("Conversion failed", { description: message });
+      toast.error("Something went wrong", { description: message });
     } finally {
       setBusy(false);
     }
@@ -117,25 +120,33 @@ export function FileConverterShell({
           type="button"
           onClick={() => void run()}
           disabled={busy || disabled || !files.length}
-          className="gap-1.5"
+          className="h-10 gap-1.5 rounded-xl"
         >
-          {busy ? busyLabel : convertLabel}
+          {busy ? (
+            <>
+              <Loader2 className="size-4 animate-spin" />
+              {busyLabel}
+            </>
+          ) : (
+            convertLabel
+          )}
         </Button>
         <Button
           type="button"
           variant="ghost"
           onClick={clear}
-          className="gap-1.5 text-muted-foreground"
+          disabled={busy}
+          className="h-10 gap-1.5 rounded-xl text-muted-foreground"
         >
           <Eraser className="size-4" />
-          Clear
+          Reset
         </Button>
         {result && (
           <Button
             type="button"
             variant="outline"
             onClick={() => downloadBlob(result.blob, result.filename)}
-            className="gap-1.5"
+            className="h-10 gap-1.5 rounded-xl"
           >
             <Download className="size-4" />
             Download
@@ -145,11 +156,22 @@ export function FileConverterShell({
 
       {children}
 
+      {busy && (
+        <div
+          className="h-1.5 overflow-hidden rounded-full bg-muted"
+          role="progressbar"
+          aria-label="Processing"
+          aria-busy="true"
+        >
+          <div className="h-full w-1/3 animate-pulse rounded-full bg-foreground/40" />
+        </div>
+      )}
+
       {(error || result) && (
         <div
           role="status"
           className={cn(
-            "flex items-start gap-2 rounded-xl border px-3 py-2.5 text-sm",
+            "flex items-start gap-2 rounded-xl border px-3 py-2.5 text-sm transition-opacity duration-200",
             error
               ? "border-destructive/30 bg-destructive/5 text-destructive"
               : "border-emerald-500/40 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300"
@@ -173,22 +195,39 @@ export function FileConverterShell({
 
       <label
         htmlFor={inputId}
-        onDragOver={(e) => e.preventDefault()}
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragging(true);
+        }}
+        onDragLeave={() => setDragging(false)}
         onDrop={(e) => {
           e.preventDefault();
           onFiles(e.dataTransfer.files);
         }}
         className={cn(
-          "flex cursor-pointer flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-border/70 bg-muted/20 px-4 py-10 text-center transition-colors hover:bg-muted/40",
-          files.length > 0 && "border-emerald-500/40 bg-emerald-500/5"
+          "flex min-h-[180px] cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed px-4 py-12 text-center transition-all duration-200",
+          dragging
+            ? "scale-[1.01] border-foreground/40 bg-muted/50"
+            : files.length > 0
+              ? "border-emerald-500/50 bg-emerald-500/5"
+              : "border-border/70 bg-muted/15 hover:border-border hover:bg-muted/30"
         )}
       >
-        <Upload
+        <span
           className={cn(
-            "size-6 text-muted-foreground",
-            files.length > 0 && "text-emerald-600 dark:text-emerald-400"
+            "flex size-12 items-center justify-center rounded-2xl transition-colors duration-200",
+            dragging || files.length > 0 ? "bg-background shadow-sm" : "bg-muted/60"
           )}
-        />
+        >
+          <Upload
+            className={cn(
+              "size-5 transition-colors duration-200",
+              files.length > 0
+                ? "text-emerald-600 dark:text-emerald-400"
+                : "text-muted-foreground"
+            )}
+          />
+        </span>
         <div className="text-sm font-medium">
           {files.length === 0
             ? dropLabel
@@ -196,7 +235,8 @@ export function FileConverterShell({
               ? files[0].name
               : `${files.length} files selected`}
         </div>
-        <p className="text-xs text-muted-foreground">{hint}</p>
+        <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">{hint}</p>
+        <p className="text-[11px] text-muted-foreground/80">{maxSizeLabel}</p>
         {privacyNote && (
           <p className="max-w-md text-xs text-amber-700 dark:text-amber-400">
             {privacyNote}
@@ -214,7 +254,7 @@ export function FileConverterShell({
       </label>
 
       {files.length > 1 && (
-        <ul className="max-h-40 space-y-1 overflow-auto rounded-lg border border-border/60 p-2 text-xs text-muted-foreground">
+        <ul className="max-h-40 space-y-1 overflow-auto rounded-xl border border-border/60 p-2 text-xs text-muted-foreground">
           {files.map((f) => (
             <li key={`${f.name}-${f.size}-${f.lastModified}`}>
               {f.name} · {formatBytes(f.size)}

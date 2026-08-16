@@ -2,28 +2,30 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface AppState {
-  /** Tool slugs marked as favorites by the user */
   favorites: string[];
-  /** Recently visited tool slugs (most recent first) */
   recentHistory: string[];
-  /** Command palette open state */
+  recentSearches: string[];
   isCommandPaletteOpen: boolean;
 
   toggleFavorite: (slug: string) => void;
   isFavorite: (slug: string) => boolean;
   addToHistory: (slug: string) => void;
   clearHistory: () => void;
+  addRecentSearch: (query: string) => void;
+  clearRecentSearches: () => void;
   setCommandPaletteOpen: (open: boolean) => void;
   toggleCommandPalette: () => void;
 }
 
-const MAX_HISTORY = 20;
+const MAX_HISTORY = 10;
+const MAX_SEARCHES = 8;
 
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
       favorites: [],
       recentHistory: [],
+      recentSearches: [],
       isCommandPaletteOpen: false,
 
       toggleFavorite: (slug) =>
@@ -45,6 +47,19 @@ export const useAppStore = create<AppState>()(
 
       clearHistory: () => set({ recentHistory: [] }),
 
+      addRecentSearch: (query) => {
+        const q = query.trim().toLowerCase();
+        if (q.length < 2) return;
+        set((state) => ({
+          recentSearches: [q, ...state.recentSearches.filter((s) => s !== q)].slice(
+            0,
+            MAX_SEARCHES
+          ),
+        }));
+      },
+
+      clearRecentSearches: () => set({ recentSearches: [] }),
+
       setCommandPaletteOpen: (open) => set({ isCommandPaletteOpen: open }),
 
       toggleCommandPalette: () =>
@@ -55,6 +70,7 @@ export const useAppStore = create<AppState>()(
       partialize: (state) => ({
         favorites: state.favorites,
         recentHistory: state.recentHistory,
+        recentSearches: state.recentSearches,
       }),
     }
   )

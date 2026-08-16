@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Code2 } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
 import { Separator } from "@/components/ui/separator";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -6,28 +7,22 @@ import { getActiveCategories } from "@/services/tools";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const categories = getActiveCategories();
-  const mid = Math.ceil(categories.length / 2);
+  const categories = getActiveCategories().slice(0, 8);
 
   return (
-    <footer className="border-t border-border/60 bg-muted/20">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <footer className="border-t border-border/50 bg-muted/5">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              {SITE_CONFIG.tagline} Free online tools for everyone — private by default.
-            </p>
-          </div>
-
           <div>
-            <h3 className="text-sm font-semibold">Categories</h3>
-            <ul className="mt-3 space-y-2">
-              {categories.slice(0, mid).map((category) => (
+            <h3 className="text-sm font-semibold tracking-[-0.02em] text-foreground">
+              Categories
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              {categories.map((category) => (
                 <li key={category.slug}>
                   <Link
                     href={`/category/${category.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                    className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                   >
                     {category.name}
                   </Link>
@@ -37,52 +32,119 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold">More</h3>
-            <ul className="mt-3 space-y-2">
-              {categories.slice(mid).map((category) => (
-                <li key={category.slug}>
-                  <Link
-                    href={`/category/${category.slug}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
+            <h3 className="text-sm font-semibold tracking-[-0.02em] text-foreground">
+              Resources
+            </h3>
+            <ul className="mt-4 space-y-2.5">
+              <li>
+                <Link
+                  href="/#popular-tools"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  Popular tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/search"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  Search
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#new-tools"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  New tools
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#faq"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold">Legal</h3>
-            <ul className="mt-3 space-y-2">
+            <h3 className="text-sm font-semibold tracking-[-0.02em] text-foreground">
+              Legal
+            </h3>
+            <ul className="mt-4 space-y-2.5">
               <li>
                 <Link
                   href="/privacy"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                  Privacy Policy
+                  Privacy
                 </Link>
               </li>
               <li>
                 <Link
                   href="/terms"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                  Terms of Service
+                  Terms
                 </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-sm font-semibold tracking-[-0.02em] text-foreground">
+              Company
+            </h3>
+            <div className="mt-4">
+              <Logo />
+              <p className="mt-3 max-w-[220px] text-sm leading-relaxed text-muted-foreground">
+                {SITE_CONFIG.tagline}
+              </p>
+            </div>
+            <ul className="mt-5 space-y-2.5">
+              <li>
+                <a
+                  href={SITE_CONFIG.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  <Code2 className="size-3.5" aria-hidden />
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:hello@${SITE_CONFIG.name.toLowerCase()}.dev`}
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:feedback@${SITE_CONFIG.name.toLowerCase()}.dev?subject=DevKit%20feedback`}
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  Feedback
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <Separator className="my-8" />
+        <Separator className="my-10" />
 
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 sm:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} {SITE_CONFIG.name}. All rights reserved.
+            © {currentYear} {SITE_CONFIG.name}
           </p>
           <p className="text-sm text-muted-foreground">
-            Built for everyone who works with digital files.
+            Fast · Private · Free
           </p>
         </div>
       </div>

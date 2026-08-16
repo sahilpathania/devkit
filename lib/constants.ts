@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   name: "DevKit",
   tagline: "Everything you need. One place.",
   description:
-    "The fastest online toolkit for everyone — compress and convert files, generate QR codes, format data, and solve everyday digital tasks in seconds. Free, private, no login.",
+    "Convert, compress, and edit files in your browser. Free online tools — private by default, no sign-up.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://devkit.dev",
   twitter: "@devkit",
   github: "https://github.com/devkit",
@@ -11,18 +11,42 @@ export const SITE_CONFIG = {
 
 /** Rotating search placeholders on the homepage. */
 export const SEARCH_PLACEHOLDERS = [
-  "Compress Image",
+  "Compress PDF",
   "Resize Image",
-  "Merge PDF",
-  "Split PDF",
-  "Password Generator",
-  "Age Calculator",
   "JSON Formatter",
   "QR Generator",
+  "Passport Photo",
+  "Merge PDF",
+  "Compress Image",
+  "Split PDF",
+  "Password Generator",
   "Word to PDF",
-  "Currency Converter",
-  "Base64 Encoder",
-  "Regex Tester",
+] as const;
+
+/** Popular search chips under the hero (real tools only). */
+export const POPULAR_SEARCHES = [
+  { label: "Merge PDF", query: "merge pdf", icon: "file-text" as const },
+  { label: "Compress Image", query: "compress image", icon: "image" as const },
+  { label: "QR Generator", query: "qr", icon: "qr-code" as const },
+  { label: "JSON Formatter", query: "json formatter", icon: "braces" as const },
+  { label: "Password Generator", query: "password", icon: "lock" as const },
+  { label: "Split PDF", query: "split pdf", icon: "file-text" as const },
+] as const;
+
+/** Hero capability badges (honest, not fake metrics). */
+export const HERO_CAPABILITIES = [
+  "Convert PDFs",
+  "Compress Images",
+  "Edit Documents",
+  "Generate QR Codes",
+  "Developer Utilities",
+] as const;
+
+export const HERO_TRUST_BADGES = [
+  "Fast",
+  "Private",
+  "Free",
+  "No Sign Up Required",
 ] as const;
 
 /** Keyboard shortcut labels for accessibility and tooltips. */

@@ -19,6 +19,7 @@ import { getRelatedTools } from "@/services/tools";
 import { SITE_CONFIG } from "@/lib/constants";
 import type { Tool } from "@/types";
 import { cn } from "@/lib/utils";
+import { ToolTrustStrip } from "@/components/tools/tool-trust-strip";
 
 interface ToolLayoutProps {
   tool: Tool;
@@ -26,8 +27,8 @@ interface ToolLayoutProps {
 }
 
 /**
- * Reusable layout shell for every developer tool page.
- * Handles breadcrumbs, SEO content sections, favorites, and share.
+ * Reusable layout shell for every tool page.
+ * Handles breadcrumbs, trust strip, favorites, share, examples, FAQ, related.
  */
 export function ToolLayout({ tool, children }: ToolLayoutProps) {
   const mounted = useIsClient();
@@ -110,6 +111,10 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
       </GradientBackground>
 
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mb-4">
+          <ToolTrustStrip local />
+        </div>
+
         <div className="rounded-2xl border border-border/60 bg-card p-4 shadow-sm sm:p-6">
           {children}
         </div>
