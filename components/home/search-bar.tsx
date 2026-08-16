@@ -19,6 +19,8 @@ interface SearchBarProps {
   autoFocus?: boolean;
   placeholder?: string;
   rotatePlaceholders?: boolean;
+  /** Hide the leading search icon — used on the homepage hero */
+  hideIcon?: boolean;
 }
 
 function highlightMatch(text: string, query: string) {
@@ -60,6 +62,7 @@ export function SearchBar({
   autoFocus = false,
   placeholder,
   rotatePlaceholders = false,
+  hideIcon = false,
 }: SearchBarProps) {
   const router = useRouter();
   const mounted = useIsClient();
@@ -201,10 +204,12 @@ export function SearchBar({
     <div className={cn("relative", className)}>
       <form onSubmit={handleSubmit} role="search">
         <div className="relative">
-          <Search
-            className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
-            aria-hidden="true"
-          />
+          {!hideIcon && (
+            <Search
+              className="pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
+              aria-hidden="true"
+            />
+          )}
           <Input
             type="search"
             value={query}
@@ -223,7 +228,8 @@ export function SearchBar({
             placeholder={livePlaceholder}
             autoFocus={autoFocus}
             className={cn(
-              "h-14 rounded-2xl border-border/55 bg-background/95 pl-11 pr-20 text-base backdrop-blur-md",
+              "h-14 rounded-2xl border-border/55 bg-background/95 pr-20 text-base backdrop-blur-md",
+              hideIcon ? "pl-5" : "pl-11",
               "shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_-8px_rgba(0,0,0,0.12)]",
               "transition-[box-shadow,border-color,transform] duration-200 ease-out",
               "focus-visible:border-foreground/20 focus-visible:shadow-[0_1px_2px_rgba(0,0,0,0.05),0_16px_40px_-12px_rgba(0,0,0,0.22)]",

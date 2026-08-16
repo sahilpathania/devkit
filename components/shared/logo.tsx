@@ -18,7 +18,7 @@ export function Logo({ className, showText = true }: LogoProps) {
       )}
       aria-label={`${SITE_CONFIG.name} home`}
     >
-      <div className="relative flex size-8 items-center justify-center rounded-xl bg-foreground text-background shadow-sm">
+      <div className="relative flex size-8 items-center justify-center rounded-full bg-foreground text-background shadow-sm">
         <Sparkles className="size-3.5" aria-hidden="true" />
       </div>
       {showText && (
