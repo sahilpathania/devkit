@@ -45,4 +45,4 @@ export async function generateQrSvg(text: string): Promise<string> {
   });
 }
 
-export const QR_SAMPLE_URL = "https://toolbay.dev";
+export const QR_SAMPLE_URL = "https://toolbay.in";

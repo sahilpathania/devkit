@@ -303,7 +303,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "URL QR code",
-        input: "https://toolbay.dev",
+        input: "https://toolbay.in",
       },
     ],
     tags: ["qr", "code", "generate"],
