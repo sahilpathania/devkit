@@ -68,7 +68,7 @@ npx vercel login
 npx vercel --prod
 ```
 
-Set `NEXT_PUBLIC_SITE_URL` in the Vercel project env to your production URL (e.g. `https://your-app.vercel.app`).
+Set `NEXT_PUBLIC_SITE_URL=https://toolbay.in` in the Vercel project environment for Production, Preview, and Development as needed.
 
 ## License
 
