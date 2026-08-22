@@ -74,7 +74,7 @@ export const DEEP_LINK_SAMPLE: DeepLinkFields = {
   scheme: "myapp",
   host: "product",
   path: "123",
-  query: "ref=devkit\nutm_source=share",
+  query: "ref=toolbay\nutm_source=share",
   packageName: "com.example.myapp",
   appStoreId: "123456789",
   fallbackUrl: "https://example.com/product/123",

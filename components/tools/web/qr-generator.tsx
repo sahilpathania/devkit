@@ -25,7 +25,7 @@ export function QrGenerator(_props: ToolComponentProps) {
   const [mode, setMode] = useState<QrMode>("url");
   const [text, setText] = useState(QR_SAMPLE_URL);
   const [wifi, setWifi] = useState<WifiFields>({
-    ssid: "DevKit-WiFi",
+    ssid: "ToolBay-WiFi",
     password: "secret123",
     encryption: "WPA",
     hidden: false,

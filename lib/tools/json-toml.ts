@@ -36,13 +36,13 @@ export function convertJsonToml(input: string, mode: JsonTomlMode): ConvertResul
 }
 
 export const JSON_TOML_SAMPLE_JSON = `{
-  "name": "DevKit",
+  "name": "ToolBay",
   "version": 1,
   "features": ["json", "toml"],
   "meta": { "free": true }
 }`;
 
-export const JSON_TOML_SAMPLE_TOML = `name = "DevKit"
+export const JSON_TOML_SAMPLE_TOML = `name = "ToolBay"
 version = 1
 features = ["json", "toml"]
 

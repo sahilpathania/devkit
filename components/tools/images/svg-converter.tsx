@@ -37,7 +37,7 @@ const FORMATS: { value: OutputImageFormat; label: string }[] = [
 const SAMPLE_SVG = `<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
   <rect width="240" height="240" rx="32" fill="#0d9488"/>
   <circle cx="120" cy="110" r="48" fill="#fff" opacity="0.95"/>
-  <text x="120" y="190" text-anchor="middle" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="22" font-weight="600">DevKit</text>
+  <text x="120" y="190" text-anchor="middle" fill="#ecfdf5" font-family="system-ui,sans-serif" font-size="22" font-weight="600">ToolBay</text>
 </svg>`;
 
 /**
@@ -151,7 +151,7 @@ export function SvgConverter(_props: ToolComponentProps) {
             onClick={() => {
               setMode("svg-to-raster");
               setSvgText(SAMPLE_SVG);
-              setFileName("devkit.svg");
+              setFileName("toolbay.svg");
               setResult(null);
               setError(null);
             }}

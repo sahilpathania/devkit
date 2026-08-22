@@ -49,7 +49,7 @@ async function main() {
     assert("csv-json", r.success && r.output.includes('"a"'));
   }
   {
-    const r = convertJsonToml('{"name":"DevKit","v":1}', "json-to-toml");
+    const r = convertJsonToml('{"name":"ToolBay","v":1}', "json-to-toml");
     assert("json-toml", r.success && r.output.includes("name"));
   }
   {
@@ -57,7 +57,7 @@ async function main() {
     assert("env-json", r.success && r.output.includes('"A"'));
   }
   {
-    const r = convertYamlXml("name: DevKit\n", "yaml-to-xml");
+    const r = convertYamlXml("name: ToolBay\n", "yaml-to-xml");
     assert("yaml-xml", r.success && r.output.toLowerCase().includes("name"));
   }
   {
@@ -105,9 +105,9 @@ async function main() {
 
   console.log("\nPhase 5 utilities");
   assert("md5-known", md5("") === "d41d8cd98f00b204e9800998ecf8427e");
-  assert("md5-len", md5("DevKit").length === 32);
+  assert("md5-len", md5("ToolBay").length === 32);
   {
-    const h = await hashText("DevKit", "sha-256");
+    const h = await hashText("ToolBay", "sha-256");
     assert("sha-256", h.length === 64);
   }
   {

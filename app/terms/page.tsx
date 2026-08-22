@@ -4,8 +4,8 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Terms of Service — DevKit",
-  description: "Terms governing use of DevKit developer tools.",
+  title: "Terms of Service — ToolBay",
+  description: "Terms governing use of ToolBay developer tools.",
   path: "/terms",
 });
 
@@ -49,6 +49,17 @@ export default function TermsPage() {
           <p>
             We may update these terms. Continued use after changes constitutes acceptance of
             the updated terms.
+          </p>
+
+          <h2 className="text-xl font-semibold text-foreground">Contact</h2>
+          <p>
+            Questions about these terms:{" "}
+            <a
+              href={`mailto:${SITE_CONFIG.email}`}
+              className="text-foreground underline underline-offset-4"
+            >
+              {SITE_CONFIG.email}
+            </a>
           </p>
         </section>
       </article>

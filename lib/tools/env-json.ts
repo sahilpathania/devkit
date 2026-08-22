@@ -71,13 +71,13 @@ export function convertEnvJson(input: string, mode: EnvJsonMode): ConvertResult 
   }
 }
 
-export const ENV_JSON_SAMPLE_ENV = `NAME=DevKit
+export const ENV_JSON_SAMPLE_ENV = `NAME=ToolBay
 TOOLS=100
 FREE=true
 TAGLINE="Developer tools that just work"`;
 
 export const ENV_JSON_SAMPLE_JSON = `{
-  "NAME": "DevKit",
+  "NAME": "ToolBay",
   "TOOLS": "100",
   "FREE": "true",
   "TAGLINE": "Developer tools that just work"

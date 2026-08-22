@@ -1,6 +1,6 @@
 # Converters Roadmap
 
-Full converter catalog for DevKit. Implement in phases. Prefer browser-local tools first.
+Full converter catalog for ToolBay. Implement in phases. Prefer browser-local tools first.
 
 ## Phase 1 (done) — High-traffic client tools
 - [x] Base64 Encode/Decode

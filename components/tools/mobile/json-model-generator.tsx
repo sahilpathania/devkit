@@ -189,7 +189,7 @@ export function JsonModelGenerator({ tool }: ToolComponentProps) {
               setSuccess(false);
               setError(null);
             }}
-            placeholder='{"id": 1, "name": "DevKit"}'
+            placeholder='{"id": 1, "name": "ToolBay"}'
             className="min-h-[320px] font-mono text-xs"
           />
         </div>

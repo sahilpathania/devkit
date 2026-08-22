@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const FAQS = [
   {
-    q: "Is DevKit free?",
+    q: "Is ToolBay free?",
     a: "Yes. Every tool on the site is free to use. No account required.",
   },
   {

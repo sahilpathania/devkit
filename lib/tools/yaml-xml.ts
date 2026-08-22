@@ -30,7 +30,7 @@ export function convertYamlXml(input: string, mode: YamlXmlMode): ConvertResult 
 }
 
 export const YAML_XML_SAMPLE_YAML = `user:
-  name: DevKit
+  name: ToolBay
   roles:
     - admin
     - editor
@@ -39,7 +39,7 @@ export const YAML_XML_SAMPLE_YAML = `user:
 export const YAML_XML_SAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <user>
-    <name>DevKit</name>
+    <name>ToolBay</name>
     <roles>admin</roles>
     <roles>editor</roles>
   </user>

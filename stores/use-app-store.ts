@@ -66,7 +66,7 @@ export const useAppStore = create<AppState>()(
         set((state) => ({ isCommandPaletteOpen: !state.isCommandPaletteOpen })),
     }),
     {
-      name: "devkit-store",
+      name: "toolbay-store",
       partialize: (state) => ({
         favorites: state.favorites,
         recentHistory: state.recentHistory,

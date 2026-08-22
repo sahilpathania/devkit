@@ -54,6 +54,6 @@ export function processUrlEncoding(
   return mode === "encode" ? encodeUrl(input) : decodeUrl(input);
 }
 
-export const URL_ENCODING_SAMPLE_TEXT = "Hello DevKit! query=a&b=c";
+export const URL_ENCODING_SAMPLE_TEXT = "Hello ToolBay! query=a&b=c";
 export const URL_ENCODING_SAMPLE_ENCODED =
-  "Hello%20DevKit!%20query%3Da%26b%3Dc";
+  "Hello%20ToolBay!%20query%3Da%26b%3Dc";

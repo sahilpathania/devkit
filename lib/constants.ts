@@ -1,12 +1,13 @@
 /** Site-wide configuration — single source of truth for branding and URLs. */
 export const SITE_CONFIG = {
-  name: "DevKit",
+  name: "ToolBay",
   tagline: "Everything you need. One place.",
   description:
     "Convert, compress, and edit files in your browser. Free online tools — private by default, no sign-up.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://devkit.dev",
-  twitter: "@devkit",
-  github: "https://github.com/devkit",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://toolbay.dev",
+  email: "toolbay.in@gmail.com",
+  twitter: "@toolbay",
+  github: "https://github.com/toolbay",
 } as const;
 
 /** Rotating search placeholders on the homepage. */

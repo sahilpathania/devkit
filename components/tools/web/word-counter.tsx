@@ -9,7 +9,7 @@ import { analyzeText } from "@/lib/tools/text";
 import type { ToolComponentProps } from "@/types";
 
 const SAMPLE =
-  "DevKit is a collection of free developer tools that run in your browser. Format JSON, convert data, and ship faster.";
+  "ToolBay is a collection of free developer tools that run in your browser. Format JSON, convert data, and ship faster.";
 
 /**
  * Word, character, sentence, and reading-time stats.

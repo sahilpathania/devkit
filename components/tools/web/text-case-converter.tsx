@@ -14,7 +14,7 @@ import {
 import type { ToolComponentProps } from "@/types";
 import { cn } from "@/lib/utils";
 
-const SAMPLE = "DevKit developer tools that just work";
+const SAMPLE = "ToolBay developer tools that just work";
 
 /**
  * Convert text between common case styles and URL slugs.

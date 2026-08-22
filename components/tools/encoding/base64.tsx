@@ -182,7 +182,7 @@ export function Base64Tool(_props: ToolComponentProps) {
               setResult(null);
             }}
             placeholder={
-              mode === "encode" ? "Hello, DevKit!" : "SGVsbG8sIERldktpdCE="
+              mode === "encode" ? "Hello, ToolBay!" : "SGVsbG8sIFRvb2xCYXkh"
             }
             spellCheck={false}
             className={cn(

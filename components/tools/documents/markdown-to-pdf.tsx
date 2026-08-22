@@ -10,7 +10,7 @@ import { markdownToPdfBlob } from "@/lib/tools/markdown-pdf";
 import type { ToolComponentProps } from "@/types";
 import { cn } from "@/lib/utils";
 
-const SAMPLE = `# DevKit Markdown → PDF
+const SAMPLE = `# ToolBay Markdown → PDF
 
 Convert **Markdown** to PDF in your browser.
 

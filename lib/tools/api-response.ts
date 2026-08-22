@@ -168,11 +168,11 @@ export function filterTree(nodes: ApiTreeNode[], query: string): ApiTreeNode[] {
 
 export const API_SAMPLE_JSON = `{
   "id": 1,
-  "name": "DevKit",
-  "full_name": "devkit/devkit",
+  "name": "ToolBay",
+  "full_name": "toolbay/toolbay",
   "private": false,
   "owner": {
-    "login": "devkit",
+    "login": "toolbay",
     "id": 42
   },
   "topics": ["tools", "developer", "nextjs"]

@@ -71,5 +71,5 @@ export function processBase64(input: string, mode: Base64Mode): Base64Result {
   return mode === "encode" ? encodeBase64(input) : decodeBase64(input);
 }
 
-export const BASE64_SAMPLE_TEXT = "Hello, DevKit!";
-export const BASE64_SAMPLE_ENCODED = "SGVsbG8sIERldktpdCE=";
+export const BASE64_SAMPLE_TEXT = "Hello, ToolBay!";
+export const BASE64_SAMPLE_ENCODED = "SGVsbG8sIFRvb2xCYXkh";

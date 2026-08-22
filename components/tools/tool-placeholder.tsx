@@ -14,7 +14,7 @@ export function ToolPlaceholder({ tool }: ToolPlaceholderProps) {
       </div>
       <h2 className="mt-4 text-lg font-medium">{tool.name} coming soon</h2>
       <p className="mt-2 max-w-md text-sm text-muted-foreground">
-        This tool is registered in the DevKit architecture and will be implemented in the next iteration.
+        This tool is registered in the ToolBay architecture and will be implemented in the next iteration.
       </p>
     </div>
   );

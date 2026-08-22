@@ -178,8 +178,8 @@ export function UrlEncodeDecode(_props: ToolComponentProps) {
             }}
             placeholder={
               mode === "encode"
-                ? "Hello DevKit! query=a&b=c"
-                : "Hello%20DevKit!%20query%3Da%26b%3Dc"
+                ? "Hello ToolBay! query=a&b=c"
+                : "Hello%20ToolBay!%20query%3Da%26b%3Dc"
             }
             spellCheck={false}
             className={cn(

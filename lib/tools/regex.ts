@@ -84,5 +84,5 @@ export function highlightSegments(
 }
 
 export const REGEX_SAMPLE_PATTERN = String.raw`\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b`;
-export const REGEX_SAMPLE_TEXT = `Contact us at hello@devkit.dev or support@example.com
+export const REGEX_SAMPLE_TEXT = `Contact us at toolbay.in@gmail.com or support@example.com
 Invalid: not-an-email, @missing.com`;

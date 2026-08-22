@@ -172,7 +172,7 @@ export function convertJsonXml(input: string, mode: JsonXmlMode): ConvertResult 
 
 export const JSON_XML_SAMPLE_JSON = `{
   "user": {
-    "name": "DevKit",
+    "name": "ToolBay",
     "roles": ["admin", "editor"],
     "active": true
   }
@@ -181,7 +181,7 @@ export const JSON_XML_SAMPLE_JSON = `{
 export const JSON_XML_SAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <user>
-    <name>DevKit</name>
+    <name>ToolBay</name>
     <roles>admin</roles>
     <roles>editor</roles>
     <active>true</active>

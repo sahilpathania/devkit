@@ -27,13 +27,13 @@ export function convertJsonYaml(input: string, mode: JsonYamlMode): ConvertResul
 }
 
 export const JSON_YAML_SAMPLE_JSON = `{
-  "name": "DevKit",
+  "name": "ToolBay",
   "tools": 100,
   "features": ["json", "yaml"],
   "meta": { "free": true }
 }`;
 
-export const JSON_YAML_SAMPLE_YAML = `name: DevKit
+export const JSON_YAML_SAMPLE_YAML = `name: ToolBay
 tools: 100
 features:
   - json

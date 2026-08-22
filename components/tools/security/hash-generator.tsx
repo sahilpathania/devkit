@@ -53,7 +53,7 @@ export function HashGenerator(_props: ToolComponentProps) {
           type="button"
           variant="ghost"
           onClick={() => {
-            const sample = "DevKit — developer tools that just work";
+            const sample = "ToolBay — developer tools that just work";
             setInput(sample);
             scheduleHash(sample);
           }}

@@ -40,15 +40,15 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-center text-foreground">
+            <h1 className="text-center">
               <span
-                className="block text-[clamp(3rem,7vw,7rem)] font-black leading-[0.95] tracking-[-0.055em] text-[#111111]"
+                className="block text-[clamp(3rem,7vw,7rem)] font-black leading-[0.95] tracking-[-0.055em] text-foreground"
                 style={{ letterSpacing: "-0.055em" }}
               >
                 Everything you need.
               </span>
               <span
-                className="mt-5 block bg-gradient-to-r from-[#8fa39d] via-[#778d87] to-[#6a7e79] bg-clip-text text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-transparent"
+                className="mt-5 block bg-gradient-to-r from-[#8fa39d] via-[#778d87] to-[#6a7e79] bg-clip-text text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-transparent dark:from-foreground/55 dark:via-foreground/45 dark:to-foreground/40"
                 style={{ letterSpacing: "-0.05em" }}
               >
                 One place.
@@ -89,7 +89,7 @@ export function Hero() {
             </Link>
             <Link
               href="/category/images"
-              className="inline-flex items-center justify-center rounded-full border border-border/70 bg-background/80 px-5 py-2.5 text-sm font-medium text-foreground/80 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-border hover:bg-white hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
+              className="inline-flex items-center justify-center rounded-full border border-border/70 bg-background/80 px-5 py-2.5 text-sm font-medium text-foreground/80 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-border hover:bg-muted hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
             >
               Browse Categories
             </Link>
@@ -111,7 +111,7 @@ export function Hero() {
                     className={cn(
                       "inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/80 px-3.5 py-2 text-[12.5px] font-medium text-foreground/75 shadow-sm shadow-black/[0.03]",
                       "transition-all duration-200 ease-out",
-                      "hover:-translate-y-0.5 hover:border-border hover:bg-white hover:text-foreground hover:shadow-md",
+                      "hover:-translate-y-0.5 hover:border-border hover:bg-muted hover:text-foreground hover:shadow-md",
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50"
                     )}
                   >

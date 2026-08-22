@@ -665,7 +665,7 @@ export function convertJsonToModel(
 
 export const JSON_MODEL_SAMPLE = `{
   "id": 42,
-  "name": "DevKit",
+  "name": "ToolBay",
   "free": true,
   "tags": ["json", "mobile"],
   "owner": {

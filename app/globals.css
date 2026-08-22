@@ -129,7 +129,7 @@
   }
 }
 
-/* DevKit design tokens — teal/emerald accents (avoid generic purple AI look) */
+/* ToolBay design tokens — teal/emerald accents (avoid generic purple AI look) */
 :root {
   --gradient-start: oklch(0.52 0.12 195);
   --gradient-end: oklch(0.58 0.14 160);

@@ -87,7 +87,7 @@ export function convertMarkdownHtml(
   }
 }
 
-export const MD_HTML_SAMPLE_MD = `# DevKit
+export const MD_HTML_SAMPLE_MD = `# ToolBay
 
 **Developer tools** that just work.
 
@@ -100,7 +100,7 @@ console.log("hello");
 \`\`\`
 `;
 
-export const MD_HTML_SAMPLE_HTML = `<h1>DevKit</h1>
+export const MD_HTML_SAMPLE_HTML = `<h1>ToolBay</h1>
 <p><strong>Developer tools</strong> that just work.</p>
 <ul>
   <li>JSON</li>

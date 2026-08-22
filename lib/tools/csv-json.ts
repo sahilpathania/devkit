@@ -123,10 +123,10 @@ export function convertCsvJson(input: string, mode: CsvJsonMode): ConvertResult 
 }
 
 export const CSV_JSON_SAMPLE_CSV = `name,tools,free
-DevKit,100,true
+ToolBay,100,true
 Studio,42,false`;
 
 export const CSV_JSON_SAMPLE_JSON = `[
-  { "name": "DevKit", "tools": 100, "free": true },
+  { "name": "ToolBay", "tools": 100, "free": true },
   { "name": "Studio", "tools": 42, "free": false }
 ]`;

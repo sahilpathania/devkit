@@ -4,10 +4,10 @@ import { GradientBackground } from "@/components/shared/gradient-background";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Search Tools — DevKit",
+  title: "Search Tools — ToolBay",
   description: "Search free online tools by name, category, or what you need to do.",
   path: "/search",
-  keywords: ["search tools", "online tools", "devkit"],
+  keywords: ["search tools", "online tools", "toolbay"],
 });
 
 interface SearchPageProps {

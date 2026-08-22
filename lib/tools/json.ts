@@ -134,7 +134,7 @@ export function getJsonValueType(input: string): string | null {
 }
 
 export const JSON_FORMATTER_SAMPLE = `{
-  "name": "DevKit",
+  "name": "ToolBay",
   "version": 1,
   "features": ["format", "minify", "validate"],
   "meta": {
@@ -145,7 +145,7 @@ export const JSON_FORMATTER_SAMPLE = `{
 
 /** Intentionally invalid sample for demonstrating validator errors. */
 export const JSON_VALIDATOR_INVALID_SAMPLE = `{
-  "name": "DevKit",
+  "name": "ToolBay",
   "tools": 100,
 }`;
 

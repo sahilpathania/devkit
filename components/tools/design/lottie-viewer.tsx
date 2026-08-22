@@ -24,7 +24,7 @@ const SAMPLE_LOTTIE = {
   op: 60,
   w: 200,
   h: 200,
-  nm: "DevKit Pulse",
+  nm: "ToolBay Pulse",
   ddd: 0,
   assets: [],
   layers: [

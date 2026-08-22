@@ -119,7 +119,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`mailto:hello@${SITE_CONFIG.name.toLowerCase()}.dev`}
+                  href={`mailto:${SITE_CONFIG.email}`}
                   className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
                   Contact
@@ -127,7 +127,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`mailto:feedback@${SITE_CONFIG.name.toLowerCase()}.dev?subject=DevKit%20feedback`}
+                  href={`mailto:${SITE_CONFIG.email}?subject=ToolBay%20feedback`}
                   className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
                   Feedback

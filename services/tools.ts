@@ -36,8 +36,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Beautify compact JSON",
-        input: '{"name":"DevKit","tools":100,"free":true}',
-        output: '{\n  "name": "DevKit",\n  "tools": 100,\n  "free": true\n}',
+        input: '{"name":"ToolBay","tools":100,"free":true}',
+        output: '{\n  "name": "ToolBay",\n  "tools": 100,\n  "free": true\n}',
       },
     ],
     tags: ["json", "format", "beautify"],
@@ -134,8 +134,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Encode text",
-        input: "Hello, DevKit!",
-        output: "SGVsbG8sIERldktpdCE=",
+        input: "Hello, ToolBay!",
+        output: "SGVsbG8sIFRvb2xCYXkh",
       },
     ],
     tags: ["base64", "encode", "decode"],
@@ -172,8 +172,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Encode a query value",
-        input: "Hello DevKit! query=a&b=c",
-        output: "Hello%20DevKit!%20query%3Da%26b%3Dc",
+        input: "Hello ToolBay! query=a&b=c",
+        output: "Hello%20ToolBay!%20query%3Da%26b%3Dc",
       },
     ],
     tags: ["url", "encode", "decode", "percent"],
@@ -238,7 +238,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "SHA-256",
-        input: "DevKit",
+        input: "ToolBay",
         description: "Outputs a 64-character hex digest.",
       },
     ],
@@ -303,7 +303,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "URL QR code",
-        input: "https://devkit.dev",
+        input: "https://toolbay.dev",
       },
     ],
     tags: ["qr", "code", "generate"],
@@ -398,8 +398,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "JSON to YAML",
-        input: '{"name":"DevKit","free":true}',
-        output: "name: DevKit\nfree: true",
+        input: '{"name":"ToolBay","free":true}',
+        output: "name: ToolBay\nfree: true",
       },
     ],
     tags: ["json", "yaml", "convert"],
@@ -432,8 +432,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "JSON to XML",
-        input: '{"user":{"name":"DevKit"}}',
-        output: "<root><user><name>DevKit</name></user></root>",
+        input: '{"user":{"name":"ToolBay"}}',
+        output: "<root><user><name>ToolBay</name></user></root>",
       },
     ],
     tags: ["json", "xml", "convert"],
@@ -465,8 +465,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "CSV to JSON",
-        input: "name,tools\nDevKit,100",
-        output: '[{"name":"DevKit","tools":"100"}]',
+        input: "name,tools\nToolBay,100",
+        output: '[{"name":"ToolBay","tools":"100"}]',
       },
     ],
     tags: ["csv", "json", "convert"],
@@ -498,8 +498,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Markdown heading",
-        input: "# DevKit",
-        output: "<h1>DevKit</h1>",
+        input: "# ToolBay",
+        output: "<h1>ToolBay</h1>",
       },
     ],
     tags: ["markdown", "html", "convert"],
@@ -531,8 +531,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "JSON to TOML",
-        input: '{"name":"DevKit","version":1}',
-        output: 'name = "DevKit"\nversion = 1',
+        input: '{"name":"ToolBay","version":1}',
+        output: 'name = "ToolBay"\nversion = 1',
       },
     ],
     tags: ["json", "toml", "convert"],
@@ -564,8 +564,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "YAML to XML",
-        input: "name: DevKit",
-        output: "<root><name>DevKit</name></root>",
+        input: "name: ToolBay",
+        output: "<root><name>ToolBay</name></root>",
       },
     ],
     tags: ["yaml", "xml", "convert"],
@@ -596,8 +596,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "CSV to XML",
-        input: "name,tools\nDevKit,100",
-        output: "<root><item><name>DevKit</name><tools>100</tools></item></root>",
+        input: "name,tools\nToolBay,100",
+        output: "<root><item><name>ToolBay</name><tools>100</tools></item></root>",
       },
     ],
     tags: ["csv", "xml", "convert"],
@@ -628,8 +628,8 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: ".env to JSON",
-        input: "NAME=DevKit\nFREE=true",
-        output: '{\n  "NAME": "DevKit",\n  "FREE": "true"\n}',
+        input: "NAME=ToolBay\nFREE=true",
+        output: '{\n  "NAME": "ToolBay",\n  "FREE": "true"\n}',
       },
     ],
     tags: ["env", "dotenv", "json", "convert"],
@@ -924,7 +924,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "To camelCase",
-        input: "DevKit developer tools",
+        input: "ToolBay developer tools",
         output: "devKitDeveloperTools",
       },
     ],
@@ -1248,7 +1248,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Simple object",
-        input: '{"name":"DevKit","free":true}',
+        input: '{"name":"ToolBay","free":true}',
         output: "export interface Root {\n  name: string;\n  free: boolean;\n}",
       },
     ],
@@ -1313,7 +1313,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Data class",
-        input: '{"id":1,"title":"DevKit"}',
+        input: '{"id":1,"title":"ToolBay"}',
         description: "Emits a @Serializable data class.",
       },
     ],
@@ -1346,7 +1346,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Flutter model",
-        input: '{"id":1,"name":"DevKit"}',
+        input: '{"id":1,"name":"ToolBay"}',
         description: "Creates a class with fromJson and toJson.",
       },
     ],
@@ -1379,7 +1379,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "C# class",
-        input: '{"id":1,"name":"DevKit"}',
+        input: '{"id":1,"name":"ToolBay"}',
         output: "public class Root { public int Id { get; set; } }",
       },
     ],
@@ -1411,7 +1411,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "POJO",
-        input: '{"id":1,"name":"DevKit"}',
+        input: '{"id":1,"name":"ToolBay"}',
         description: "Emits a public class with annotated fields.",
       },
     ],
@@ -1443,7 +1443,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "Go struct",
-        input: '{"id":1,"name":"DevKit"}',
+        input: '{"id":1,"name":"ToolBay"}',
         output: 'type Root struct {\n  Id int64 `json:"id"`\n}',
       },
     ],
@@ -1540,7 +1540,7 @@ export const TOOLS: Tool[] = [
     examples: [
       {
         title: "GitHub API response",
-        input: '{"id": 1, "name": "DevKit", "full_name": "devkit/devkit"}',
+        input: '{"id": 1, "name": "ToolBay", "full_name": "toolbay/toolbay"}',
       },
     ],
     tags: ["api", "response", "json", "debug"],

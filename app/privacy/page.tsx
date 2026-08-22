@@ -4,8 +4,8 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Privacy Policy — DevKit",
-  description: "How DevKit handles your data. Free tools run locally in your browser.",
+  title: "Privacy Policy — ToolBay",
+  description: "How ToolBay handles your data. Free tools run locally in your browser.",
   path: "/privacy",
 });
 
@@ -50,10 +50,10 @@ export default function PrivacyPage() {
           <p>
             Questions about privacy:{" "}
             <a
-              href={`mailto:privacy@${SITE_CONFIG.url.replace(/^https?:\/\//, "")}`}
+              href={`mailto:${SITE_CONFIG.email}`}
               className="text-foreground underline underline-offset-4"
             >
-              privacy@{SITE_CONFIG.url.replace(/^https?:\/\//, "")}
+              {SITE_CONFIG.email}
             </a>
           </p>
         </section>

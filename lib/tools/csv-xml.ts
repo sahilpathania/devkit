@@ -42,13 +42,13 @@ export function convertCsvXml(input: string, mode: CsvXmlMode): ConvertResult {
 }
 
 export const CSV_XML_SAMPLE_CSV = `name,tools,free
-DevKit,100,true
+ToolBay,100,true
 Studio,42,false`;
 
 export const CSV_XML_SAMPLE_XML = `<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <item>
-    <name>DevKit</name>
+    <name>ToolBay</name>
     <tools>100</tools>
     <free>true</free>
   </item>
