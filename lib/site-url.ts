@@ -1,4 +1,5 @@
 const DEFAULT_SITE_URL = "https://toolbay.in";
+const CANONICAL_HOSTS = new Set(["toolbay.in", "www.toolbay.in"]);
 
 /** Strip trailing slashes and ensure a protocol. */
 export function normalizeSiteUrl(url: string): string {
@@ -10,17 +11,17 @@ export function normalizeSiteUrl(url: string): string {
 /**
  * Canonical site URL for sitemap, robots, Open Graph, and share links.
  *
- * Resolution order:
- * 1. NEXT_PUBLIC_SITE_URL (set in production — required for correct SEO)
- * 2. VERCEL_URL on Vercel deploys
- * 3. https://toolbay.in
+ * A configured URL is accepted only when it belongs to ToolBay. This keeps
+ * stale deployment variables from leaking an old domain into SEO metadata.
  */
 export function getSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.trim();
-  if (fromEnv) return normalizeSiteUrl(fromEnv);
-
-  const vercelHost = process.env.VERCEL_URL?.trim();
-  if (vercelHost) return normalizeSiteUrl(vercelHost);
+  if (fromEnv) {
+    const normalized = normalizeSiteUrl(fromEnv);
+    if (CANONICAL_HOSTS.has(new URL(normalized).hostname)) {
+      return DEFAULT_SITE_URL;
+    }
+  }
 
   return DEFAULT_SITE_URL;
 }
