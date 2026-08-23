@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   name: "ToolBay",
   tagline: "Everything you need. One place.",
   description:
-    "Convert, compress, and edit files in your browser. Free online tools — private by default, no sign-up.",
+    "100+ free online developer, text, converter, and productivity tools. Convert, compress, and edit files in your browser — private by default, no sign-up.",
   url: getSiteUrl(),
   email: "toolbay.in@gmail.com",
   twitter: "@toolbay",

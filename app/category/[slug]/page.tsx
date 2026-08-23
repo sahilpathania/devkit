@@ -11,8 +11,7 @@ import {
 } from "@/services/categories";
 import { getToolsByCategory } from "@/services/tools";
 import { getIcon } from "@/lib/icons";
-import { SITE_CONFIG } from "@/lib/constants";
-import { buildBreadcrumbJsonLd, buildPageMetadata } from "@/lib/seo";
+import { buildBreadcrumbJsonLd, buildCategoryMetadata, getCategoryH1 } from "@/lib/seo";
 import type { CategorySlug } from "@/types";
 import { cn } from "@/lib/utils";
 
@@ -33,12 +32,9 @@ export async function generateMetadata({
   const category = getCategoryBySlug(slug);
   if (!category) return {};
 
-  return buildPageMetadata({
-    title: `${category.name} Tools — ${SITE_CONFIG.name}`,
-    description: category.description,
-    path: `/category/${category.slug}`,
-    keywords: [category.name.toLowerCase(), "online tools", "free tools"],
-  });
+  const tools = getToolsByCategory(category.slug);
+
+  return buildCategoryMetadata(category, tools.length || 1);
 }
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
@@ -83,7 +79,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             </div>
             <div>
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                {category.name}
+                {getCategoryH1(category)}
               </h1>
               <p className="mt-2 max-w-2xl text-lg text-muted-foreground">
                 {category.description}

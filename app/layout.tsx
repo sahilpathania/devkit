@@ -4,8 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SiteLayout } from "@/components/layout/site-layout";
 import { AppProviders } from "@/components/providers/app-providers";
 import { JsonLd } from "@/components/seo/json-ld";
-import { SITE_CONFIG } from "@/lib/constants";
-import { buildOrganizationJsonLd, buildPageMetadata } from "@/lib/seo";
+import { buildOrganizationJsonLd, buildRootMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -20,11 +19,7 @@ const mono = JetBrains_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = buildPageMetadata({
-  title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
-  description: SITE_CONFIG.description,
-  path: "/",
-});
+export const metadata: Metadata = buildRootMetadata();
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   const jsonLd = buildOrganizationJsonLd();
@@ -37,7 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`h-full ${sans.variable} ${mono.variable}`}
     >
       <body className="min-h-full font-sans antialiased">
-        <JsonLd data={jsonLd} />
+      <JsonLd data={jsonLd} />
         <AppProviders>
           <SiteLayout>{children}</SiteLayout>
         </AppProviders>

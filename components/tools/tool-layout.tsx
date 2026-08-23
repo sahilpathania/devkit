@@ -16,7 +16,7 @@ import { useIsClient } from "@/hooks/use-is-client";
 import { useAppStore } from "@/stores/use-app-store";
 import { getCategoryBySlug } from "@/services/categories";
 import { getRelatedTools } from "@/services/tools";
-import { SITE_CONFIG } from "@/lib/constants";
+import { getToolH1, absoluteCanonical } from "@/lib/seo";
 import type { Tool } from "@/types";
 import { cn } from "@/lib/utils";
 import { ToolTrustStrip } from "@/components/tools/tool-trust-strip";
@@ -37,7 +37,7 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
   const favorited = useAppStore((s) => s.favorites.includes(tool.slug));
   const category = getCategoryBySlug(tool.category);
   const relatedTools = getRelatedTools(tool);
-  const toolUrl = `${SITE_CONFIG.url}/tool/${tool.slug}`;
+  const toolUrl = absoluteCanonical(`/tool/${tool.slug}`);
   const showFavorite = mounted && favorited;
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h1 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-                    {tool.name}
+                    {getToolH1(tool)}
                   </h1>
                   {tool.isNew && <Badge variant="secondary">New</Badge>}
                 </div>

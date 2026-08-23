@@ -4,9 +4,12 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Terms of Service — ToolBay",
-  description: "Terms governing use of ToolBay developer tools.",
+  headline: "Terms of Service",
+  description:
+    "ToolBay terms of service for free online tools. Understand acceptable use, warranties, liability, and how we provide browser-based utilities at no cost.",
   path: "/terms",
+  keywords: ["toolbay terms", "terms of service", "online tools terms"],
+  descriptionFinal: true,
 });
 
 export default function TermsPage() {

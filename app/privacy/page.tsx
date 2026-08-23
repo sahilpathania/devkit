@@ -4,9 +4,12 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Privacy Policy — ToolBay",
-  description: "How ToolBay handles your data. Free tools run locally in your browser.",
+  headline: "Privacy Policy",
+  description:
+    "Read how ToolBay protects your privacy. Free browser-based tools process data locally — we explain analytics, storage, and contact details clearly.",
   path: "/privacy",
+  keywords: ["toolbay privacy policy", "online tool privacy", "browser local processing"],
+  descriptionFinal: true,
 });
 
 export default function PrivacyPage() {
