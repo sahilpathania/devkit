@@ -173,6 +173,13 @@ export function buildRootMetadata(): Metadata {
   return {
     metadataBase: new URL(getSiteUrl()),
     robots: { index: true, follow: true },
+    icons: {
+      icon: [
+        { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+        { url: SITE_CONFIG.logoIcon, sizes: "1024x1024", type: "image/png" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png", sizes: "512x512", type: "image/png" }],
+    },
     openGraph: {
       siteName: BRAND,
       type: "website",
@@ -303,6 +310,7 @@ export function buildOrganizationJsonLd() {
     name: BRAND,
     description: SITE_CONFIG.description,
     url: getSiteUrl(),
+    logo: `${getSiteUrl()}${SITE_CONFIG.logoIcon}`,
     potentialAction: {
       "@type": "SearchAction",
       target: {

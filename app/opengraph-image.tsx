@@ -17,7 +17,7 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 80,
-          background: "linear-gradient(135deg, #0f172a 0%, #134e4a 50%, #042f2e 100%)",
+          background: "linear-gradient(135deg, #0b1f4a 0%, #1d6cf0 55%, #0ea5e9 100%)",
           color: "white",
           fontFamily: "system-ui, sans-serif",
         }}
@@ -26,31 +26,40 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
+            gap: 20,
             marginBottom: 40,
           }}
         >
           <div
             style={{
-              width: 56,
-              height: 56,
-              borderRadius: 14,
-              background: "linear-gradient(135deg, #0d9488, #059669)",
+              width: 72,
+              height: 72,
+              borderRadius: 16,
+              background: "#1d6cf0",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: 28,
-              fontWeight: 700,
+              fontSize: 32,
+              fontWeight: 800,
+              color: "white",
+              border: "3px solid rgba(255,255,255,0.2)",
             }}
           >
-            {"</>"}
+            TB
           </div>
-          <span style={{ fontSize: 36, fontWeight: 700 }}>{SITE_CONFIG.name}</span>
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span style={{ fontSize: 40, fontWeight: 800, letterSpacing: -1 }}>
+              Tool<span style={{ color: "#7dd3fc" }}>Bay</span>
+            </span>
+            <span style={{ fontSize: 18, opacity: 0.85, marginTop: 4 }}>
+              {SITE_CONFIG.tagline}
+            </span>
+          </div>
         </div>
         <div style={{ fontSize: 56, fontWeight: 700, lineHeight: 1.15, maxWidth: 900 }}>
-          {SITE_CONFIG.tagline}
+          Everything you need. One place.
         </div>
-        <div style={{ marginTop: 28, fontSize: 24, opacity: 0.75, maxWidth: 800 }}>
+        <div style={{ marginTop: 28, fontSize: 24, opacity: 0.85, maxWidth: 800 }}>
           Free online tools for everyone. Private by default.
         </div>
       </div>

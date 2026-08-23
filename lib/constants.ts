@@ -3,13 +3,14 @@ import { getSiteUrl } from "./site-url";
 
 export const SITE_CONFIG = {
   name: "ToolBay",
-  tagline: "Everything you need. One place.",
+  tagline: "Free Online Tools",
   description:
     "100+ free online developer, text, converter, and productivity tools. Convert, compress, and edit files in your browser — private by default, no sign-up.",
   url: getSiteUrl(),
   email: "toolbay.in@gmail.com",
   twitter: "@toolbay",
   github: "https://github.com/toolbay",
+  logoIcon: "/toolbay-icon.png",
 };
 
 /** Rotating search placeholders on the homepage. */

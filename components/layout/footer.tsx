@@ -100,10 +100,7 @@ export function Footer() {
               Company
             </h3>
             <div className="mt-4">
-              <Logo />
-              <p className="mt-3 max-w-[220px] text-sm leading-relaxed text-muted-foreground">
-                {SITE_CONFIG.tagline}
-              </p>
+              <Logo showTagline />
             </div>
             <ul className="mt-5 space-y-2.5">
               <li>

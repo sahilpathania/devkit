@@ -1,30 +1,55 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface LogoProps {
   className?: string;
-  showText?: boolean;
+  /** Icon only, or icon + wordmark (default) */
+  variant?: "full" | "icon";
+  showTagline?: boolean;
+  /** Load eagerly — use in header */
+  priority?: boolean;
 }
 
-export function Logo({ className, showText = true }: LogoProps) {
+export function Logo({
+  className,
+  variant = "full",
+  showTagline = false,
+  priority = false,
+}: LogoProps) {
+  const label = `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`;
+
   return (
     <Link
       href="/"
       className={cn(
-        "group flex items-center gap-2.5 transition-opacity hover:opacity-90",
+        "group inline-flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-90",
         className
       )}
-      aria-label={`${SITE_CONFIG.name} home`}
+      aria-label={label}
     >
-      <div className="relative flex size-8 items-center justify-center rounded-full bg-foreground text-background shadow-sm">
-        <Sparkles className="size-3.5" aria-hidden="true" />
-      </div>
-      {showText && (
-        <span className="text-lg font-semibold tracking-tight">
-          {SITE_CONFIG.name}
-        </span>
+      <Image
+        src={SITE_CONFIG.logoIcon}
+        alt=""
+        width={1024}
+        height={1024}
+        priority={priority}
+        className="size-9 shrink-0 rounded-xl object-cover shadow-sm"
+      />
+
+      {variant === "full" && (
+        <div className="flex min-w-0 flex-col leading-none">
+          <span className="text-lg font-bold tracking-tight">
+            <span className="text-foreground">Tool</span>
+            <span className="text-[#1d6cf0]">Bay</span>
+          </span>
+          {showTagline && (
+            <span className="mt-1 text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              {SITE_CONFIG.tagline}
+            </span>
+          )}
+        </div>
       )}
     </Link>
   );
