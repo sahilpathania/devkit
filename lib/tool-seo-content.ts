@@ -63,6 +63,14 @@ function buildSteps(tool: Tool): ToolSeoStep[] {
     ];
   }
 
+  if (tool.slug === "heic-to-jpg") {
+    return [
+      { title: "Upload HEIC", description: "Drop an iPhone .heic or .heif photo. It stays on your device." },
+      { title: "Set JPG quality", description: "Higher quality means a larger file." },
+      { title: "Download JPG", description: "Save the converted photo. Chrome cannot preview HEIC until this step." },
+    ];
+  }
+
   if (tool.slug.includes("compress") || tool.slug.includes("merge") || tool.slug.includes("split")) {
     return [
       { title: "Add files", description: "They stay on your device." },

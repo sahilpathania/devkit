@@ -128,6 +128,11 @@ const TOOL_COMPONENTS: Record<string, ComponentType<ToolComponentProps>> = {
       default: mod.ImageFormatConverter,
     }))
   ),
+  "heic-to-jpg": lazyTool(() =>
+    import("@/components/tools/images/heic-to-jpg").then((mod) => ({
+      default: mod.HeicToJpg,
+    }))
+  ),
   "svg-converter": lazyTool(() =>
     import("@/components/tools/images/svg-converter").then((mod) => ({
       default: mod.SvgConverter,

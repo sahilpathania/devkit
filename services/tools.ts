@@ -1042,6 +1042,43 @@ export const TOOLS: Tool[] = [
     createdAt: "2026-08-15",
   },
   {
+    slug: "heic-to-jpg",
+    name: "HEIC to JPG",
+    description:
+      "Convert iPhone HEIC and HEIF photos to JPG in your browser. Adjust quality and download — nothing is uploaded.",
+    shortDescription: "Convert HEIC photos to JPG",
+    icon: "image",
+    category: "images",
+    component: "heic-to-jpg",
+    seo: {
+      title: "HEIC to JPG Converter — iPhone Photos Online",
+      description:
+        "Free HEIC to JPG converter. Convert iPhone HEIC/HEIF photos to JPG in your browser.",
+      keywords: ["heic to jpg", "heic to jpeg", "heif converter", "iphone heic"],
+    },
+    faqs: [
+      {
+        question: "Is my photo uploaded?",
+        answer: "No. Conversion runs in your browser. The file never leaves your device.",
+      },
+      {
+        question: "Why can't I preview the original HEIC?",
+        answer:
+          "Most browsers cannot display HEIC until it is converted. The JPG preview appears after conversion.",
+      },
+    ],
+    examples: [
+      {
+        title: "iPhone photo",
+        description: "Upload IMG_1234.HEIC, set quality, download a .jpg.",
+      },
+    ],
+    tags: ["heic", "heif", "jpg", "jpeg", "iphone", "image", "convert"],
+    isPopular: true,
+    isNew: true,
+    createdAt: "2026-08-25",
+  },
+  {
     slug: "svg-converter",
     name: "SVG Converter",
     description:
@@ -1994,7 +2031,10 @@ const SEARCH_SYNONYMS: Record<string, string[]> = {
   passport: ["image", "resize", "photo", "png", "jpg", "compress", "convert"],
   resume: ["pdf", "word", "docx", "compress", "text", "merge", "split"],
   cv: ["pdf", "word", "docx"],
-  photo: ["image", "png", "jpg", "svg", "ico", "compress", "resize"],
+  photo: ["image", "png", "jpg", "svg", "ico", "compress", "resize", "heic"],
+  heic: ["heic", "heif", "jpg", "jpeg", "iphone", "image", "convert"],
+  heif: ["heic", "heif", "jpg", "image"],
+  iphone: ["heic", "image", "jpg"],
   picture: ["image", "png", "jpg", "compress"],
   compress: ["image", "zip", "pdf", "resize"],
   merge: ["pdf", "zip"],
