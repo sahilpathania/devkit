@@ -10,6 +10,7 @@ import {
   getAllCategorySlugs,
 } from "@/services/categories";
 import { getToolsByCategory } from "@/services/tools";
+import { getCategorySeoIntro } from "@/lib/category-seo-content";
 import { getIcon } from "@/lib/icons";
 import { buildBreadcrumbJsonLd, buildCategoryMetadata, getCategoryH1 } from "@/lib/seo";
 import type { CategorySlug } from "@/types";
@@ -82,10 +83,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
                 {getCategoryH1(category)}
               </h1>
               <p className="mt-2 max-w-2xl text-lg text-muted-foreground">
-                {category.description}
-              </p>
-              <p className="mt-2 text-sm text-muted-foreground">
-                {tools.length} {tools.length === 1 ? "tool" : "tools"} available
+                {getCategorySeoIntro(category, tools.length)}
               </p>
             </div>
           </div>

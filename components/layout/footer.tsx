@@ -46,6 +46,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/tools"
+                  className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                >
+                  All tools
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/search"
                   className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >

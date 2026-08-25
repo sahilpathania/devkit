@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { ToolLayout } from "@/components/tools/tool-layout";
 import { ToolRenderer } from "@/components/tools/tool-renderer";
+import { ToolSeoContent } from "@/components/tools/tool-seo-content";
 import { getToolBySlug, getAllToolSlugs } from "@/services/tools";
 import { getCategoryBySlug } from "@/services/categories";
 import {
@@ -49,7 +50,7 @@ export default async function ToolPage({ params }: ToolPageProps) {
     <>
       <JsonLd data={schemas} />
 
-      <ToolLayout tool={tool}>
+      <ToolLayout tool={tool} seoContent={<ToolSeoContent tool={tool} />}>
         <ToolRenderer tool={tool} />
       </ToolLayout>
     </>

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { Share2, Star } from "lucide-react";
 import { toast } from "sonner";
 import { Breadcrumb } from "@/components/tools/breadcrumb";
-import { ToolFAQ } from "@/components/tools/tool-faq";
 import { RelatedTools } from "@/components/tools/related-tools";
 import { CopyButton } from "@/components/shared/copy-button";
 import { DynamicIcon } from "@/components/shared/dynamic-icon";
@@ -24,13 +23,15 @@ import { ToolTrustStrip } from "@/components/tools/tool-trust-strip";
 interface ToolLayoutProps {
   tool: Tool;
   children: React.ReactNode;
+  /** Server-rendered SEO copy — passed from the tool page. */
+  seoContent?: React.ReactNode;
 }
 
 /**
  * Reusable layout shell for every tool page.
  * Handles breadcrumbs, trust strip, favorites, share, examples, FAQ, related.
  */
-export function ToolLayout({ tool, children }: ToolLayoutProps) {
+export function ToolLayout({ tool, children, seoContent }: ToolLayoutProps) {
   const mounted = useIsClient();
   const toggleFavorite = useAppStore((s) => s.toggleFavorite);
   const addToHistory = useAppStore((s) => s.addToHistory);
@@ -153,12 +154,11 @@ export function ToolLayout({ tool, children }: ToolLayoutProps) {
           </section>
         )}
 
+        {seoContent}
+
         <Separator className="my-12" />
 
-        <div className="grid gap-12 lg:grid-cols-2">
-          <ToolFAQ faqs={tool.faqs} />
-          <RelatedTools tools={relatedTools} />
-        </div>
+        <RelatedTools tools={relatedTools} />
       </div>
     </div>
   );
