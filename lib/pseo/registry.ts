@@ -29,18 +29,25 @@ function assertLandingGraph(landings: PseoLanding[], hubs: PseoHub[]) {
   const landingSlugs = new Set(landings.map((page) => page.slug));
   const hubSlugs = new Set(hubs.map((page) => page.slug));
 
-  for (const landing of landings) {
-    if (!getToolBySlug(landing.toolSlug)) {
-      throw new Error(`Landing "${landing.slug}" embeds missing tool "${landing.toolSlug}".`);
+    const thin = landings
+      .map((landing) => ({ slug: landing.slug, words: landingWordCount(landing) }))
+      .filter((row) => row.words < MIN_LANDING_WORDS);
+    if (thin.length > 0) {
+      throw new Error(
+        `pSEO landings below ${MIN_LANDING_WORDS} words: ${thin
+          .map((row) => `${row.slug} (${row.words})`)
+          .join(", ")}`
+      );
     }
-    if (!hubSlugs.has(landing.hubSlug)) {
-      throw new Error(`Landing "${landing.slug}" points at missing hub "${landing.hubSlug}".`);
-    }
-    const words = landingWordCount(landing);
-    if (words < MIN_LANDING_WORDS) {
-      throw new Error(`Landing "${landing.slug}" is too thin (${words} words).`);
-    }
-    for (const related of landing.relatedSlugs) {
+
+    for (const landing of landings) {
+      if (!getToolBySlug(landing.toolSlug)) {
+        throw new Error(`Landing "${landing.slug}" embeds missing tool "${landing.toolSlug}".`);
+      }
+      if (!hubSlugs.has(landing.hubSlug)) {
+        throw new Error(`Landing "${landing.slug}" points at missing hub "${landing.hubSlug}".`);
+      }
+      for (const related of landing.relatedSlugs) {
       if (related === landing.slug) {
         throw new Error(`Landing "${landing.slug}" related to itself.`);
       }

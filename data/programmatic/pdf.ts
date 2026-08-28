@@ -77,6 +77,8 @@ export const PDF_LANDINGS: PseoLanding[] = [
     body: [
       "Portals are allergic to ZIP files and extra fields. They want one PDF because their ATS vendor billed them for one blob column. Your job is to make that blob readable in the first thirty seconds.",
       "Order is courtesy. A reviewer who opens a 20-page scan of certificates before the résumé will not hunt. Put the document they asked for first.",
+      "After you merge, open the file and scroll it like a stranger would. Confirm page 1 is the résumé, certificates are readable, and you did not include a bank statement that belonged in a different packet. Then check the file size against the portal help text. Merge never shrinks scans, so a 25MB photo-PDF will still be 25MB when it is concatenated.",
+      "Keep the separate source PDFs. Schools and employers sometimes change the rules after you apply: one wants a combined file, the next wants transcripts alone. Re-merging from named sources (01-cv, 02-cover) is faster than trying to split a packet you already flattened in your head.",
     ],
   },
   {
@@ -154,6 +156,8 @@ export const PDF_LANDINGS: PseoLanding[] = [
     body: [
       "Printers are stateful. Ten files means ten chances to forget staple or duplex. One file is one chance.",
       "If a deck is already 80MB of photos, merging will not help toner or time. Flatten or compress that deck in a dedicated workflow first.",
+      "At a copy shop, staff will not reconstruct your folder structure. They open one document, set paper, and hit print. Mixed A4 and Letter in the same merge can scale a page down with a white margin. Convert or export everything to the same page size before you combine if the shop is picky.",
+      "For a classroom pack, put the agenda or cover first so a dropped print job is still identifiable in the tray. If you need one-sided worksheets and duplex slides, those are two print jobs — merge will not magically switch duplex mid-file. Split those intents into two merged PDFs instead of one awkward hybrid.",
     ],
   },
   {
@@ -231,6 +235,8 @@ export const PDF_LANDINGS: PseoLanding[] = [
     body: [
       "Over-sharing a scan is how extra IDs leak into a vendor’s blob store. Extract is a privacy tool as much as a convenience tool.",
       "Page indexes are 1-based here. If your viewer shows a cover as page i and the PDF index disagrees, trust the viewer’s page box after extract.",
+      "Household scans often include a passport, a utility bill, and a child’s school ID in one feed. A KYC form that asked for “address proof” does not need the passport spread. Extract the bill page, look at it, then upload. If the scan is skewed, extract will not deskew it — rescan that page if the text is unreadable.",
+      "When a portal wants each annexure as its own file, use each-page output and rename the results before you upload. Leaving page-3.pdf as the filename is how you attach the wrong annexure at 11:58pm. This tool does not OCR; if you need a searchable PDF, run OCR in another app after you extract.",
     ],
   },
 ];

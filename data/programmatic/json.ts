@@ -77,6 +77,8 @@ export const JSON_LANDINGS: PseoLanding[] = [
     body: [
       "Pretty print is a reading lamp, not a build step. CI should not depend on whitespace. Humans should.",
       "If the payload contains tokens, pretty printing it in a shared screenshot is still a leak. Format locally, redact, then share.",
+      "API logs love compact JSON because it is one line per event. That is hostile when you are hunting a nested `errors[0].source.pointer`. Beautify a copy, find the field, then go back to the raw log for the timestamp. Do not pretty-print a 20MB dump in a text area if your browser tab starts to wheeze — slice the object first.",
+      "Indent is a social convention. Two spaces matches most JavaScript repos and GitHub comments. Four spaces shows up in Java and C# samples. Pick what the surrounding code uses so a pasted snippet does not start a whitespace war in review.",
     ],
   },
   {
@@ -155,6 +157,8 @@ export const JSON_LANDINGS: PseoLanding[] = [
     body: [
       "Minify is for machines and for fields that hate newlines. It is a hostile format for pull requests.",
       "Character limits on vendor consoles are why this search exists. If you are under the cap already, pretty print is kinder to the next human.",
+      "Parameter stores, feature-flag consoles, and some HTTP headers treat a newline as “end of value.” Pretty JSON silently breaks those fields. Minify, then if the shell still complains, you have an escaping problem, not a whitespace problem.",
+      "Keep the pretty version in git. Generate the minified string at the boundary: a deploy script, a console paste, a test helper. If someone commits a 4,000-character single line, the next diff is unreadable and the next incident takes longer.",
     ],
   },
   {
@@ -233,6 +237,8 @@ export const JSON_LANDINGS: PseoLanding[] = [
     body: [
       "Spreadsheets are the interoperability layer of companies that will never run Jupyter. CSV is the peace treaty.",
       "If the JSON is a tree (user.address.city), agree on a flatten rule before you convert, or you will invent column names you cannot round-trip.",
+      "Excel will happily turn `00123` into `123` and ISO dates into serial numbers. If those columns are identifiers, import CSV as text or prefix a tab. This converter will not stop Excel from being Excel.",
+      "Uneven objects — row 1 has `email`, row 2 does not — produce sparse columns. That is still useful for a first look. For a finance sign-off, normalize the JSON so every row has the same keys, then convert once.",
     ],
   },
   {
@@ -311,6 +317,8 @@ export const JSON_LANDINGS: PseoLanding[] = [
     body: [
       "YAML exists so humans can edit config. JSON exists so machines can not argue about whitespace. Converting toward YAML is a gift to the next editor.",
       "The Norway problem (`NO`) is not a joke in inventory files. If a value must stay a string, quote it after conversion.",
+      "Kubernetes and GitHub Actions are where this conversion actually happens. Docs paste JSON because it is easy to write in a blog. Repos want YAML because diffs and comments are saner. After you convert, run the file through the linter your repo already uses — this page is not kubeval.",
+      "Comments in the YAML you hoped for cannot come from JSON. If the JSON was generated from a commented YAML file, those comments are already gone. Add them back by hand on the keys that scare you (`resources`, `on`, `true`).",
     ],
   },
 ];

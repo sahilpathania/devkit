@@ -77,6 +77,8 @@ export const TEXT_LANDINGS: PseoLanding[] = [
     body: [
       "Meta descriptions are ad copy for a blue link. They are not the article. If you cannot say the point in 160 characters, the page title is doing too much work.",
       "CMS fields that append “| Brand” will blow your count after you paste. Count again in the live preview.",
+      "Search snippets also depend on pixel width. A string of wide letters (W, M) truncates sooner than a string of i’s. Treat 150–160 as a draft budget, then look at the live SERP preview in Search Console or a snippet simulator if the page already ranks.",
+      "Do not write a meta that the page cannot keep. If the snippet promises a calculator and the URL is a blog rant, the click is wasted and the next rewrite will be harder. Count second; honesty first.",
     ],
   },
   {
@@ -155,6 +157,8 @@ export const TEXT_LANDINGS: PseoLanding[] = [
     body: [
       "SMS is a 1990s packet format wearing a 2020s product UI. The 160-character story is still how bulk pricing works.",
       "If your users are not in GSM-default languages, assume 70 and write shorter. Test with the real From-ID; some prefixes add characters.",
+      "Concatenated SMS (two segments) can arrive out of order on a few handsets, which is painful for OTPs. If your template is 161 GSM characters, cut a word rather than paying for chaos. Your provider’s segment estimator is still the billing source of truth; this counter is a draft check.",
+      "Placeholders like `{code}` and `{name}` expand. Count a worst-case name length, not the curly braces. A six-digit OTP is predictable; a customer name is not.",
     ],
   },
   {
@@ -232,6 +236,8 @@ export const TEXT_LANDINGS: PseoLanding[] = [
     body: [
       "Word counts are social contracts. The number is less important than using the same rules as the person grading you.",
       "If you are 200 words short, you need arguments, not adjectives. A counter cannot invent sources.",
+      "Hyphenated compounds, citations, and pasted PDF line-breaks are where Word, Docs, and this counter disagree by a handful of tokens. If the portal hard-rejects at 1000.000, sit at 980 and do not fight the last twelve words.",
+      "Reading time is a rough adult-silent-reading estimate, not a speech timer. Use it to see if a “five-minute reflection” is actually a three-page essay. The rubric still wins.",
     ],
   },
 ];
