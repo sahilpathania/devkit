@@ -70,10 +70,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/#faq"
+                  href="/image-tools"
                   className="text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
                 >
-                  FAQ
+                  Image guides
                 </Link>
               </li>
             </ul>

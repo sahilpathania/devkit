@@ -43,11 +43,9 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 transition-transform duration-200 ease-out",
+        "sticky top-0 z-50 bg-background transition-transform duration-200 ease-out",
         hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0",
-        scrolled
-          ? "border-b border-border/50 bg-background/80 shadow-[0_1px_0_rgba(15,23,42,0.04)] backdrop-blur-xl dark:bg-background/75"
-          : "border-b border-transparent bg-background/45 backdrop-blur-md"
+        scrolled ? "border-b border-border/60" : "border-b border-transparent"
       )}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
@@ -76,7 +74,7 @@ export function Header() {
           <Button
             variant="outline"
             size="sm"
-            className="hidden h-9 gap-2 rounded-full border-border/70 bg-background/60 px-3 text-muted-foreground shadow-sm transition-all duration-200 hover:text-foreground sm:flex"
+            className="hidden h-9 gap-2 rounded-full border-border/70 bg-background px-3 text-muted-foreground shadow-sm transition-all duration-200 hover:text-foreground sm:flex"
             onClick={() => setCommandPaletteOpen(true)}
           >
             <Search className="size-3.5" />

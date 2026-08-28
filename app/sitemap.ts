@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_CONFIG } from "@/lib/constants";
 import { getAllCategorySlugs } from "@/services/categories";
 import { getAllToolSlugs } from "@/services/tools";
+import { getAllPseoSlugs } from "@/lib/pseo/registry";
 
 /** Dynamic sitemap for all tools, categories, and static pages. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -30,5 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticPages, ...categoryPages, ...toolPages];
+  const pseoPages: MetadataRoute.Sitemap = getAllPseoSlugs().map((slug) => ({
+    url: `${base}/${slug}`,
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: slug.endsWith("-tools") ? 0.75 : 0.85,
+  }));
+
+  return [...staticPages, ...categoryPages, ...toolPages, ...pseoPages];
 }
